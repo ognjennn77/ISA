@@ -7,5 +7,6 @@ public class Bioskop {
 		
 		System.out.println("aaa");
 		System.out.println("provera");
+		System.out.println("provera2");
 	}
 }
