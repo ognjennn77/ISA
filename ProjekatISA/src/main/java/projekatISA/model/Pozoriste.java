@@ -1,25 +1,33 @@
 package projekatISA.model;
 
-import java.io.Serializable;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+@Entity(name="pozoriste")
+public class Pozoriste {
 
-@Entity(name="Pozoriste")
-
-public class Pozoriste implements Serializable {
-
-	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Long Id;
+	private Long id;
 	
-	@Column(name="naziv",columnDefinition="VARCHAR(40)")
+	
+	@Column(name="name")
 	private String name;
+	
+	public Pozoriste() {
+		
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
 
 	public String getName() {
 		return name;
@@ -28,6 +36,4 @@ public class Pozoriste implements Serializable {
 	public void setName(String name) {
 		this.name = name;
 	}
-
-
 }
