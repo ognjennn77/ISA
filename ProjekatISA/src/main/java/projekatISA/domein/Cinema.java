@@ -16,6 +16,15 @@ public class Cinema {
 	@Column(name="name",columnDefinition="VARCHAR(40)")
 	private String name;
 
+	public Cinema() {
+		
+	}
+	
+	public Cinema(String name) {
+		this.name=name;
+	}
+	
+	
 	public Long getId() {
 		return id;
 	}
