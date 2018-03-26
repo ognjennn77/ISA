@@ -3,12 +3,12 @@ package projekatISA.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import projekatISA.domein.Theater;
+import projekatISA.domein.Theatre;
 
 @Repository
-public interface RepositoryTheater extends JpaRepository<Theater,Long>  {
+public interface RepositoryTheater extends JpaRepository<Theatre,Long>  {
 
-	Theater findOneById(Long id);
+	Theatre findOneById(Long id);
 
 	
 	

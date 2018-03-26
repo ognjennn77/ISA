@@ -6,13 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 
-import projekatISA.domein.Theater;
+import projekatISA.domein.Theatre;
 import projekatISA.repository.RepositoryTheater;
-import projekatISA.serviceInterface.TheaterServiceInterface;
+import projekatISA.serviceInterface.TheatreServiceInterface;
 
 
 @Service
-public class TheaterService implements TheaterServiceInterface{
+public class TheatreService implements TheatreServiceInterface{
 
 	
 	@Autowired
@@ -20,12 +20,12 @@ public class TheaterService implements TheaterServiceInterface{
 	
 	
 	@Override
-	public Theater findOne(Long id) {
+	public Theatre findOne(Long id) {
 		return repositoryTheater.findOneById(id);
 	}
 
 	@Override
-	public List<Theater> findAll() {
+	public List<Theatre> findAll() {
 		return repositoryTheater.findAll();
 	}
 
