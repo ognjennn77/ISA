@@ -15,13 +15,25 @@ public class Cinema {
 	
 	@Column(name="name",columnDefinition="VARCHAR(40)")
 	private String name;
+	
+	@Column(name="address",columnDefinition="VARCHAR(60)")
+	private String address;
+	
+	@Column(name="rating")
+	private int rating;
+	
+	@Column(name="description",columnDefinition="VARCHAR(600)")
+	private String description;
 
 	public Cinema() {
 		
 	}
 	
-	public Cinema(String name) {
+	public Cinema(String name, String address, int rating, String desription) {
 		this.name=name;
+		this.address=address;
+		this.rating=rating;
+		this.description=desription;
 	}
 	
 	
@@ -39,6 +51,22 @@ public class Cinema {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public int getRating() {
+		return rating;
+	}
+
+	public void setRating(int rating) {
+		this.rating = rating;
 	}
 
 }
