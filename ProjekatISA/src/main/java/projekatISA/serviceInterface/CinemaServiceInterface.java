@@ -7,7 +7,7 @@ import projekatISA.domein.Cinema;
 public interface CinemaServiceInterface {
 
 	
-	Cinema findOneCinema(Long id);
+	Cinema findOne(Long id);
 	
 	List<Cinema> findAll();
 }

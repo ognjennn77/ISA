@@ -19,7 +19,7 @@ public class CinemaService implements CinemaServiceInterface{
 	private RepositoryCinema repositoryCinema;
 
 	@Override
-	public Cinema findOneCinema(Long id) {
+	public Cinema findOne(Long id) {
 		Cinema cinema = repositoryCinema.findOneById(id);
 		return cinema;
 	}
