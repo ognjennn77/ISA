@@ -15,7 +15,27 @@ public class Theatre {
 	
 	@Column(name="name",columnDefinition="VARCHAR(40)")
 	private String name;
+	
+	@Column(name="address",columnDefinition="VARCHAR(40)")
+	private String address;
+	
+	@Column(name="rating")
+	private int raiting;
 
+	@Column(name="description",columnDefinition="VARCHAR(600)")
+	private String description;
+	
+	public Theatre() {
+		
+	}
+	
+	public Theatre(String n,String a,String d,int r) {
+		this.name=n;
+		this.address=a;
+		this.description=d;
+		this.raiting=r;
+	}
+	
 	public Long getId() {
 		return id;
 	}
@@ -30,6 +50,22 @@ public class Theatre {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public int getRaiting() {
+		return raiting;
+	}
+
+	public void setRaiting(int raiting) {
+		this.raiting = raiting;
 	}
 	
 

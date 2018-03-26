@@ -1,5 +1,7 @@
 package projekatISA.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -29,5 +31,11 @@ public class TheatreController {
 		return new ResponseEntity<>(theatre, HttpStatus.OK);
 	}
 	
+	
+	@RequestMapping(value="/getTheatres", method=RequestMethod.GET)
+	public ResponseEntity<List<Theatre>> getTheatres(){
+		 List<Theatre> theatres = theatreService.findAll();
+		 return new ResponseEntity<>(theatres,HttpStatus.OK); 
+	}
 	
 }
