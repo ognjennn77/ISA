@@ -18,9 +18,8 @@ public class UserContoller {
 	@Autowired
 	private UserService userService;
 	
-	@RequestMapping(value="/singInUser",method=RequestMethod.PUT)
+	@RequestMapping(value="/singInUser",method=RequestMethod.POST)
 	public ResponseEntity<User> singInUser(@RequestBody User user){
-		System.out.println("aaaaaaaaaaaaaaaa");
 		User user1 = userService.findUser(user.getEmail(), user.getPassword());
 				
 		return new ResponseEntity<>(user1, HttpStatus.OK);
