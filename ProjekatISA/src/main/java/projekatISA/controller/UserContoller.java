@@ -48,11 +48,10 @@ public class UserContoller {
 		
 		try {
 			emailService.sendEmailToUser(user);
-			System.out.println("try");
 		}
 		catch(Exception e){
-			System.out.println("catch");
 			logger.info("Greska prilikom slanja emaila" + e.getMessage());
+			return "unsuccess";
 		}
 		
 		return "success";

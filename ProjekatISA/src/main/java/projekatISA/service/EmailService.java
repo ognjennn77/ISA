@@ -26,15 +26,12 @@ public class EmailService implements EmailServiceInterface {
 		System.out.println("Slanje emaila...");
 		
 		SimpleMailMessage email = new SimpleMailMessage();
-		System.out.println("1");
 		email.setTo(user.getEmail());
-		System.out.println("2");
 		email.setFrom(env.getProperty("spring.mail.username"));
-		System.out.println("3");
 		email.setSubject("Potvrda registracije");
-		System.out.println("4");
-		email.setText("Mejl je poslat isi");
-		System.out.println("5");
+		String text = "http://localhost:4567/api/users/sendEmail";
+		email.setText(text);
+		
 		javaMailSender.send(email);
 		
 		System.out.println("email poslat");
