@@ -19,4 +19,9 @@ public class UserService implements UserServiceInterface{
 		return user;
 	}
 
+	@Override
+	public User saveUser(User u) {
+		return repositoryUser.save(u);
+	}
+
 }

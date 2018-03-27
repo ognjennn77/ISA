@@ -6,4 +6,7 @@ public interface UserServiceInterface {
 	
 	User findUser (String email, String password);
 
+	User saveUser(User u);
+	
+	
 }

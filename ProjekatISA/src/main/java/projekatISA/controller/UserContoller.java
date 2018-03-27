@@ -18,14 +18,21 @@ public class UserContoller {
 	@Autowired
 	private UserService userService;
 	
-	@RequestMapping(value="/singInUser",method=RequestMethod.POST)
+	@RequestMapping(value="/logIn",method=RequestMethod.POST)
 	public ResponseEntity<User> singInUser(@RequestBody User user){
 		User user1 = userService.findUser(user.getEmail(), user.getPassword());
-				
+		if(user1==null) {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
 		return new ResponseEntity<>(user1, HttpStatus.OK);
 	
 	}
 	
-	
+	@RequestMapping(value="/registration",method=RequestMethod.PUT)
+	public ResponseEntity<User> registrionUser(@RequestBody User user){
+		User user1 = userService.saveUser(user);
+		return new ResponseEntity<>(user1,HttpStatus.OK);
+		
+	}
 
 }
