@@ -11,4 +11,6 @@ public interface RepositoryUser extends JpaRepository<User, Long>{
 	
 	User findByEmailEqualsAndPasswordEquals(String email, String password);
 
+	User findByIdEquals(Long id);
+	
 }

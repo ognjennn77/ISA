@@ -31,19 +31,23 @@ public class User {
 	@Column(name="phoneNumber")
 	private int phoneNumber;
 	
+	@Column(name="active")
+	private boolean active;
+	
 	
 	public User() {
 		
 	}
 	
 	
-	public User(String email, String name, String surname, String password, String city, int phoneNumber) {
+	public User(String email, String name, String surname, String password, String city, int phoneNumber,boolean active) {
 		this.email=email;
 		this.name=name;
 		this.surname=surname;
 		this.password=password;
 		this.city=city;
 		this.phoneNumber=phoneNumber;
+		this.active=active;
 	}
 
 	public Long getId() {
@@ -101,6 +105,16 @@ public class User {
 
 	public int getPhoneNumber() {
 		return phoneNumber;
+	}
+
+
+	public boolean isActive() {
+		return active;
+	}
+
+
+	public void setActive(boolean active) {
+		this.active = active;
 	}
 	
 }

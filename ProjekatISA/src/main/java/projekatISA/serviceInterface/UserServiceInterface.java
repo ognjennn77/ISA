@@ -8,5 +8,6 @@ public interface UserServiceInterface {
 
 	User saveUser(User u);
 	
+	User acceptRegistration(Long id);
 	
 }

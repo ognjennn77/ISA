@@ -21,7 +21,26 @@ public class UserService implements UserServiceInterface{
 
 	@Override
 	public User saveUser(User u) {
-		return repositoryUser.save(u);
+		User user = repositoryUser.findByEmailEqualsAndPasswordEquals(u.getEmail(), u.getPassword());
+		if(user==null) {
+			return repositoryUser.save(u);
+		}
+		return null;
 	}
 
+	@Override
+	public User acceptRegistration(Long id) {
+		User user = repositoryUser.findByIdEquals(id);
+		if(!(user==null)) {
+			user.setActive(true);
+			repositoryUser.save(user);
+			return user;
+		}
+		return user;
+	}
+
+	
+
+	
+	
 }
