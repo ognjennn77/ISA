@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 
 @Entity(name="user")
 public class User {
@@ -13,6 +14,7 @@ public class User {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
+	@NotNull
 	@Column(name="email")
 	private String email;
 	
@@ -22,6 +24,7 @@ public class User {
 	@Column(name="surname")
 	private String surname;
 	
+	@NotNull
 	@Column(name="password")
 	private String password;
 	
