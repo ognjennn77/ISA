@@ -6,6 +6,8 @@ import projekatISA.domeinDTO.UserRegDTO;
 public interface UserServiceInterface {
 	
 	User findUser (String email, String password);
+	
+	User findUserEdit (UserRegDTO u);
 
 	User saveUser(UserRegDTO u);
 	

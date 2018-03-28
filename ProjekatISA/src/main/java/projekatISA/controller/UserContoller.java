@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import projekatISA.domein.User;
@@ -65,6 +66,14 @@ public class UserContoller {
 		return "unsuccess";
 	}
 	
-	
-	
+	@RequestMapping(value="/editUser")
+	public ResponseEntity<User> editUser(@RequestBody UserRegDTO user){
+		User u = userService.findUserEdit(user);
+		if(u==null)
+			return null;
+		
+		
+		return new ResponseEntity<>(u,HttpStatus.OK);
+				
+	}
 }

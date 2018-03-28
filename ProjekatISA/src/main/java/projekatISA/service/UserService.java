@@ -25,6 +25,8 @@ public class UserService implements UserServiceInterface{
 		}
 		return null;
 	}
+	
+	
 
 	@Override
 	public User saveUser(UserRegDTO u) {
@@ -58,6 +60,28 @@ public class UserService implements UserServiceInterface{
 		}
 		return user;
 	}
+
+
+
+	@Override
+	public User findUserEdit(UserRegDTO u) {
+		User user = repositoryUser.findByEmailEquals(u.getEmail());
+		if(!(user==null)) {
+			user.setEmail(u.getEmail());	
+			user.setName(u.getName());
+			user.setSurname(u.getSurname());
+			user.setCity(u.getCity());
+			user.setPhoneNumber(u.getPhoneNumber());
+			repositoryUser.save(user);
+			return user; // da li treba da proveravam jel aktivan ako odma posle regist ulazi na profil
+		}
+		
+		return null;
+	}
+
+
+
+	
 
 	
 
