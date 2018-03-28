@@ -33,7 +33,6 @@ public class UserContoller {
 		
 		User user1 = userService.findUser(user.getEmail(), user.getPassword());
 		if(user1==null) {
-			System.out.println("Neuspesno logovanje");
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 		return new ResponseEntity<>(user1, HttpStatus.OK);

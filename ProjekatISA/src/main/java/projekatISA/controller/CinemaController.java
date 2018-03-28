@@ -1,5 +1,6 @@
 package projekatISA.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import projekatISA.domein.Cinema;
+import projekatISA.domeinDTO.CinemaInfoDTO;
 import projekatISA.service.CinemaService;
 
 @RestController
@@ -31,14 +33,20 @@ public class CinemaController {
 	}
 	
 	@RequestMapping(value="getCinemas",method=RequestMethod.GET)
-	public ResponseEntity<List<Cinema>> getCinemas(){
-		System.out.println("saska");
+	public ResponseEntity<List<CinemaInfoDTO>> getCinemas(){
+		
 		List<Cinema> cinemas = cinemaService.findAll();
-		return new ResponseEntity<>(cinemas,HttpStatus.OK);		
+		
+		List<CinemaInfoDTO> listCinemadto = new ArrayList();
+		for(Cinema cinema : cinemas) {
+			CinemaInfoDTO cinemadto = new CinemaInfoDTO();
+			cinemadto.setName(cinema.getName());
+			cinemadto.setAddress(cinema.getAddress());
+			cinemadto.setDescription(cinema.getDescription());
+			cinemadto.setRating(cinema.getRating());
+			listCinemadto.add(cinemadto);
+		}
+		return new ResponseEntity<>(listCinemadto,HttpStatus.OK);		
 	}
-	
-	
-	
-	
 
 }
