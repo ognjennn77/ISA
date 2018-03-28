@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import projekatISA.domein.User;
+import projekatISA.domeinDTO.UserLogDTO;
 import projekatISA.domeinDTO.UserRegDTO;
 import projekatISA.service.EmailService;
 import projekatISA.service.UserService;
@@ -29,9 +30,10 @@ public class UserContoller {
 	private EmailService emailService;
 	
 	@RequestMapping(value="/logIn",method=RequestMethod.POST)
-	public ResponseEntity<User> singInUser(@RequestBody User user){
+	public ResponseEntity<User> singInUser(@RequestBody UserLogDTO user){
 		
 		User user1 = userService.findUser(user.getEmail(), user.getPassword());
+		
 		if(user1==null) {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}

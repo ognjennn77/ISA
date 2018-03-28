@@ -15,9 +15,12 @@ public class UserService implements UserServiceInterface{
 	
 	@Override
 	public User findUser(String email, String password) {
+		
 		User user = repositoryUser.findByEmailEqualsAndPasswordEquals(email, password);
-		if(user.isActive()) {
-			return user;
+		if(!(user==null)) {
+			if(user.isActive()) {
+				return user;
+			}
 		}
 		return null;
 	}
