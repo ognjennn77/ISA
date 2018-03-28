@@ -43,26 +43,15 @@ public class UserContoller {
 	
 	@RequestMapping(value="/registration",method=RequestMethod.PUT)
 	public ResponseEntity<User> registrionUser(@RequestBody UserRegDTO u){
-		
-		if(u.getPassword1().equals(u.getPassword2())) {
-			User user = new User();
-			user.setEmail(u.getEmail());
-			user.setName(u.getName());
-			user.setSurname(u.getSurname());
-			user.setPassword(u.getPassword1());
-			user.setCity(u.getCity());
-			user.setPhoneNumber(u.getPhoneNumber());
-			
-			User user1 = userService.saveUser(user);
-			if(!(user1==null)) {
-				try {
-					emailService.sendEmailToUser(user);
-					return new ResponseEntity<>(user1,HttpStatus.OK);
-				}catch(Exception e) {
-					logger.info("Greska prilikom slanja emaila" + e.getMessage());
-				
-				}	
-			}
+
+		User user1 = userService.saveUser(u);
+		if(!(user1==null)) {
+			try {
+				emailService.sendEmailToUser(user1);
+				return new ResponseEntity<>(user1,HttpStatus.OK);
+			}catch(Exception e) {
+				logger.info("Greska prilikom slanja emaila" + e.getMessage());
+			}	
 		}
 		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	}

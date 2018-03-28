@@ -25,7 +25,6 @@ public class TheatreController {
 	
 	@RequestMapping(value="/{id}", method=RequestMethod.GET)
 	public ResponseEntity<Theatre> getTheatre(@PathVariable Long id){
-		System.out.println("aaaaa");
 		Theatre theatre = theatreService.findOne(id);	
 		if(theatre == null) {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
