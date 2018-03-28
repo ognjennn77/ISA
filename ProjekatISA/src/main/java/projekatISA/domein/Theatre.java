@@ -20,7 +20,7 @@ public class Theatre {
 	private String address;
 	
 	@Column(name="rating")
-	private int raiting;
+	private String raiting;
 
 	@Column(name="description",columnDefinition="VARCHAR(600)")
 	private String description;
@@ -29,7 +29,7 @@ public class Theatre {
 		
 	}
 	
-	public Theatre(String n,String a,String d,int r) {
+	public Theatre(String n,String a,String d,String r) {
 		this.name=n;
 		this.address=a;
 		this.description=d;
@@ -60,12 +60,20 @@ public class Theatre {
 		this.address = address;
 	}
 
-	public int getRaiting() {
+	public String getRaiting() {
 		return raiting;
 	}
 
-	public void setRaiting(int raiting) {
+	public void setRaiting(String raiting) {
 		this.raiting = raiting;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 	
 
