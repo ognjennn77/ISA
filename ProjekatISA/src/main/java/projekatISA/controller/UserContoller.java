@@ -30,8 +30,10 @@ public class UserContoller {
 	
 	@RequestMapping(value="/logIn",method=RequestMethod.POST)
 	public ResponseEntity<User> singInUser(@RequestBody User user){
+		
 		User user1 = userService.findUser(user.getEmail(), user.getPassword());
 		if(user1==null) {
+			System.out.println("Neuspesno logovanje");
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 		return new ResponseEntity<>(user1, HttpStatus.OK);
@@ -61,7 +63,7 @@ public class UserContoller {
 				}	
 			}
 		}
-		return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	}
 
 	@RequestMapping(value="/acceptRegist/{id}")
