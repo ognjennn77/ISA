@@ -6,8 +6,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Entity(name="cinema")
-public class Cinema {
+@Entity(name="cinematheatre")
+public class CinemaTheatre {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -24,12 +24,15 @@ public class Cinema {
 	
 	@Column(name="description",columnDefinition="VARCHAR(600)")
 	private String description;
+	
+	@Column(name="iscinema")
+	private boolean isCinema;
 
-	public Cinema() {
+	public CinemaTheatre() {
 		
 	}
 	
-	public Cinema(String name, String address, String rating, String desription) {
+	public CinemaTheatre(String name, String address, String rating, String desription) {
 		this.name=name;
 		this.address=address;
 		this.rating=rating;
@@ -75,6 +78,14 @@ public class Cinema {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public boolean isCinema() {
+		return isCinema;
+	}
+
+	public void setCinema(boolean isCinema) {
+		this.isCinema = isCinema;
 	}
 
 }

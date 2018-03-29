@@ -1,6 +1,6 @@
 package projekatISA.domeinDTO;
 
-public class CinemaInfoDTO {
+public class CinemaTheatreDTO {
 
 	private String name;
 	
@@ -10,12 +10,14 @@ public class CinemaInfoDTO {
 	
 	private String description;
 	
-	public CinemaInfoDTO() {
+	private boolean iscinema;
+	
+	public CinemaTheatreDTO() {
 		
 	
 	}
 	
-	public CinemaInfoDTO(String name, String address, String rating, String description) {
+	public CinemaTheatreDTO(String name, String address, String rating, String description) {
 		this.name=name;
 		this.address=address;
 		this.rating=rating;
@@ -52,6 +54,14 @@ public class CinemaInfoDTO {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public boolean isIscinema() {
+		return iscinema;
+	}
+
+	public void setIscinema(boolean iscinema) {
+		this.iscinema = iscinema;
 	}
 	
 	
