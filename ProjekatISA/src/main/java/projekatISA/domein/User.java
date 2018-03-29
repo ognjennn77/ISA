@@ -32,7 +32,7 @@ public class User {
 	private String city;
 	
 	@Column(name="phoneNumber")
-	private int phoneNumber;
+	private String phoneNumber;
 	
 	@Column(name="active")
 	private boolean active;
@@ -43,7 +43,7 @@ public class User {
 	}
 	
 	
-	public User(String email, String name, String surname, String password, String city, int phoneNumber,boolean active) {
+	public User(String email, String name, String surname, String password, String city, String phoneNumber,boolean active) {
 		this.email=email;
 		this.name=name;
 		this.surname=surname;
@@ -101,12 +101,12 @@ public class User {
 		this.city = city;
 	}
 
-	public void setPhoneNumber(int phoneNumber) {
+	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
 
 
-	public int getPhoneNumber() {
+	public String getPhoneNumber() {
 		return phoneNumber;
 	}
 
