@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import projekatISA.domein.User;
+import projekatISA.domeinDTO.UserEditPasswordDTO;
+import projekatISA.domeinDTO.UserLogDTO;
 import projekatISA.domeinDTO.UserRegDTO;
 import projekatISA.repository.RepositoryUser;
 import projekatISA.serviceInterface.UserServiceInterface;
@@ -81,10 +83,26 @@ public class UserService implements UserServiceInterface{
 
 
 
-	
-
-	
-
+	@Override
+	public User findUserPassword(UserEditPasswordDTO u) {
+		
+		User user = repositoryUser.findByEmailEquals(u.getEmail());
+		
+		if(user==null) {
+			return null;
+		}
+		
+		if(user.getPassword().equals(u.getCurrentPassword())) {		
+			if(u.getNewPassword().equals(u.getRepeatPassword())) {			
+				user.setPassword(u.getNewPassword());
+				repositoryUser.save(user);				
+				return user;
+			}			
+		}
+		
+				
+		return null;
+	}
 	
 	
 }

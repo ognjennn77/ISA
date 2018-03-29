@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import projekatISA.domein.User;
+import projekatISA.domeinDTO.UserEditPasswordDTO;
 import projekatISA.domeinDTO.UserLogDTO;
 import projekatISA.domeinDTO.UserRegDTO;
 import projekatISA.service.EmailService;
@@ -69,11 +70,23 @@ public class UserContoller {
 	@RequestMapping(value="/editUser")
 	public ResponseEntity<User> editUser(@RequestBody UserRegDTO user){
 		User u = userService.findUserEdit(user);
-		if(u==null)
+		if(u==null) {
 			return null;
+		}
+		
+		return new ResponseEntity<>(u,HttpStatus.OK);				
+	}
+	
+	@RequestMapping(value="/editPassword")
+	public ResponseEntity<User> editPassword(@RequestBody UserEditPasswordDTO user){
+		
+		User u= userService.findUserPassword(user);
+		if(u==null) {
+			return null;
+		}
 		
 		
 		return new ResponseEntity<>(u,HttpStatus.OK);
-				
+
 	}
 }
