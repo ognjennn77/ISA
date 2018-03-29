@@ -4,9 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import projekatISA.domein.User;
-import projekatISA.domeinDTO.UserEditPasswordDTO;
-import projekatISA.domeinDTO.UserLogDTO;
-import projekatISA.domeinDTO.UserRegDTO;
+import projekatISA.domeinDTO.UserDTO;
 import projekatISA.repository.RepositoryUser;
 import projekatISA.serviceInterface.UserServiceInterface;
 
@@ -20,33 +18,34 @@ public class UserService implements UserServiceInterface{
 	public User findUser(String email, String password) {
 		
 		User user = repositoryUser.findByEmailEqualsAndPasswordEquals(email, password);
-		if(!(user==null)) {
+		if(!(user==null)) {		
 			if(user.isActive()) {
 				return user;
 			}
 		}
+		
 		return null;
 	}
 	
 	
 
 	@Override
-	public User saveUser(UserRegDTO u) {
+	public User saveUser(UserDTO u) {
 		
-		if(u.getPassword1().equals(u.getPassword2())) {
+		if(u.getNewPassword().equals(u.getRepeatPassword())) {
 			User user = new User();
 			user.setEmail(u.getEmail());
 			user.setName(u.getName());
 			user.setSurname(u.getSurname());
-			user.setPassword(u.getPassword1());
+			user.setPassword(u.getNewPassword());
 			user.setCity(u.getCity());
 			user.setPhoneNumber(u.getPhoneNumber());
 			
 			User user1 = repositoryUser.findByEmailEquals(user.getEmail());
 			if(user1==null) {
 				return repositoryUser.save(user);
-			}	
-		}
+			}			
+		}	
 		return null;
 	}
 
@@ -66,7 +65,7 @@ public class UserService implements UserServiceInterface{
 
 
 	@Override
-	public User findUserEdit(UserRegDTO u) {
+	public User findUserEdit(UserDTO u) {
 		User user = repositoryUser.findByEmailEquals(u.getEmail());
 		if(!(user==null)) {
 			user.setEmail(u.getEmail());	
@@ -75,7 +74,7 @@ public class UserService implements UserServiceInterface{
 			user.setCity(u.getCity());
 			user.setPhoneNumber(u.getPhoneNumber());
 			repositoryUser.save(user);
-			return user; // da li treba da proveravam jel aktivan ako odma posle regist ulazi na profil
+			return user; 
 		}
 		
 		return null;
@@ -84,7 +83,7 @@ public class UserService implements UserServiceInterface{
 
 
 	@Override
-	public User findUserPassword(UserEditPasswordDTO u) {
+	public User findUserPassword(UserDTO u) {
 		
 		User user = repositoryUser.findByEmailEquals(u.getEmail());
 		
@@ -97,12 +96,10 @@ public class UserService implements UserServiceInterface{
 				user.setPassword(u.getNewPassword());
 				repositoryUser.save(user);				
 				return user;
-			}			
+			}	
 		}
-		
 				
 		return null;
 	}
-	
-	
+		
 }

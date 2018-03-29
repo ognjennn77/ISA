@@ -13,9 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import projekatISA.domein.User;
-import projekatISA.domeinDTO.UserEditPasswordDTO;
-import projekatISA.domeinDTO.UserLogDTO;
-import projekatISA.domeinDTO.UserRegDTO;
+import projekatISA.domeinDTO.UserDTO;
 import projekatISA.service.EmailService;
 import projekatISA.service.UserService;
 
@@ -32,9 +30,9 @@ public class UserContoller {
 	private EmailService emailService;
 	
 	@RequestMapping(value="/logIn",method=RequestMethod.POST)
-	public ResponseEntity<User> singInUser(@RequestBody UserLogDTO user){
+	public ResponseEntity<User> singInUser(@RequestBody UserDTO user){
 		
-		User user1 = userService.findUser(user.getEmail(), user.getPassword());
+		User user1 = userService.findUser(user.getEmail(), user.getCurrentPassword());
 		
 		if(user1==null) {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -44,7 +42,7 @@ public class UserContoller {
 	}
 	
 	@RequestMapping(value="/registration",method=RequestMethod.PUT)
-	public ResponseEntity<User> registrionUser(@RequestBody UserRegDTO u){
+	public ResponseEntity<User> registrionUser(@RequestBody UserDTO u){
 
 		User user1 = userService.saveUser(u);
 		if(!(user1==null)) {
@@ -68,7 +66,7 @@ public class UserContoller {
 	}
 	
 	@RequestMapping(value="/editUser")
-	public ResponseEntity<User> editUser(@RequestBody UserRegDTO user){
+	public ResponseEntity<User> editUser(@RequestBody UserDTO user){
 		User u = userService.findUserEdit(user);
 		if(u==null) {
 			return null;
@@ -78,7 +76,7 @@ public class UserContoller {
 	}
 	
 	@RequestMapping(value="/editPassword")
-	public ResponseEntity<User> editPassword(@RequestBody UserEditPasswordDTO user){
+	public ResponseEntity<User> editPassword(@RequestBody UserDTO user){
 		
 		User u= userService.findUserPassword(user);
 		if(u==null) {

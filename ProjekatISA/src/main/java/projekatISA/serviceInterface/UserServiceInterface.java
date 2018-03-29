@@ -1,20 +1,18 @@
 package projekatISA.serviceInterface;
 
 import projekatISA.domein.User;
-import projekatISA.domeinDTO.UserEditPasswordDTO;
-import projekatISA.domeinDTO.UserLogDTO;
-import projekatISA.domeinDTO.UserRegDTO;
+import projekatISA.domeinDTO.UserDTO;
 
 public interface UserServiceInterface {
 	
 	User findUser (String email, String password);
 	
-	User findUserEdit (UserRegDTO u);
+	User findUserEdit (UserDTO u);
 
-	User saveUser(UserRegDTO u);
+	User saveUser(UserDTO u);
 	
 	User acceptRegistration(Long id);
 	
-	User findUserPassword(UserEditPasswordDTO u);
+	User findUserPassword(UserDTO u);
 	
 }
