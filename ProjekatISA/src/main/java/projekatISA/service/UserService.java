@@ -23,9 +23,6 @@ public class UserService implements UserServiceInterface{
 				return user;
 			}
 		}
-		else {
-			System.out.println("ne postoji korisnik sa ti email i pass");
-		}
 		
 		return null;
 	}
@@ -46,12 +43,9 @@ public class UserService implements UserServiceInterface{
 			
 			User user1 = repositoryUser.findByEmailEquals(user.getEmail());
 			if(user1==null) {
-				System.out.println("Sacuvan je novi korisnik");
 				return repositoryUser.save(user);
-			}	
-			System.out.println("Korisnik sa tim email-om vec postoji");
-		}
-		System.out.println("Nisu unete iste lozinke");
+			}			
+		}	
 		return null;
 	}
 
@@ -82,8 +76,7 @@ public class UserService implements UserServiceInterface{
 			repositoryUser.save(user);
 			return user; 
 		}
-		else
-			System.out.println("ne postoji user sa tim email");
+		
 		return null;
 	}
 
@@ -104,17 +97,9 @@ public class UserService implements UserServiceInterface{
 				repositoryUser.save(user);				
 				return user;
 			}	
-			else {
-				System.out.println("nisu isti passwordi");
-			}
 		}
-		else {
-			System.out.println("password iz baze i trenutni pass nisu isti");
-		}
-		
 				
 		return null;
 	}
-	
-	
+		
 }
