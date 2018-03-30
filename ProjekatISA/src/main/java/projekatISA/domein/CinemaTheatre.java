@@ -31,7 +31,7 @@ public class CinemaTheatre {
 	private boolean cinema;
 	
 	//treba staviti optional=false
-	@OneToOne
+	@OneToOne(mappedBy="cinematheatre")
 	private Repertory repertory;
 
 	public CinemaTheatre() {

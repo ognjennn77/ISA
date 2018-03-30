@@ -22,10 +22,10 @@ public class Repertory {
 	
 	//treba staviti optional=false
 	@OneToOne
-	//@JoinColumn(name="cinema_theatre_id")
-	private CinemaTheatre cinemaTheatre;
+	@JoinColumn(name="cinema_theatre_id")
+	private CinemaTheatre cinematheatre;
 	
-	@OneToMany
+	@OneToMany(mappedBy="repertory")
 	private Set<Projection> projections;
 	
 	public Repertory() {
@@ -51,11 +51,11 @@ public class Repertory {
 	}
 
 	public CinemaTheatre getCinemaTheatre() {
-		return cinemaTheatre;
+		return cinematheatre;
 	}
 
 	public void setCinemaTheatre(CinemaTheatre cinemaTheatre) {
-		this.cinemaTheatre = cinemaTheatre;
+		this.cinematheatre = cinemaTheatre;
 	}
 	
 	
