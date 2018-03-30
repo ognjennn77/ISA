@@ -24,9 +24,20 @@ public class ThematicProps {
 	@Column(name="price")
 	private String price;
 
+	@Column(name="reserved")
+	private boolean reserved;
 	
+	
+	
+	//thematicProps mora da se nalazi u nekom bioskopu
 	@ManyToOne(optional=false)
 	private CinemaTheatre cinemaTheatre;
+	
+	//thematicProps ne mora da pripada nekom korisniku(niko ga ne rezervise)
+	@ManyToOne
+	private User user;
+	
+	
 	
 	
 	
@@ -34,12 +45,12 @@ public class ThematicProps {
 		
 	}
 	
-	public ThematicProps(String name,String description,String price,CinemaTheatre ct) {
+	public ThematicProps(String name,String description,String price,CinemaTheatre ct,User user) {
 		this.name = name;
 		this.description=description;
 		this.price=price;
 		this.cinemaTheatre=ct;
-
+		this.user=user;
 	}
 	
 	public Long getId() {
@@ -82,6 +93,25 @@ public class ThematicProps {
 		this.cinemaTheatre = cinemaTheatre;
 	}
 
+	public boolean isReserved() {
+		return reserved;
+	}
+
+	public void setReserved(boolean reserved) {
+		this.reserved = reserved;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+
+
+	
 	
 	
 }

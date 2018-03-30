@@ -1,5 +1,7 @@
 package projekatISA.controller;
 
+import java.util.Set;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,13 +14,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import projekatISA.domein.ThematicProps;
 import projekatISA.domein.User;
 import projekatISA.domeinDTO.UserDTO;
 import projekatISA.service.EmailService;
 import projekatISA.service.UserService;
 
 @RestController
-@RequestMapping(value="/users")
+@RequestMapping(value="/user")
 public class UserContoller {
 	
 	private Logger logger = LoggerFactory.getLogger(UserContoller.class);
@@ -87,4 +90,19 @@ public class UserContoller {
 		return new ResponseEntity<>(u,HttpStatus.OK);
 
 	}
+	
+	
+	@RequestMapping(value="/getThematicProps/{id}",method=RequestMethod.GET)
+	public ResponseEntity<Set<ThematicProps>> getThematicProps(@PathVariable Long id){
+		
+		Set<ThematicProps> thematicProps = userService.findThematicProps(id);
+		
+		if(!(thematicProps==null)) {
+			return new ResponseEntity<>(thematicProps, HttpStatus.OK);
+		}
+		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		
+	}
+	
+	
 }

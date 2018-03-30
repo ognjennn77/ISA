@@ -1,8 +1,11 @@
 package projekatISA.service;
 
+import java.util.Set;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import projekatISA.domein.ThematicProps;
 import projekatISA.domein.User;
 import projekatISA.domeinDTO.UserDTO;
 import projekatISA.repository.RepositoryUser;
@@ -100,6 +103,17 @@ public class UserService implements UserServiceInterface{
 		}
 				
 		return null;
+	}
+
+
+
+	@Override
+	public Set<ThematicProps> findThematicProps(Long id) {
+		User user = repositoryUser.findByIdEquals(id);
+		System.out.println("aaaaaaaaaaaaaaaaaaaaa " + user.getName());
+		Set<ThematicProps> tp = user.getThematicProps();
+		System.out.println("aaaaaaaaaaaaaaaaaaa " + tp.isEmpty());
+		return tp;
 	}
 		
 }
