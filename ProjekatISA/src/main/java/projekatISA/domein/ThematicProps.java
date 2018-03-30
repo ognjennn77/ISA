@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity(name="thematicprops")
 public class ThematicProps {
@@ -23,6 +24,11 @@ public class ThematicProps {
 	@Column(name="price")
 	private String price;
 
+	
+	@ManyToOne(optional=false)
+	private CinemaTheatre cinemaTheatre;
+	
+	
 	public Long getId() {
 		return id;
 	}
@@ -54,6 +60,7 @@ public class ThematicProps {
 	public void setPrice(String price) {
 		this.price = price;
 	}
+
 	
 	
 }

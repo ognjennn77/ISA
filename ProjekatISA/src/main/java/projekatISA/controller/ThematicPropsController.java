@@ -11,7 +11,7 @@ import projekatISA.domein.ThematicProps;
 import projekatISA.service.ThematicPropsService;
 
 @RestController
-@RequestMapping(value="api/thematicProps")
+@RequestMapping(value="/thematicProps")
 public class ThematicPropsController {
 
 	@Autowired
@@ -20,7 +20,7 @@ public class ThematicPropsController {
 	
 	@RequestMapping(value="addThematicP")
 	public ResponseEntity<ThematicProps> addThematicP(@RequestBody ThematicProps tp){
-		
+		System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaa " );
 		ThematicProps thematicProps =thematicPropsService.addThematicProps(tp);
 		if(!(thematicProps==null)) {
 			return new ResponseEntity<>(thematicProps,HttpStatus.OK);
