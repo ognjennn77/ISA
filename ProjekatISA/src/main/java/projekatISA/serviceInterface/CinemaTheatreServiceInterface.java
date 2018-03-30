@@ -10,7 +10,7 @@ public interface CinemaTheatreServiceInterface {
 	
 	CinemaTheatre findOne(Long id);
 	
-	List<CinemaTheatreDTO> findAll();
+	List<CinemaTheatre> findAll();
 	
 	CinemaTheatre findCinema(Long id);
 	

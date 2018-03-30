@@ -18,7 +18,7 @@ import projekatISA.service.EmailService;
 import projekatISA.service.UserService;
 
 @RestController
-@RequestMapping(value="/api/users")
+@RequestMapping(value="/users")
 public class UserContoller {
 	
 	private Logger logger = LoggerFactory.getLogger(UserContoller.class);

@@ -27,9 +27,9 @@ public class CinemaTheatreService implements CinemaTheatreServiceInterface{
 	}
 
 	@Override
-	public List<CinemaTheatreDTO> findAll() {
+	public List<CinemaTheatre> findAll() {
 		List<CinemaTheatre> cinemaTheatre = repositoryCinemaTheatre.findAll();
-		
+		/**
 		List<CinemaTheatreDTO> listCinemadto = new ArrayList();
 		for(CinemaTheatre cinemaT : cinemaTheatre) {
 			CinemaTheatreDTO cinemaTheatredto = new CinemaTheatreDTO();
@@ -40,8 +40,8 @@ public class CinemaTheatreService implements CinemaTheatreServiceInterface{
 			cinemaTheatredto.setIscinema(cinemaT.isCinema());
 			listCinemadto.add(cinemaTheatredto);
 		}
-		
-		return listCinemadto;
+		*/
+		return cinemaTheatre;
 	}
 
 	@Override

@@ -34,9 +34,9 @@ public class CinemaTheatreController {
 	}
 	
 	@RequestMapping(value="/getAll", method=RequestMethod.GET)
-	public ResponseEntity<List<CinemaTheatreDTO>> getAll(){
+	public ResponseEntity<List<CinemaTheatre>> getAll(){
 		
-		List<CinemaTheatreDTO> cinemaTheatre = cinemaTheatreService.findAll();	
+		List<CinemaTheatre> cinemaTheatre = cinemaTheatreService.findAll();	
 		if(cinemaTheatre==null) {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
