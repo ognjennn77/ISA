@@ -8,8 +8,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import projekatISA.domein.CinemaTheatre;
@@ -22,6 +24,18 @@ public class CinemaTheatreController {
 	
 	@Autowired
 	private CinemaTheatreService cinemaTheatreService;
+	
+	
+	@RequestMapping(value="/addCinemaTheatre", method=RequestMethod.PUT)
+	public ResponseEntity<CinemaTheatre> addCinemaTheatre(@RequestBody CinemaTheatre ct){
+		System.out.println("aaaaaaaaaaaaaaaaaaaa " +  ct.isCinema());
+		CinemaTheatre cinemaTheatre = cinemaTheatreService.add(ct);
+		if(!(cinemaTheatre==null)){
+			return new ResponseEntity<>(cinemaTheatre,HttpStatus.OK);
+		}
+		return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+		
+	}
 	
 	@RequestMapping(value="/{id}", method=RequestMethod.GET)
 	public ResponseEntity<CinemaTheatre> getCinemaTheatre(@PathVariable Long id){

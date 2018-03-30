@@ -25,6 +25,10 @@ public class CinemaTheatreService implements CinemaTheatreServiceInterface{
 		CinemaTheatre cinemaTheatre = repositoryCinemaTheatre.findOneById(id);
 		return cinemaTheatre;
 	}
+	
+	
+	
+	
 
 	@Override
 	public List<CinemaTheatre> findAll() {
@@ -89,6 +93,15 @@ public class CinemaTheatreService implements CinemaTheatreServiceInterface{
 		}
 		return backList;		
 	
+	}
+
+
+
+
+
+	@Override
+	public CinemaTheatre add(CinemaTheatre ct) {
+		return repositoryCinemaTheatre.save(ct);
 	}
 
 	

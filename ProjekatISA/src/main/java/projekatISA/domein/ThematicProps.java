@@ -29,6 +29,19 @@ public class ThematicProps {
 	private CinemaTheatre cinemaTheatre;
 	
 	
+	
+	public ThematicProps() {
+		
+	}
+	
+	public ThematicProps(String name,String description,String price,CinemaTheatre ct) {
+		this.name = name;
+		this.description=description;
+		this.price=price;
+		this.cinemaTheatre=ct;
+
+	}
+	
 	public Long getId() {
 		return id;
 	}
@@ -59,6 +72,14 @@ public class ThematicProps {
 
 	public void setPrice(String price) {
 		this.price = price;
+	}
+
+	public CinemaTheatre getCinemaTheatre() {
+		return cinemaTheatre;
+	}
+
+	public void setCinemaTheatre(CinemaTheatre cinemaTheatre) {
+		this.cinemaTheatre = cinemaTheatre;
 	}
 
 	

@@ -19,4 +19,6 @@ public interface CinemaTheatreServiceInterface {
 	List<CinemaTheatre> findAllCinemas();
 	
 	List<CinemaTheatre> findAllTheatres();
+	
+	CinemaTheatre add(CinemaTheatre ct);
 }

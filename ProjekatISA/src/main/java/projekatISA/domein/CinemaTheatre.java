@@ -25,8 +25,8 @@ public class CinemaTheatre {
 	@Column(name="description",columnDefinition="VARCHAR(600)")
 	private String description;
 	
-	@Column(name="iscinema")
-	private boolean isCinema;
+	@Column(name="cinema")
+	private boolean cinema;
 
 	public CinemaTheatre() {
 		
@@ -81,11 +81,11 @@ public class CinemaTheatre {
 	}
 
 	public boolean isCinema() {
-		return isCinema;
+		return cinema;
 	}
 
 	public void setCinema(boolean isCinema) {
-		this.isCinema = isCinema;
+		this.cinema = isCinema;
 	}
 
 }
