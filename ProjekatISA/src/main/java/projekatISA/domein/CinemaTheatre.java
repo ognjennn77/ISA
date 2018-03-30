@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 @Entity(name="cinematheatre")
 public class CinemaTheatre {
@@ -27,6 +29,9 @@ public class CinemaTheatre {
 	
 	@Column(name="cinema")
 	private boolean cinema;
+	
+	@OneToOne
+	private Repertory repertory;
 
 	public CinemaTheatre() {
 		
@@ -86,6 +91,14 @@ public class CinemaTheatre {
 
 	public void setCinema(boolean isCinema) {
 		this.cinema = isCinema;
+	}
+
+	public Repertory getRepertory() {
+		return repertory;
+	}
+
+	public void setRepertory(Repertory repertory) {
+		this.repertory = repertory;
 	}
 
 }
