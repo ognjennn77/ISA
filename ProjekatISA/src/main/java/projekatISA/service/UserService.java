@@ -111,12 +111,14 @@ public class UserService implements UserServiceInterface{
 	@Override
 	public List<ThematicProps> findThematicProps(Long id) {
 		User user = repositoryUser.findByIdEquals(id);
-		System.out.println("aaaaaaaaaaaaaaaaaaaaa " + user.getName());
-		List<ThematicProps> t = user.getThematicProps();
-		System.out.println("Proslooooooooooooooooooooooooo");
-		System.out.println(t.size());
-		
-		return t;
+		if(!(user==null)) {
+			List<ThematicProps> t = user.getThematicProps();
+			
+			if(!(t==null)) {
+				return t;
+			}
+		}
+		return null;
 	}
 		
 }

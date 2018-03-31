@@ -94,12 +94,13 @@ public class UserContoller {
 	
 	
 	@RequestMapping(value="/getThematicProps/{id}",method=RequestMethod.GET)
-	public ResponseEntity<ThematicProps> getThematicProps(@PathVariable Long id){
+	public ResponseEntity<List<ThematicProps>> getThematicProps(@PathVariable Long id){
 		
 		List<ThematicProps> th = userService.findThematicProps(id);
-		System.out.println("Controller  " + th.get(0).getName());
-		
-		return new ResponseEntity<>(th.get(0),HttpStatus.OK);
+		if(!(th==null)) {
+			return new ResponseEntity<>(th,HttpStatus.OK);
+		}
+		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		
 	}
 	

@@ -136,10 +136,11 @@ public class User {
 
 
 	public List<ThematicProps> getThematicProps() {	
-		System.out.println("Usaooooooooooooooooooo");
 		List<ThematicProps> thematicP = new ArrayList<>(thematicProps);
-		System.out.println(thematicP.size());
-		return thematicP;
+		if(thematicP.size()>0) {
+			return thematicP;
+		}
+		return null;
 	}
 
 

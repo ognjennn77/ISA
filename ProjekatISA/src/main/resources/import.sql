@@ -5,8 +5,7 @@ INSERT INTO `isa`.`cinematheatre` (`id`, `name`,`description`,`address`,`rating`
 
 INSERT INTO `isa`.`user` (`id`, `email`, `name`, `surname`, `password`, `city`, `phone_number`, `active`) VALUES ('1', 'grujica995@gmail.com', 'Filip', 'Fica', 'IsaIsic1.', 'Beograd', '987654321', 1);  
 
-INSERT INTO `isa`.`thematicprops` (`id`, `description`, `name`, `price`, `cinema_theatre_id`) VALUES ('1','suncane naocar','naocareee','500','1');
-
+INSERT INTO `isa`.`thematicprops` (`id`, `description`, `name`, `price`, `cinema_theatre_id`,`user_id`,`reserved`) VALUES ('1','suncane naocar','naocareee','500','1','1',0);
 INSERT INTO `isa`.`repertory` (`id`,`cinema_theatre_id`) VALUES ('1','2');
 INSERT INTO `isa`.`repertory` (`id`) VALUES ('2');
 
