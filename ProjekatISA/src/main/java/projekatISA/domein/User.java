@@ -1,6 +1,8 @@
 package projekatISA.domein;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -11,6 +13,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity(name="user")
 public class User {
@@ -43,8 +48,10 @@ public class User {
 	private boolean active;
 	
 	
+	
+	@JsonBackReference
 	@OneToMany(fetch = FetchType.LAZY, mappedBy="user")
-	private Set<ThematicProps> thematicProps;
+	private Set<ThematicProps> thematicProps = new HashSet();
 	
 	
 	
@@ -131,8 +138,12 @@ public class User {
 	}
 
 
-	public Set<ThematicProps> getThematicProps() {
-		return thematicProps;
+	public List<ThematicProps> getThematicProps() {	
+		List<ThematicProps> thematicP = new ArrayList<>(thematicProps);
+		if(thematicP.size()>0) {
+			return thematicP;
+		}
+		return null;
 	}
 
 

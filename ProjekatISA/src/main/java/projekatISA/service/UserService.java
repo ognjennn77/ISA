@@ -1,5 +1,6 @@
 package projekatISA.service;
 
+import java.util.List;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -108,12 +109,16 @@ public class UserService implements UserServiceInterface{
 
 
 	@Override
-	public Set<ThematicProps> findThematicProps(Long id) {
+	public List<ThematicProps> findThematicProps(Long id) {
 		User user = repositoryUser.findByIdEquals(id);
-		System.out.println("aaaaaaaaaaaaaaaaaaaaa " + user.getName());
-		Set<ThematicProps> tp = user.getThematicProps();
-		System.out.println("aaaaaaaaaaaaaaaaaaa " + tp.isEmpty());
-		return tp;
+		if(!(user==null)) {
+			List<ThematicProps> t = user.getThematicProps();
+			
+			if(!(t==null)) {
+				return t;
+			}
+		}
+		return null;
 	}
 		
 }

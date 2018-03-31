@@ -1,5 +1,7 @@
 package projekatISA.domein;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,8 +9,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity(name="thematicprops")
-public class ThematicProps {
+public class ThematicProps implements Serializable {
 
 	
 	@Id
@@ -34,6 +39,7 @@ public class ThematicProps {
 	private CinemaTheatre cinemaTheatre;
 	
 	//thematicProps ne mora da pripada nekom korisniku(niko ga ne rezervise)
+	@JsonManagedReference
 	@ManyToOne
 	private User user;
 	
@@ -45,12 +51,13 @@ public class ThematicProps {
 		
 	}
 	
-	public ThematicProps(String name,String description,String price,CinemaTheatre ct,User user) {
+	public ThematicProps(String name,String description,String price,CinemaTheatre ct,User user,boolean reserved) {
 		this.name = name;
 		this.description=description;
 		this.price=price;
 		this.cinemaTheatre=ct;
 		this.user=user;
+		this.reserved=reserved;
 	}
 	
 	public Long getId() {

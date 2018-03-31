@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -20,8 +21,13 @@ public class ThematicPropsController {
 	@Autowired
 	private ThematicPropsService thematicPropsService; 
 	
-	
-	@RequestMapping(value="/addThematicP",method=RequestMethod.PUT)
+	/**
+	 * 
+	 * Administrator add thematic props in database
+	 * @param thematic props
+	 * @return
+	 */
+	@RequestMapping(value="/addThematicP",method=RequestMethod.PUT, consumes="application/json")
 	public ResponseEntity<ThematicProps> addThematicP(@RequestBody ThematicProps tp){
 		System.out.println("aaaaaaaaaaaaa " + tp.getCinemaTheatre().isCinema());
 		ThematicProps thematicProps =thematicPropsService.addThematicProps(tp);
@@ -32,6 +38,27 @@ public class ThematicPropsController {
 		return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 	}
 	
+	/**
+	 * Get one thematic props from data base
+	 * @param id
+	 * @return thematic props
+	 */
+	@RequestMapping(value="/getThematicP/{id}", method=RequestMethod.GET)
+	public ResponseEntity<ThematicProps> getThematicP(@PathVariable Long id){
+		
+		ThematicProps thematicP = thematicPropsService.findOneProps(id);
+	
+		if(!(thematicP==null)) {
+			return new ResponseEntity<>(thematicP,HttpStatus.OK);
+		}
+		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		
+	}
+	
+	/**
+	 * Get all thematic props from database
+	 * @return List<ThematicProps>
+	 */
 	@RequestMapping(value="/getAllThematicP",method=RequestMethod.GET)
 	public ResponseEntity<List<ThematicProps>> getAllThematicP(){
 		
@@ -43,6 +70,39 @@ public class ThematicPropsController {
 	
 	}
 	
+	/**
+	 * The user reserving the props
+	 * @param id
+	 * @param tp
+	 * @return thematic props
+	 */
+	@RequestMapping(value="/reserving/{id}",method=RequestMethod.POST)
+	public ResponseEntity<ThematicProps> reserving(@PathVariable Long id,@RequestBody ThematicProps tp){
+		
+		ThematicProps thematicp = thematicPropsService.reservingProps(id,tp);
+		
+		if(!(thematicp==null)) {
+			return new ResponseEntity<>(thematicp,HttpStatus.OK);
+		}
+		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		
+	}
 	
+	/**
+	 * Administrator editing props
+	 * @param tp
+	 * @return thematic props
+	 */
+	@RequestMapping(value="/editProps",method=RequestMethod.POST)
+	public ResponseEntity<ThematicProps> editProps(@RequestBody ThematicProps tp){
+		
+		ThematicProps thematicp = thematicPropsService.editProps(tp);
+		
+		if(!(thematicp==null)) {
+			return new ResponseEntity<>(thematicp,HttpStatus.OK);
+		}
+		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		
+	}
 	
 }
