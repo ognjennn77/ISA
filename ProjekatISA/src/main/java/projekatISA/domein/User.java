@@ -49,7 +49,7 @@ public class User {
 	
 	
 	
-	@JsonBackReference
+	@JsonManagedReference
 	@OneToMany(fetch = FetchType.LAZY, mappedBy="user")
 	private Set<ThematicProps> thematicProps = new HashSet();
 	
@@ -137,6 +137,7 @@ public class User {
 		this.active = active;
 	}
 
+	
 
 	public List<ThematicProps> getThematicProps() {	
 		List<ThematicProps> thematicP = new ArrayList<>(thematicProps);
@@ -150,5 +151,6 @@ public class User {
 	public void setThematicProps(Set<ThematicProps> thematicProps) {
 		this.thematicProps = thematicProps;
 	}
-	
+
+
 }
