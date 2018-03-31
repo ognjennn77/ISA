@@ -29,7 +29,7 @@ public class ThematicPropsController {
 	 */
 	@RequestMapping(value="/addThematicP",method=RequestMethod.PUT, consumes="application/json")
 	public ResponseEntity<ThematicProps> addThematicP(@RequestBody ThematicProps tp){
-		System.out.println("aaaaaaaaaaaaa " + tp.getCinemaTheatre().isCinema());
+
 		ThematicProps thematicProps =thematicPropsService.addThematicProps(tp);
 		if(!(thematicProps==null)) {
 			return new ResponseEntity<>(thematicProps,HttpStatus.OK);

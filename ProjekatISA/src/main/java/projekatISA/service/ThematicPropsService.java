@@ -68,7 +68,7 @@ public class ThematicPropsService implements ThematicPropsServiceInterface{
 
 	@Override
 	public ThematicProps findOneProps(Long id) {
-		System.out.println("aaaaaaaaaaaaaa " + id);
+
 		ThematicProps tp =  repThemProp.findByIdEquals(id);
 		return tp;
 	}
