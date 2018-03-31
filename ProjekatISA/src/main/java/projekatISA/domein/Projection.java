@@ -1,10 +1,13 @@
 package projekatISA.domein;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity(name="projection")
@@ -24,8 +27,7 @@ public class Projection {
 	@Column(name="runtime")
 	private String runtime;
 	
-	//treba staviti optional=false
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.ALL) 
 	private Repertory repertory;
 	
 	public Projection() {
@@ -74,14 +76,10 @@ public class Projection {
 	}
 
 
-	public Repertory getRepertory() {
-		return repertory;
-	}
+	
 
 
-	public void setRepertory(Repertory repertory) {
-		this.repertory = repertory;
-	}
+	
 	
 
 }

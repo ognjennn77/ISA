@@ -1,5 +1,8 @@
 package projekatISA.controller;
 
+import java.util.List;
+import java.util.Set;
+
 import javax.validation.constraints.Past;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import projekatISA.domein.Projection;
 import projekatISA.domein.Repertory;
 import projekatISA.service.RepertoryService;
 
@@ -37,8 +41,19 @@ public class RepertoryContoller {
 		if(!(r==null))
 			return new ResponseEntity<>(r,HttpStatus.OK);
 		
-		return new ResponseEntity<>(r,HttpStatus.NOT_FOUND);
+		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		
+		
+	}
+	
+	@RequestMapping(value="/addProjection/{id}",method=RequestMethod.PUT)
+	public ResponseEntity<Projection> addProjection(@PathVariable Long id, @RequestBody Projection projection){
+		
+		Projection projection1 = repertoryService.insertProjection(id, projection);
+		if(projection1==null)		
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		
+		return new ResponseEntity<>(projection1,HttpStatus.OK);
 		
 	}
 	

@@ -30,8 +30,8 @@ public class CinemaTheatre {
 	@Column(name="cinema")
 	private boolean cinema;
 	
-	//treba staviti optional=false
-	@OneToOne(mappedBy="cinematheatre")
+	
+	@OneToOne(optional=false)
 	private Repertory repertory;
 
 	public CinemaTheatre() {

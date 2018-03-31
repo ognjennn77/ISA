@@ -15,8 +15,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import projekatISA.domein.CinemaTheatre;
+import projekatISA.domein.Repertory;
 import projekatISA.domeinDTO.CinemaTheatreDTO;
 import projekatISA.service.CinemaTheatreService;
+import projekatISA.service.RepertoryService;
 
 @RestController
 @RequestMapping(value="/cinematheatre")
@@ -25,10 +27,13 @@ public class CinemaTheatreController {
 	@Autowired
 	private CinemaTheatreService cinemaTheatreService;
 	
+	@Autowired
+	private RepertoryService repertoryService;
+	
 	
 	@RequestMapping(value="/addCinemaTheatre", method=RequestMethod.PUT)
 	public ResponseEntity<CinemaTheatre> addCinemaTheatre(@RequestBody CinemaTheatre ct){
-		System.out.println("aaaaaaaaaaaaaaaaaaaa " +  ct.isCinema());
+		
 		CinemaTheatre cinemaTheatre = cinemaTheatreService.add(ct);
 		if(!(cinemaTheatre==null)){
 			return new ResponseEntity<>(cinemaTheatre,HttpStatus.OK);
@@ -98,6 +103,23 @@ public class CinemaTheatreController {
 		}
 		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		
+	}
+	
+	@RequestMapping(value="/getRepertory/{id}",method=RequestMethod.GET)
+	public ResponseEntity<Repertory> getRepertory(@PathVariable Long id){
+		
+		CinemaTheatre cinemaTheatre = cinemaTheatreService.findOne(id);
+		if(cinemaTheatre==null) {
+			System.out.println("Ne postoji bioskop sa tim id");
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+		Repertory repertory = repertoryService.findOne(cinemaTheatre.getRepertory().getId());
+		if(repertory==null) {
+			System.out.println("Ne postoji repository");
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+		
+		return new ResponseEntity<>(repertory,HttpStatus.OK);
 	}
 	
 }

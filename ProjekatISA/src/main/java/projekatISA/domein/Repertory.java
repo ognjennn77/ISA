@@ -1,9 +1,12 @@
 package projekatISA.domein;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -20,13 +23,9 @@ public class Repertory {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
-	//treba staviti optional=false
-	@OneToOne
-	@JoinColumn(name="cinema_theatre_id")
-	private CinemaTheatre cinematheatre;
 	
-	@OneToMany(mappedBy="repertory")
-	private Set<Projection> projections;
+	@OneToMany(cascade = CascadeType.ALL, mappedBy="repertory")	
+	private Set<Projection> projections = new HashSet();
 	
 	public Repertory() {
 		
@@ -50,13 +49,7 @@ public class Repertory {
 		this.projections = projections;
 	}
 
-	public CinemaTheatre getCinemaTheatre() {
-		return cinematheatre;
-	}
-
-	public void setCinemaTheatre(CinemaTheatre cinemaTheatre) {
-		this.cinematheatre = cinemaTheatre;
-	}
+	
 	
 	
 
