@@ -23,11 +23,11 @@ public class ThematicPropsController {
 	
 	/**
 	 * 
-	 * Add thematic props in database
+	 * Administrator add thematic props in database
 	 * @param thematic props
 	 * @return
 	 */
-	@RequestMapping(value="/addThematicP",method=RequestMethod.PUT)
+	@RequestMapping(value="/addThematicP",method=RequestMethod.PUT, consumes="application/json")
 	public ResponseEntity<ThematicProps> addThematicP(@RequestBody ThematicProps tp){
 		System.out.println("aaaaaaaaaaaaa " + tp.getCinemaTheatre().isCinema());
 		ThematicProps thematicProps =thematicPropsService.addThematicProps(tp);
@@ -36,6 +36,23 @@ public class ThematicPropsController {
 		}
 		
 		return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+	}
+	
+	/**
+	 * Get one thematic props from data base
+	 * @param id
+	 * @return thematic props
+	 */
+	@RequestMapping(value="/getThematicP/{id}", method=RequestMethod.GET)
+	public ResponseEntity<ThematicProps> getThematicP(@PathVariable Long id){
+		
+		ThematicProps thematicP = thematicPropsService.findOneProps(id);
+	
+		if(!(thematicP==null)) {
+			return new ResponseEntity<>(thematicP,HttpStatus.OK);
+		}
+		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		
 	}
 	
 	/**
@@ -53,7 +70,12 @@ public class ThematicPropsController {
 	
 	}
 	
-	
+	/**
+	 * The user reserving the props
+	 * @param id
+	 * @param tp
+	 * @return thematic props
+	 */
 	@RequestMapping(value="/reserving/{id}",method=RequestMethod.POST)
 	public ResponseEntity<ThematicProps> reserving(@PathVariable Long id,@RequestBody ThematicProps tp){
 		
@@ -66,6 +88,21 @@ public class ThematicPropsController {
 		
 	}
 	
-	
+	/**
+	 * Administrator editing props
+	 * @param tp
+	 * @return thematic props
+	 */
+	@RequestMapping(value="/editProps",method=RequestMethod.POST)
+	public ResponseEntity<ThematicProps> editProps(@RequestBody ThematicProps tp){
+		
+		ThematicProps thematicp = thematicPropsService.editProps(tp);
+		
+		if(!(thematicp==null)) {
+			return new ResponseEntity<>(thematicp,HttpStatus.OK);
+		}
+		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		
+	}
 	
 }

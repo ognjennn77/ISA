@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity(name="thematicprops")
 public class ThematicProps implements Serializable {
@@ -38,7 +39,7 @@ public class ThematicProps implements Serializable {
 	private CinemaTheatre cinemaTheatre;
 	
 	//thematicProps ne mora da pripada nekom korisniku(niko ga ne rezervise)
-	@JsonBackReference
+	@JsonManagedReference
 	@ManyToOne
 	private User user;
 	

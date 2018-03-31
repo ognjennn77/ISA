@@ -1,14 +1,15 @@
-INSERT INTO `isa`.`cinematheatre` (`id`, `name`,`description`,`address`,`rating`,`cinema`) VALUES ('1', 'CineStar','odlican','Ise Bajica 5','5',1);
-INSERT INTO `isa`.`cinematheatre` (`id`, `name`,`description`,`address`,`rating`,`cinema`) VALUES ('3', 'Bioskop','Vrlo dobar','Mihajla Pupina 11','4',1);
-INSERT INTO `isa`.`cinematheatre` (`id`, `name`,`description`,`address`,`rating`,`cinema`) VALUES ('2', 'Srpsko Narodno pozoriste','dobar','Marije Magdalene 6','3',0);  
-INSERT INTO `isa`.`cinematheatre` (`id`, `name`,`description`,`address`,`rating`,`cinema`) VALUES ('4', 'Umetnicko pozoriste','srednje','Bulevar Oslobodjenja 100','3',0);
+INSERT INTO `isa`.`cinematheatre` (`name`,`description`,`address`,`rating`,`cinema`) VALUES ( 'CineStar','odlican','Ise Bajica 5','5',1);
+
+INSERT INTO `isa`.`cinematheatre` ( `name`,`description`,`address`,`rating`,`cinema`) VALUES ( 'Srpsko Narodno pozoriste','dobar','Marije Magdalene 6','3',0);  
+INSERT INTO `isa`.`cinematheatre` (`name`,`description`,`address`,`rating`,`cinema`) VALUES ( 'Umetnicko pozoriste','srednje','Bulevar Oslobodjenja 100','3',0);
+INSERT INTO `isa`.`cinematheatre` ( `name`,`description`,`address`,`rating`,`cinema`) VALUES ( 'Bioskop','vrlo dobar','Mihajla Pupina 11','4',1);
 
 INSERT INTO `isa`.`user` (`id`, `email`, `name`, `surname`, `password`, `city`, `phone_number`, `active`) VALUES ('1', 'grujica995@gmail.com', 'Filip', 'Fica', 'IsaIsic1.', 'Beograd', '987654321', 1);  
 INSERT INTO `isa`.`user` (`id`, `email`, `name`, `surname`, `password`, `city`, `phone_number`, `active`) VALUES ('2', 'dragan.dulic1@gmail.com', 'Dragan', 'Dulic', 'IsaIsic1.', 'Novi Sad', '061555333', 1);  
 
 
 INSERT INTO `isa`.`thematicprops` (`id`, `description`, `name`, `price`, `cinema_theatre_id`,`user_id`,`reserved`) VALUES ('1','suncane naocar','naocareee','500','1','1',0);
-INSERT INTO `isa`.`thematicprops` (`id`, `description`, `name`, `price`, `cinema_theatre_id`,`user_id`,`reserved`) VALUES ('2','Zelena kapa','Kapa','200','2','2',0);
+INSERT INTO `isa`.`thematicprops` (`id`, `description`, `name`, `price`, `cinema_theatre_id`,`user_id`,`reserved`) VALUES ('2','Zelena kapa','Kapa','200','3','2',0);
 
 
 INSERT INTO `isa`.`repertory` (`id`,`cinema_theatre_id`) VALUES ('1','2');

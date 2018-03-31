@@ -14,6 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity(name="user")
@@ -46,9 +47,11 @@ public class User {
 	@Column(name="active")
 	private boolean active;
 	
-	@JsonManagedReference
-	@OneToMany(fetch = FetchType.EAGER, mappedBy="user")
-	private Set<ThematicProps> thematicProps;
+	
+	
+	@JsonBackReference
+	@OneToMany(fetch = FetchType.LAZY, mappedBy="user")
+	private Set<ThematicProps> thematicProps = new HashSet();
 	
 	
 	
