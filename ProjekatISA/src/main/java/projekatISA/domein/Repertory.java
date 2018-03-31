@@ -1,11 +1,13 @@
 package projekatISA.domein;
 
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;;
 
@@ -18,8 +20,13 @@ public class Repertory {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
+	//treba staviti optional=false
 	@OneToOne
-	private CinemaTheatre cinemaTheatre;
+	@JoinColumn(name="cinema_theatre_id")
+	private CinemaTheatre cinematheatre;
+	
+	@OneToMany(mappedBy="repertory")
+	private Set<Projection> projections;
 	
 	public Repertory() {
 		
@@ -33,12 +40,22 @@ public class Repertory {
 		this.id = id;
 	}
 
+	
+
+	public Set<Projection> getProjections() {
+		return projections;
+	}
+
+	public void setProjections(Set<Projection> projections) {
+		this.projections = projections;
+	}
+
 	public CinemaTheatre getCinemaTheatre() {
-		return cinemaTheatre;
+		return cinematheatre;
 	}
 
 	public void setCinemaTheatre(CinemaTheatre cinemaTheatre) {
-		this.cinemaTheatre = cinemaTheatre;
+		this.cinematheatre = cinemaTheatre;
 	}
 	
 	
