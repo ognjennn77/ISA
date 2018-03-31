@@ -1,5 +1,6 @@
 package projekatISA.serviceInterface;
 
+import java.util.List;
 import java.util.Set;
 
 import projekatISA.domein.ThematicProps;
@@ -18,5 +19,5 @@ public interface UserServiceInterface {
 	
 	User findUserPassword(UserDTO u);
 
-	Set<ThematicProps> findThematicProps(Long id);
+	List<ThematicProps> findThematicProps(Long id);
 }

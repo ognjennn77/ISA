@@ -1,5 +1,6 @@
 package projekatISA.controller;
 
+import java.util.List;
 import java.util.Set;
 
 import org.slf4j.Logger;
@@ -93,14 +94,12 @@ public class UserContoller {
 	
 	
 	@RequestMapping(value="/getThematicProps/{id}",method=RequestMethod.GET)
-	public ResponseEntity<Set<ThematicProps>> getThematicProps(@PathVariable Long id){
+	public ResponseEntity<ThematicProps> getThematicProps(@PathVariable Long id){
 		
-		Set<ThematicProps> thematicProps = userService.findThematicProps(id);
+		List<ThematicProps> th = userService.findThematicProps(id);
+		System.out.println("Controller  " + th.get(0).getName());
 		
-		if(!(thematicProps==null)) {
-			return new ResponseEntity<>(thematicProps, HttpStatus.OK);
-		}
-		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		return new ResponseEntity<>(th.get(0),HttpStatus.OK);
 		
 	}
 	
