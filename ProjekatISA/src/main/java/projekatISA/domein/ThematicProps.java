@@ -40,7 +40,7 @@ public class ThematicProps implements Serializable {
 	
 	//thematicProps ne mora da pripada nekom korisniku(niko ga ne rezervise)
 	
-	@JsonManagedReference
+	@JsonBackReference
 	@ManyToOne
 	private User user;
 	

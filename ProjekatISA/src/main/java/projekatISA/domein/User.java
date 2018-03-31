@@ -50,7 +50,8 @@ public class User {
 	
 	
 	
-	@JsonBackReference
+	
+	@JsonManagedReference
 	@OneToMany(fetch = FetchType.LAZY, mappedBy="user")
 	private Set<ThematicProps> thematicProps = new HashSet();
 	

@@ -33,6 +33,11 @@ public class UserContoller {
 	@Autowired 
 	private EmailService emailService;
 	
+	/**
+	 * SingIn user
+	 * @param user
+	 * @return user
+	 */
 	@RequestMapping(value="/logIn",method=RequestMethod.POST)
 	public ResponseEntity<User> singInUser(@RequestBody UserDTO user){
 		
@@ -45,6 +50,11 @@ public class UserContoller {
 	
 	}
 	
+	/**
+	 * Registration user
+	 * @param u
+	 * @return user
+	 */
 	@RequestMapping(value="/registration",method=RequestMethod.PUT)
 	public ResponseEntity<User> registrionUser(@RequestBody UserDTO u){
 
@@ -60,6 +70,11 @@ public class UserContoller {
 		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	}
 
+	/**
+	 * The user accepting the registration
+	 * @param id
+	 * @return
+	 */
 	@RequestMapping(value="/acceptRegist/{id}")
 	public String acceptingRegistration(@PathVariable Long id) {
 		User user1 = userService.acceptRegistration(id);
@@ -69,6 +84,11 @@ public class UserContoller {
 		return "unsuccess";
 	}
 	
+	/**
+	 * Edit user
+	 * @param user
+	 * @return user
+	 */
 	@RequestMapping(value="/editUser")
 	public ResponseEntity<User> editUser(@RequestBody UserDTO user){
 		User u = userService.findUserEdit(user);
@@ -79,6 +99,11 @@ public class UserContoller {
 		return new ResponseEntity<>(u,HttpStatus.OK);				
 	}
 	
+	/**
+	 * The user change his password
+	 * @param user
+	 * @return
+	 */
 	@RequestMapping(value="/editPassword")
 	public ResponseEntity<User> editPassword(@RequestBody UserDTO user){
 		
@@ -92,7 +117,11 @@ public class UserContoller {
 
 	}
 	
-	
+	/**
+	 *  Return props of the user
+	 * @param id
+	 * @return thematic props
+	 */
 	@RequestMapping(value="/getThematicProps/{id}",method=RequestMethod.GET)
 	public ResponseEntity<List<ThematicProps>> getThematicProps(@PathVariable Long id){
 		
