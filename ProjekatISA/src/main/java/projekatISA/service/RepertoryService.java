@@ -8,6 +8,7 @@ import projekatISA.domein.Repertory;
 import projekatISA.repository.RepositoryRepertory;
 import projekatISA.serviceInterface.RepertoryServiceInterface;
 
+
 @Service
 public class RepertoryService implements RepertoryServiceInterface{
 	

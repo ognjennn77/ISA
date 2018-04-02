@@ -27,4 +27,13 @@ public class ProjectionService implements ProjectionServiceInterface{
 		return projections;
 	}
 
+	@Override
+	public Projection add(Projection projection) {
+		
+		return repositoryProjection.save(projection);
+	}
+	
+	
+	
+
 }
