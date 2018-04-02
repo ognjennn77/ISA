@@ -52,7 +52,7 @@ public class UserContoller {
 	
 	/**
 	 * Registration user
-	 * @param u
+	 * @param user
 	 * @return user
 	 */
 	@RequestMapping(value="/registration",method=RequestMethod.PUT)
@@ -72,7 +72,7 @@ public class UserContoller {
 
 	/**
 	 * The user accepting the registration
-	 * @param id
+	 * @param id of the user
 	 * @return
 	 */
 	@RequestMapping(value="/acceptRegist/{id}")
@@ -119,7 +119,7 @@ public class UserContoller {
 	
 	/**
 	 *  Return props of the user
-	 * @param id
+	 * @param id of the user
 	 * @return thematic props
 	 */
 	@RequestMapping(value="/getThematicProps/{id}",method=RequestMethod.GET)

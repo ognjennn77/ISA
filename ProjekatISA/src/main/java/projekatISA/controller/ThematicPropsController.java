@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import projekatISA.domein.ThematicProps;
+import projekatISA.domein.User;
 import projekatISA.service.ThematicPropsService;
 
 @RestController
@@ -101,6 +102,24 @@ public class ThematicPropsController {
 		if(!(thematicp==null)) {
 			return new ResponseEntity<>(thematicp,HttpStatus.OK);
 		}
+		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		
+	}
+	
+	/**
+	 * Get the user of the thematic props
+	 * @param id of thematic props
+	 * @return User
+	 */
+	@RequestMapping(value="/getUserOfProps/{id}", method=RequestMethod.GET)
+	public ResponseEntity<User> getUserOfProps(@PathVariable Long id){
+		
+		User user = thematicPropsService.findUserOfProps(id);
+		
+		if(!(user==null)) {
+			return new ResponseEntity<>(user, HttpStatus.OK);
+		}
+		
 		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		
 	}

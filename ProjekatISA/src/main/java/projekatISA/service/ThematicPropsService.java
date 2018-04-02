@@ -73,6 +73,17 @@ public class ThematicPropsService implements ThematicPropsServiceInterface{
 		return tp;
 	}
 
+	/**
+	 * @param id of the themaic props
+	 */
+	@Override
+	public User findUserOfProps(Long id) {
+		
+		ThematicProps tp = repThemProp.findByIdEquals(id);
+		return tp.getUser();
+		
+	}
+
 	
 	
 }
