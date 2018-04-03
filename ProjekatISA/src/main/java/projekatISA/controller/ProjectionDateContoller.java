@@ -39,8 +39,7 @@ public class ProjectionDateContoller {
 	@RequestMapping(value="/addProjectionDate",method=RequestMethod.PUT)
 	public ResponseEntity<ProjectionDate> addProjectionDate(@RequestBody ProjectionDate projectionDate){
 		
-		System.out.println(projectionDate.getDate()+"date");
-		System.out.println(projectionDate.getTime()+"time");
+		
 		
 		ProjectionDate projectiondate1 = projectionDateService.add(projectionDate);
 		if(projectiondate1==null) {
