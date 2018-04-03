@@ -22,7 +22,7 @@ public class BidController {
 	
 	
 	/**
-	 * Add the bid in data base
+	 * Add the bid on the announcement
 	 * @param bid
 	 * @return bid
 	 */

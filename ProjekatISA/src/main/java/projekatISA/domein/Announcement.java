@@ -39,6 +39,8 @@ public class Announcement {
 	@Column(name="description")
 	private String description;
 	
+	@Column(name="approved")
+	private boolean approved;
 	
 	@Temporal(value = TemporalType.TIMESTAMP)
     @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss", shape = JsonFormat.Shape.STRING,timezone = "Europe/Madrid")
@@ -63,10 +65,11 @@ public class Announcement {
 		
 	}
 
-	public Announcement(String name,String description,Date date) {
+	public Announcement(String name,String description,Date date,boolean approved) {
 		this.name=name;
 		this.description=description;
 		this.date=date;
+		this.approved=approved;
 	}
 
 	public Long getId() {
@@ -116,6 +119,16 @@ public class Announcement {
 		}
 		return null;
 	}
+
+	public boolean isApproved() {
+		return approved;
+	}
+
+	public void setApproved(boolean approved) {
+		this.approved = approved;
+	}
+
+
 		
 		
 	}

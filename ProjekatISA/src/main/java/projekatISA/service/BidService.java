@@ -1,10 +1,13 @@
 package projekatISA.service;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import projekatISA.domein.Announcement;
 import projekatISA.domein.Bid;
+import projekatISA.repository.RepositoryAnnouncement;
 import projekatISA.repository.RepositoryBid;
 import projekatISA.serviceInterface.BidServiceInterface;
 
@@ -13,11 +16,33 @@ public class BidService implements BidServiceInterface{
 
 	@Autowired
 	private RepositoryBid repositoryBid;
+	
+	@Autowired
+	private RepositoryAnnouncement repositoryAnnouncement;
 
+	/**
+	 * Add bid on the announcement
+	 * Checking whether if exists announcement
+	 * Cheking whethre if announcement is approved
+	 * 
+	 */
 	@Override
 	public Bid addbid(Bid b) {
+		Announcement announcement = repositoryAnnouncement.findByIdEquals(b.getAnnouncement().getId());
 		
-		return repositoryBid.save(b);
+		if(!(announcement==null)) {
+			if(announcement.isApproved()) {
+				Date date = announcement.getDate();
+				Date nowDate = new Date();
+				if(nowDate.before(date)) {
+					return repositoryBid.save(b);
+					
+				}
+				
+			}
+			
+		}
+		return null;
 	}
 
 	@Override
