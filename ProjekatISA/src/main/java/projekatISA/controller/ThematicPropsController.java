@@ -1,5 +1,6 @@
 package projekatISA.controller;
 
+import java.text.ParseException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -73,8 +74,8 @@ public class ThematicPropsController {
 	
 	/**
 	 * The user reserving the props
-	 * @param id
-	 * @param tp
+	 * @param id of the user
+	 * @param tp(thematic props)
 	 * @return thematic props
 	 */
 	@RequestMapping(value="/reserving/{id}",method=RequestMethod.POST)
@@ -109,13 +110,13 @@ public class ThematicPropsController {
 	/**
 	 * Get the user of the thematic props
 	 * @param id of thematic props
-	 * @return User
+	 * @return User 
 	 */
 	@RequestMapping(value="/getUserOfProps/{id}", method=RequestMethod.GET)
-	public ResponseEntity<User> getUserOfProps(@PathVariable Long id){
+	public ResponseEntity<User> getUserOfProps(@PathVariable Long id) throws ParseException{
 		
 		User user = thematicPropsService.findUserOfProps(id);
-		
+
 		if(!(user==null)) {
 			return new ResponseEntity<>(user, HttpStatus.OK);
 		}
