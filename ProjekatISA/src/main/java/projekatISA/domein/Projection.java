@@ -1,7 +1,13 @@
 package projekatISA.domein;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -9,8 +15,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity(name="projection")
 public class Projection {
@@ -33,9 +41,13 @@ public class Projection {
 	@ManyToOne
 	private Repertory repertory;
 	
+	@JsonManagedReference
+	@OneToMany(mappedBy="projection")
+	private Set<ProjectionDate> projectionDates = new HashSet();
+	
+	
 	public Projection() {
-		
-		
+				
 	}
 	
 	
@@ -89,11 +101,14 @@ public class Projection {
 	}
 
 
+	public Set<ProjectionDate> getProjectionDates() {
+		return projectionDates;
+	}
 
-	
 
+	public void setProjectionDates(Set<ProjectionDate> projectionDates) {
+		this.projectionDates = projectionDates;
+	}
 
-	
-	
 
 }
