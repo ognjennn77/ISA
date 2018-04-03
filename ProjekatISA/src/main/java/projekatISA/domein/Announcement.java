@@ -2,8 +2,10 @@ package projekatISA.domein;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Locale;
 import java.util.Set;
 import java.util.TimeZone;
@@ -107,5 +109,15 @@ public class Announcement {
 		this.bid = bid;
 	}
 	
+	public List<Bid> getBids(){
+		List<Bid> bids = new ArrayList<>(bid);
+		if(bids.size()>0) {
+			return bids;
+		}
+		return null;
+	}
+		
+		
+	}
 	
-}
+

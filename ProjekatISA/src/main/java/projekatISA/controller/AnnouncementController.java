@@ -1,5 +1,7 @@
 package projekatISA.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import projekatISA.domein.Announcement;
+import projekatISA.domein.Bid;
 import projekatISA.service.AnnouncementService;
 
 @RestController
@@ -53,17 +56,22 @@ public class AnnouncementController {
 		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	}
 	
-	
-	//@RequestMapping
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	/**
+	 * Get bids of the announcement
+	 * @param id of announcement
+	 * @return List of bids
+	 */
+	@RequestMapping(value="/getBidOfAnnouncement/{id}", method=RequestMethod.GET)
+	public ResponseEntity<List<Bid>> getBidOfAnnouncement(@PathVariable Long id){
+		
+		List<Bid> bids = announcementService.findBids(id);
+		
+		if(!(bids==null)) {
+			return new ResponseEntity<>(bids,HttpStatus.OK);
+		}
+		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		
+	}
 	
 	
 	

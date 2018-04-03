@@ -20,10 +20,11 @@ public class Bid {
 	@Column(name="offered")
 	private String offered;
 	
-	
-	@OneToOne(optional=false)
+	//user moze imati vise ponuda a ponuda pripada samo jednom user
+	@ManyToOne(optional=false)
 	private User user;
 
+	//Ponuda pripada samo jednom oglasu a oglas moze imati vise ponuda
 	@JsonBackReference
 	@ManyToOne(optional=false)
 	private Announcement announcement;

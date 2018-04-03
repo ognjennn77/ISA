@@ -26,7 +26,7 @@ public class BidController {
 	 * @param bid
 	 * @return bid
 	 */
-	@RequestMapping(value="/addBid", method=RequestMethod.PUT)
+	@RequestMapping(value="/addBidOnAnnouncement", method=RequestMethod.PUT)
 	public ResponseEntity<Bid> addBid(@RequestBody Bid bid){
 		
 		Bid b = bidService.addbid(bid);
@@ -68,10 +68,10 @@ public class BidController {
 			return new ResponseEntity<>(announcement,HttpStatus.OK);
 		}
 		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-		
-		
-		
-		
+	
 	} 
+
+
+	
 	
 }
