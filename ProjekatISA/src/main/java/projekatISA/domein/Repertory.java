@@ -12,7 +12,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;;
+import javax.persistence.OneToOne;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;;
 
 
 @Entity(name="repertory")
@@ -23,8 +25,8 @@ public class Repertory {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
-	
-	@OneToMany(cascade = CascadeType.ALL, mappedBy="repertory")	
+	@JsonManagedReference
+	@OneToMany(mappedBy="repertory")	
 	private Set<Projection> projections = new HashSet();
 	
 	public Repertory() {

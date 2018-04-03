@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity(name="projection")
 public class Projection {
 	
@@ -27,7 +29,8 @@ public class Projection {
 	@Column(name="runtime")
 	private String runtime;
 	
-	@ManyToOne(cascade=CascadeType.ALL) 
+	@JsonBackReference
+	@ManyToOne
 	private Repertory repertory;
 	
 	public Projection() {
@@ -74,6 +77,17 @@ public class Projection {
 	public void setRuntime(String runtime) {
 		this.runtime = runtime;
 	}
+
+
+	public Repertory getRepertory() {
+		return repertory;
+	}
+
+
+	public void setRepertory(Repertory repertory) {
+		this.repertory = repertory;
+	}
+
 
 
 	

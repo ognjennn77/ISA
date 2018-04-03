@@ -9,5 +9,7 @@ public interface ProjectionServiceInterface {
 	Projection findOne(Long id);
 	
 	List<Projection> getAll();
+	
+	Projection add(Projection projection);
 
 }
