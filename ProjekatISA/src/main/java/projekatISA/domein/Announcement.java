@@ -18,7 +18,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 @Entity(name="annauncement")
-public class Annauncement {
+public class Announcement {
 
 	
 	@Id
@@ -48,12 +48,12 @@ public class Annauncement {
 	
 	
 	
-	public Annauncement() {
+	public Announcement() {
 		
 		
 	}
 
-	public Annauncement(String name,String description,Date date) {
+	public Announcement(String name,String description,Date date) {
 		this.name=name;
 		this.description=description;
 		this.date=date;

@@ -84,6 +84,16 @@ public class ThematicPropsService implements ThematicPropsServiceInterface{
 		
 	}
 
+	@Override
+	public ThematicProps deleteProps(Long id) {
+		ThematicProps tp = repThemProp.findByIdEquals(id);
+		if(!(tp==null)) {
+			repThemProp.delete(tp);
+			return tp;
+		}
+		return null;
+	}
+
 	
 	
 }

@@ -125,4 +125,17 @@ public class ThematicPropsController {
 		
 	}
 	
+	@RequestMapping(value="/removeProps/{id}", method=RequestMethod.POST)
+	public ResponseEntity<ThematicProps> removeProps(@PathVariable Long id){
+		
+		ThematicProps tp = thematicPropsService.deleteProps(id);
+		
+		if(!(tp==null)) {
+			return new ResponseEntity<>(tp,HttpStatus.OK);
+		}
+		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		
+		
+	}
+	
 }

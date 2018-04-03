@@ -18,4 +18,6 @@ public interface ThematicPropsServiceInterface {
 	ThematicProps findOneProps(Long id);
 	
 	User findUserOfProps(Long id);
+	
+	ThematicProps deleteProps(Long id);
 }
