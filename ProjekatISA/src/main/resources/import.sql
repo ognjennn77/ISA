@@ -10,6 +10,11 @@ INSERT INTO `isa`.`user` (`id`, `email`, `name`, `surname`, `password`, `city`, 
 INSERT INTO `isa`.`thematicprops` (`id`, `description`, `name`, `price`, `cinema_theatre_id`,`user_id`,`reserved`) VALUES ('1','suncane naocar','naocareee','500','1','1',0);
 INSERT INTO `isa`.`thematicprops` (`id`, `description`, `name`, `price`, `cinema_theatre_id`,`user_id`,`reserved`) VALUES ('2','Zelena kapa','Kapa','200','3','2',0);
 
+INSERT INTO `isa`.`bid` (`offered`,`user_id`,`announcement_id`) VALUES ('111','1','1'); 
+
+INSERT INTO `isa`.`announcement` (`name`,`description`,`date`) VALUES ('Privezak','Plavi sa zutim','2018-10-30T07:08:09'); 
+
+
 
 INSERT INTO `isa`.`repertory` (`id`) VALUES ('1');
 INSERT INTO `isa`.`repertory` (`id`) VALUES ('2');

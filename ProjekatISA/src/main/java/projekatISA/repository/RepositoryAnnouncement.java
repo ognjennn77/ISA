@@ -3,10 +3,10 @@ package projekatISA.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import projekatISA.domein.Annauncement;
+import projekatISA.domein.Announcement;
 
 @Repository
-public interface RepositoryAnnauncement extends JpaRepository<Annauncement, Long>{
+public interface RepositoryAnnouncement extends JpaRepository<Announcement, Long>{
 
-	Annauncement findByIdEquals(Long id);
+	Announcement findByIdEquals(Long id);
 }

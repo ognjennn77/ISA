@@ -3,22 +3,27 @@ package projekatISA.domein;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Locale;
+import java.util.Set;
 import java.util.TimeZone;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
-@Entity(name="annauncement")
-public class Annauncement {
+@Entity(name="announcement")
+public class Announcement {
 
 	
 	@Id
@@ -46,14 +51,17 @@ public class Annauncement {
 	 * 
 	 */
 	
+	@JsonManagedReference
+	@OneToMany(fetch=FetchType.LAZY, mappedBy="announcement")
+	private Set<Bid> bid = new HashSet<>();
 	
 	
-	public Annauncement() {
+	public Announcement() {
 		
 		
 	}
 
-	public Annauncement(String name,String description,Date date) {
+	public Announcement(String name,String description,Date date) {
 		this.name=name;
 		this.description=description;
 		this.date=date;
@@ -89,6 +97,14 @@ public class Annauncement {
 
 	public void setDate(Date date) {
 		this.date = date;
+	}
+
+	public Set<Bid> getBid() {
+		return bid;
+	}
+
+	public void setBid(Set<Bid> bid) {
+		this.bid = bid;
 	}
 	
 	
