@@ -67,13 +67,6 @@ public class ProjectionDate {
 		this.projection = projection;
 	}
 
-	public Time getTime() {
-		return time;
-	}
-
-	public void setTime(Time time) {
-		this.time = time;
-	}
 	
 	
 
