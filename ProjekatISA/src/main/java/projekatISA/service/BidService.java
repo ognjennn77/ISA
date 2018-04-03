@@ -3,6 +3,7 @@ package projekatISA.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import projekatISA.domein.Announcement;
 import projekatISA.domein.Bid;
 import projekatISA.repository.RepositoryBid;
 import projekatISA.serviceInterface.BidServiceInterface;
@@ -24,6 +25,19 @@ public class BidService implements BidServiceInterface{
 		Bid bid = repositoryBid.findByIdEquals(id);
 		if(!(bid==null)) {
 			return bid;
+		}
+		return null;
+	}
+
+	@Override
+	public Announcement findAnnouncementOfBid(Long id) {
+		
+		Bid bid = repositoryBid.findByIdEquals(id);
+
+		if(!(bid==null)) {
+
+			return bid.getAnnouncement();
+			
 		}
 		return null;
 	}

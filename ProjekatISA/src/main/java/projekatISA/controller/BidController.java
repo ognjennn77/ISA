@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import projekatISA.domein.Announcement;
 import projekatISA.domein.Bid;
 import projekatISA.service.BidService;
 
@@ -53,5 +54,24 @@ public class BidController {
 		
 	}
 	
+	/**
+	 * Get the announcement of the bid
+	 * @param id od the bid
+	 * @return Announcement
+	 */
+	@RequestMapping(value="/getAnnoncementOfBid/{id}", method=RequestMethod.GET)
+	public ResponseEntity<Announcement> getAnnoncementOfBid(@PathVariable Long id){
+
+		Announcement announcement = bidService.findAnnouncementOfBid(id);
+		
+		if(!(announcement==null)) {
+			return new ResponseEntity<>(announcement,HttpStatus.OK);
+		}
+		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		
+		
+		
+		
+	} 
 	
 }
