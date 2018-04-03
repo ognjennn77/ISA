@@ -19,7 +19,11 @@ public class AnnauncementController {
 	@Autowired
 	private AnnauncementService annauncementService; 
 	
-	
+	/**
+	 * Add new annauncement in data base
+	 * @param an annauncement
+	 * @return Annauncement
+	 */
 	@RequestMapping(value="/addAnnauncement",method=RequestMethod.PUT)
 	public ResponseEntity<Annauncement> addAnnauncement(@RequestBody Annauncement an){
 	
@@ -33,7 +37,11 @@ public class AnnauncementController {
 		
 	}
 	
-	
+	/**
+	 * Get the annauncement of the id
+	 * @param id of the annauncement
+	 * @return Annauncement
+	 */
 	@RequestMapping(value="/getAnnauncement/{id}", method=RequestMethod.GET)
 	public ResponseEntity<Annauncement> getAnnauncement(@PathVariable Long id){
 		

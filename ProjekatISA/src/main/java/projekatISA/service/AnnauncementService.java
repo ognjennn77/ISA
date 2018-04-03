@@ -16,13 +16,13 @@ public class AnnauncementService implements AnnauncementInterface{
 
 	@Override
 	public Annauncement addAnn(Annauncement an) {
-		an.setFormatOnDateAndDate(an.getStringdate());
 		return repositoryAnnauncement.save(an);
 	}
 
 	@Override
 	public Annauncement findAnnauncement(Long id) {
 		Annauncement an = repositoryAnnauncement.findByIdEquals(id);
+		System.out.println(an.getDate());
 		if(!(an==null)) {
 			return an;
 		}

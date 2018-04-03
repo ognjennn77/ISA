@@ -11,6 +11,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 @Entity(name="annauncement")
 public class Annauncement {
@@ -28,12 +33,12 @@ public class Annauncement {
 	private String description;
 	
 	
+	@Temporal(value = TemporalType.TIMESTAMP)
+    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss", shape = JsonFormat.Shape.STRING,timezone = "Europe/Madrid")
 	@Column(name="date")
 	private Date date;
 
 	
-	@Column(name="stringdate")
-	private String stringdate;
 	/*
 	 * 
 	 * Moras za sliku jos ovde napravitiii!!!
@@ -48,11 +53,10 @@ public class Annauncement {
 		
 	}
 
-	public Annauncement(String name,String description,Date date,String stringdate) {
+	public Annauncement(String name,String description,Date date) {
 		this.name=name;
 		this.description=description;
 		this.date=date;
-		this.stringdate=stringdate;
 	}
 
 	public Long getId() {
@@ -86,24 +90,6 @@ public class Annauncement {
 	public void setDate(Date date) {
 		this.date = date;
 	}
-
-	public String getStringdate() {
-		return stringdate;
-	}
-
-	public void setStringdate(String stringdate) {
-		this.stringdate = stringdate;
-	}
 	
-	public void setFormatOnDateAndDate(String d) {
-		SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");
-		
-		try {
-			date = sdf.parse(d);
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
 	
 }
