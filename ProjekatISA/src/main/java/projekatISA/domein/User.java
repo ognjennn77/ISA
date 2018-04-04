@@ -55,6 +55,9 @@ public class User {
 	@OneToMany(fetch = FetchType.LAZY, mappedBy="user")
 	private Set<ThematicProps> thematicProps = new HashSet();
 	
+	@JsonManagedReference
+	@OneToMany(fetch = FetchType.LAZY, mappedBy="user")
+	private Set<Notification> notification = new HashSet();
 	
 	
 	public User() {
@@ -152,6 +155,22 @@ public class User {
 
 	public void setThematicProps(Set<ThematicProps> thematicProps) {
 		this.thematicProps = thematicProps;
+	}
+
+
+	
+
+	
+	public List<Notification> getNotification() {	
+		List<Notification> notifi = new ArrayList<>(notification);
+		if(notifi.size()>0) {
+			return notifi;
+		}
+		return null;
+	}
+
+	public void setNotification(Set<Notification> notification) {
+		this.notification = notification;
 	}
 
 

@@ -3,6 +3,7 @@ package projekatISA.serviceInterface;
 import java.util.List;
 import java.util.Set;
 
+import projekatISA.domein.Notification;
 import projekatISA.domein.ThematicProps;
 import projekatISA.domein.User;
 import projekatISA.domeinDTO.UserDTO;
@@ -20,4 +21,6 @@ public interface UserServiceInterface {
 	User findUserPassword(UserDTO u);
 
 	List<ThematicProps> findThematicProps(Long id);
+	
+	List<Notification> findNotification(Long id);
 }

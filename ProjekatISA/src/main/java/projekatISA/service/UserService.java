@@ -6,6 +6,7 @@ import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import projekatISA.domein.Notification;
 import projekatISA.domein.ThematicProps;
 import projekatISA.domein.User;
 import projekatISA.domeinDTO.UserDTO;
@@ -116,6 +117,21 @@ public class UserService implements UserServiceInterface{
 			
 			if(!(t==null)) {
 				return t;
+			}
+		}
+		return null;
+	}
+
+
+
+	@Override
+	public List<Notification> findNotification(Long id) {
+		User user = repositoryUser.findByIdEquals(id);
+		if(!(user==null)) {
+			List<Notification> notifi = user.getNotification();
+			
+			if(!(notifi==null)) {
+				return notifi;
 			}
 		}
 		return null;

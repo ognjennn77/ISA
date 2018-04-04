@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import projekatISA.domein.Notification;
 import projekatISA.domein.ThematicProps;
 import projekatISA.domein.User;
 import projekatISA.domeinDTO.UserDTO;
@@ -128,6 +129,23 @@ public class UserContoller {
 		List<ThematicProps> th = userService.findThematicProps(id);
 		if(!(th==null)) {
 			return new ResponseEntity<>(th,HttpStatus.OK);
+		}
+		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		
+	}
+	
+	
+	/**
+	 *  Return notification of the user
+	 * @param id of the user
+	 * @return notification
+	 */
+	@RequestMapping(value="/getNotification/{id}",method=RequestMethod.GET)
+	public ResponseEntity<List<Notification>> getNotification(@PathVariable Long id){
+		
+		List<Notification> notifi = userService.findNotification(id);
+		if(!(notifi==null)) {
+			return new ResponseEntity<>(notifi,HttpStatus.OK);
 		}
 		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		
