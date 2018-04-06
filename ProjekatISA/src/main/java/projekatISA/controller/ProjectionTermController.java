@@ -36,7 +36,7 @@ public class ProjectionTermController {
 	}
 	
 	
-	@RequestMapping(value="/addProjectionTerm",method=RequestMethod.PUT)
+	@RequestMapping(value="/addProjectionTerm",method=RequestMethod.POST)
 	public ResponseEntity<ProjectionTerm> addProjectionTerm(@RequestBody ProjectionTerm projectionTerm){
 
 		

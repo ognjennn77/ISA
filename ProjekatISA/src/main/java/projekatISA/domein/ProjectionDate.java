@@ -32,7 +32,7 @@ public class ProjectionDate {
     @JsonFormat(pattern = "dd.MM.yyyy", shape = JsonFormat.Shape.STRING,timezone = "Europe/Madrid")
 	@Column(name="date")
 	private Date date;
-	
+		
 	
 	@JsonBackReference
 	@ManyToOne
@@ -41,8 +41,7 @@ public class ProjectionDate {
 	@JsonManagedReference
 	@OneToMany(mappedBy="projectiondate")
 	private Set<ProjectionTerm> projectionTerms = new HashSet();
-	
-	
+		
 	public ProjectionDate() {
 		
 	}

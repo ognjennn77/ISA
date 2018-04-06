@@ -21,18 +21,28 @@ public class ProjectionTerm {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
-	
-	
+		
 	@Temporal(value = TemporalType.TIMESTAMP)
     @JsonFormat(pattern = "HH:mm", shape = JsonFormat.Shape.STRING,timezone = "Europe/Madrid")
 	@Column(name="term")
 	private Date term;
-	
+		
 	
 	@JsonBackReference
 	@ManyToOne
 	private ProjectionDate projectiondate;
-
+		
+		
+	@ManyToOne
+	private Hall hall;
+	
+	public ProjectionTerm() {
+		
+	}
+	
+	public ProjectionTerm(Date term) {
+		this.term=term;
+	}
 
 	public Long getId() {
 		return id;
@@ -62,6 +72,16 @@ public class ProjectionTerm {
 	public void setProjectiondate(ProjectionDate projectiondate) {
 		this.projectiondate = projectiondate;
 	}
+
+	public Hall getHall() {
+		return hall;
+	}
+
+	public void setHall(Hall hall) {
+		this.hall = hall;
+	}
+
+	
 	
 
 }

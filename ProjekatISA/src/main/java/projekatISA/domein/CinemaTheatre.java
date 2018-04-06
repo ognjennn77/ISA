@@ -1,12 +1,18 @@
 package projekatISA.domein;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity(name="cinematheatre")
 public class CinemaTheatre {
@@ -29,20 +35,28 @@ public class CinemaTheatre {
 	
 	@Column(name="cinema")
 	private boolean cinema;
-	
+		
 	
 	@OneToOne(optional=false)
 	private Repertory repertory;
+	
+	
+	@JsonManagedReference
+	@OneToMany(mappedBy="cinematheatre")
+	private Set<Hall> halls = new HashSet();
+	
+	
 
 	public CinemaTheatre() {
 		
 	}
 	
-	public CinemaTheatre(String name, String address, String rating, String desription) {
+	public CinemaTheatre(String name, String address, String rating, String desription, boolean cinema) {
 		this.name=name;
 		this.address=address;
 		this.rating=rating;
 		this.description=desription;
+		this.cinema=cinema;
 	}
 	
 	
@@ -100,6 +114,14 @@ public class CinemaTheatre {
 
 	public void setRepertory(Repertory repertory) {
 		this.repertory = repertory;
+	}
+
+	public Set<Hall> getHalls() {
+		return halls;
+	}
+
+	public void setHalls(Set<Hall> halls) {
+		this.halls = halls;
 	}
 
 	

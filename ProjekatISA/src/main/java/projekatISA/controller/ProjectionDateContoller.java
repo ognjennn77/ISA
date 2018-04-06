@@ -36,7 +36,7 @@ public class ProjectionDateContoller {
 		return new ResponseEntity<>(projectionDates,HttpStatus.OK);
 	}
 	
-	@RequestMapping(value="/addProjectionDate",method=RequestMethod.PUT)
+	@RequestMapping(value="/addProjectionDate",method=RequestMethod.POST)
 	public ResponseEntity<ProjectionDate> addProjectionDate(@RequestBody ProjectionDate projectionDate){
 		
 		
