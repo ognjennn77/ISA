@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -20,6 +21,7 @@ import projekatISA.domeinDTO.CinemaTheatreDTO;
 import projekatISA.service.CinemaTheatreService;
 import projekatISA.service.RepertoryService;
 
+@CrossOrigin(origins="http://localhost:4200",allowedHeaders="*")
 @RestController
 @RequestMapping(value="/cinematheatre")
 public class CinemaTheatreController {
@@ -86,7 +88,7 @@ public class CinemaTheatreController {
 
 	@RequestMapping(value="/getCinemas",method=RequestMethod.GET)
 	public ResponseEntity<List<CinemaTheatre>> getCinemas(){
-		
+		System.out.println("usaooo");
 		List<CinemaTheatre> cinemas = cinemaTheatreService.findAllCinemas();
 		if(!(cinemas==null)) {
 			return new ResponseEntity<>(cinemas,HttpStatus.OK);

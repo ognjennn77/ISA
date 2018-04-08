@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +16,7 @@ import projekatISA.domein.Announcement;
 import projekatISA.domein.Bid;
 import projekatISA.service.AnnouncementService;
 
+@CrossOrigin(origins="http://localhost:4200",allowedHeaders="*")
 @RestController
 @RequestMapping(value="/announcement")
 public class AnnouncementController {

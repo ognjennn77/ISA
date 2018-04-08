@@ -14,6 +14,7 @@ import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
+
 @Entity(name="cinematheatre")
 public class CinemaTheatre {
 	
