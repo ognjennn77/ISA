@@ -29,7 +29,7 @@ public class EmailService implements EmailServiceInterface {
 		email.setTo(user.getEmail());
 		email.setFrom(env.getProperty("spring.mail.username"));
 		email.setSubject("Potvrda registracije");
-		String text = "http://localhost:4567/api/users/acceptRegist/"+user.getId();
+		String text = "http://localhost:4567/user/acceptRegist/"+user.getId();
 		email.setText(text);
 		
 		javaMailSender.send(email);
