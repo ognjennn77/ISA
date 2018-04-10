@@ -88,7 +88,7 @@ public class CinemaTheatreController {
 
 	@RequestMapping(value="/getCinemas",method=RequestMethod.GET)
 	public ResponseEntity<List<CinemaTheatre>> getCinemas(){
-		System.out.println("usaooo");
+		
 		List<CinemaTheatre> cinemas = cinemaTheatreService.findAllCinemas();
 		if(!(cinemas==null)) {
 			return new ResponseEntity<>(cinemas,HttpStatus.OK);

@@ -13,7 +13,7 @@ public class UserDTO {
 	
 	private String phoneNumber;
 	
-	private String currentPassword;
+	private String Password;
 	
 	private String newPassword;
 	
@@ -23,13 +23,13 @@ public class UserDTO {
 		
 	}
 	
-	public UserDTO(String email, String name, String surname, String city, String phoneNumber, String currentPassword, String newPassword, String repeatPassword) {
+	public UserDTO(String email, String name, String surname, String city, String phoneNumber, String Password, String newPassword, String repeatPassword) {
 		this.email=email;
 		this.name=name;
 		this.surname=surname;
 		this.city=city;
 		this.phoneNumber=phoneNumber;
-		this.currentPassword=currentPassword;
+		this.Password=Password;
 		this.newPassword=newPassword;
 		this.repeatPassword=repeatPassword;
 	}
@@ -74,12 +74,12 @@ public class UserDTO {
 		this.phoneNumber = phoneNumber;
 	}
 
-	public String getCurrentPassword() {
-		return currentPassword;
+	public String getPassword() {
+		return Password;
 	}
 
-	public void setCurrentPassword(String currentPassword) {
-		this.currentPassword = currentPassword;
+	public void setPassword(String Password) {
+		this.Password = Password;
 	}
 
 	public String getNewPassword() {

@@ -21,9 +21,9 @@ public class UserService implements UserServiceInterface{
 	
 	@Override
 	public User findUser(String email, String password) {
-		
+
 		User user = repositoryUser.findByEmailEqualsAndPasswordEquals(email, password);
-		if(!(user==null)) {		
+		if(!(user==null)) {	
 			if(user.isActive()) {
 				return user;
 			}
@@ -96,7 +96,7 @@ public class UserService implements UserServiceInterface{
 			return null;
 		}
 		
-		if(user.getPassword().equals(u.getCurrentPassword())) {		
+		if(user.getPassword().equals(u.getPassword())) {		
 			if(u.getNewPassword().equals(u.getRepeatPassword())) {			
 				user.setPassword(u.getNewPassword());
 				repositoryUser.save(user);				
