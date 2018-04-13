@@ -61,7 +61,7 @@ public class UserContoller {
 	 */
 	@RequestMapping(value="/registration",method=RequestMethod.PUT)
 	public ResponseEntity<User> registrionUser(@RequestBody UserDTO u){
-
+		System.out.println("dosao u metodu");
 		User user1 = userService.saveUser(u);
 		if(!(user1==null)) {
 			try {
