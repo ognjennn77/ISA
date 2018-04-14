@@ -1,5 +1,6 @@
 package projekatISA.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,16 +30,22 @@ public class ThematicPropsService implements ThematicPropsServiceInterface{
 
 	@Override
 	public List<ThematicProps> getAll() {
-		
-		return repThemProp.findAll();
+		List<ThematicProps> list = repThemProp.findAll(); 
+		List<ThematicProps> retlist= new ArrayList<>();
+		for(ThematicProps pr : list) {
+			if(!(pr.isReserved())) {
+				retlist.add(pr);
+			}
+		}
+		return retlist;
 	}
 
 	@Override
-	public ThematicProps reservingProps(Long id,ThematicProps tp) {
+	public ThematicProps reservingProps(Long id,Long tp) {
 		
 		User user = repositoryUser.findByIdEquals(id);
 		if(!(user==null)) {
-			ThematicProps thematicProps = repThemProp.findByIdEquals(tp.getId());
+			ThematicProps thematicProps = repThemProp.findByIdEquals(tp);
 			thematicProps.setReserved(true);
 			thematicProps.setUser(user);
 			repThemProp.save(thematicProps);

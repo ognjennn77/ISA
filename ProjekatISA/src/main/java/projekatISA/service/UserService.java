@@ -20,14 +20,22 @@ public class UserService implements UserServiceInterface{
 	private RepositoryUser repositoryUser;
 	
 	@Override
-	public User findUser(String email, String password) {
+	public UserDTO findUser(String email, String password) {
 		
 		User user = repositoryUser.findByEmailEqualsAndPasswordEquals(email, password);
-		
+		UserDTO userdto = new UserDTO();
 		if(!(user==null)) {	
 			
 			if(user.isActive()) {
-				return user;
+				userdto.setId(user.getId());
+				userdto.setEmail(user.getEmail());
+				userdto.setName(user.getName());
+				userdto.setCity(user.getCity());
+				userdto.setPassword(user.getPassword());
+				userdto.setPhoneNumber(user.getPhoneNumber());
+				userdto.setSurname(user.getSurname());
+			
+				return userdto;
 			}
 		}
 		

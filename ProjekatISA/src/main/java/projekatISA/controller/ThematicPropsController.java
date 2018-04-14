@@ -77,11 +77,11 @@ public class ThematicPropsController {
 	/**
 	 * The user reserving the props
 	 * @param id of the user
-	 * @param tp(thematic props)
+	 * @param tp id of thematic props
 	 * @return thematic props
 	 */
-	@RequestMapping(value="/reserving/{id}",method=RequestMethod.POST)
-	public ResponseEntity<ThematicProps> reserving(@PathVariable Long id,@RequestBody ThematicProps tp){
+	@RequestMapping(value="/reserving/{id}/{tp}",method=RequestMethod.POST)
+	public ResponseEntity<ThematicProps> reserving(@PathVariable Long id,@PathVariable Long tp){
 		
 		ThematicProps thematicp = thematicPropsService.reservingProps(id,tp);
 		

@@ -42,9 +42,9 @@ public class UserContoller {
 	 * @return user
 	 */
 	@RequestMapping(value="/logIn",method=RequestMethod.POST)
-	public ResponseEntity<User> singInUser(@RequestBody UserDTO user){
+	public ResponseEntity<UserDTO> singInUser(@RequestBody UserDTO user){
 		
-		User user1 = userService.findUser(user.getEmail(), user.getPassword());
+		UserDTO user1 = userService.findUser(user.getEmail(), user.getPassword());
 		
 		if(user1==null) {
 

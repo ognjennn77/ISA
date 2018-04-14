@@ -11,7 +11,7 @@ public interface ThematicPropsServiceInterface {
 	
 	List<ThematicProps> getAll();
 	
-	ThematicProps reservingProps(Long id,ThematicProps tp);
+	ThematicProps reservingProps(Long id,Long tp);
 	
 	ThematicProps editProps(ThematicProps tp);
 	

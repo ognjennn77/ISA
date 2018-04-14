@@ -10,7 +10,7 @@ import projekatISA.domeinDTO.UserDTO;
 
 public interface UserServiceInterface {
 	
-	User findUser (String email, String password);
+	UserDTO findUser (String email, String password);
 	
 	User findUserEdit (UserDTO u);
 

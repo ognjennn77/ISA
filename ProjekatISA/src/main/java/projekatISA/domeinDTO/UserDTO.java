@@ -2,6 +2,7 @@ package projekatISA.domeinDTO;
 
 public class UserDTO {
 	
+	private Long id;
 	
 	private String email;
 	
@@ -13,7 +14,7 @@ public class UserDTO {
 	
 	private String phoneNumber;
 	
-	private String Password;
+	private String password;
 	
 	private String newPassword;
 	
@@ -23,13 +24,13 @@ public class UserDTO {
 		
 	}
 	
-	public UserDTO(String email, String name, String surname, String city, String phoneNumber, String Password, String newPassword, String repeatPassword) {
+	public UserDTO(String email, String name, String surname, String city, String phoneNumber, String Password, String newPassword, String repeatPassword,Long id) {
 		this.email=email;
 		this.name=name;
 		this.surname=surname;
 		this.city=city;
 		this.phoneNumber=phoneNumber;
-		this.Password=Password;
+		this.password=Password;
 		this.newPassword=newPassword;
 		this.repeatPassword=repeatPassword;
 	}
@@ -75,11 +76,11 @@ public class UserDTO {
 	}
 
 	public String getPassword() {
-		return Password;
+		return password;
 	}
 
 	public void setPassword(String Password) {
-		this.Password = Password;
+		this.password = Password;
 	}
 
 	public String getNewPassword() {
@@ -96,6 +97,14 @@ public class UserDTO {
 
 	public void setRepeatPassword(String repeatPassword) {
 		this.repeatPassword = repeatPassword;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 	
 	
