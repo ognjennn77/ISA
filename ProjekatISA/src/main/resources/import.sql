@@ -14,7 +14,7 @@ INSERT INTO `isa`.`thematicprops` (`id`, `description`, `name`, `price`, `cinema
 
 INSERT INTO `isa`.`bid` (`offered`,`user_id`,`announcement_id`) VALUES ('111','1','1'); 
 
-INSERT INTO `isa`.`announcement` (`name`,`approved`,`description`,`date`) VALUES ('Privezak','1','Plavi sa zutim','2018-10-30T07:08:09'); 
+INSERT INTO `isa`.`announcement` (`name`,`approved`,`description`,`date`) VALUES ('Privezak',1,'Plavi sa zutim','2018-10-30T07:08:09'); 
 
 INSERT INTO `isa`.`repertory` (`id`) VALUES ('1');
 INSERT INTO `isa`.`repertory` (`id`) VALUES ('2');
