@@ -17,6 +17,7 @@ public class Bid {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
+	//koliko je user ponudio
 	@Column(name="offered")
 	private String offered;
 	

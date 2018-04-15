@@ -43,7 +43,7 @@ public class Announcement {
 	private boolean approved;
 	
 	@Temporal(value = TemporalType.TIMESTAMP)
-    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss", shape = JsonFormat.Shape.STRING,timezone = "Europe/Madrid")
+    @JsonFormat(pattern = "yyyy-MM-dd' 'HH:mm:ss", shape = JsonFormat.Shape.STRING,timezone = "Europe/Madrid")
 	@Column(name="date")
 	private Date date;
 

@@ -57,6 +57,23 @@ public class AnnouncementController {
 		}
 		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	}
+	/**
+	 * Get all announcement
+	 * @return list of announcement
+	 */
+	@RequestMapping(value="/getAnnouncements", method=RequestMethod.GET)
+	public ResponseEntity<List<Announcement>> getAnnouncements(){
+		
+		List<Announcement> announcements = announcementService.getAllAnn();
+		System.out.println(announcements);
+		if(!(announcements==null)) {
+			return new ResponseEntity<>(announcements,HttpStatus.OK);
+		}
+		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		
+	}
+	
+	
 	
 	/**
 	 * Get bids of the announcement

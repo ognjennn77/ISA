@@ -12,4 +12,6 @@ public interface AnnouncementServiceInterface {
 	Announcement findAnnouncement(Long id);
 	
 	List<Bid> findBids(Long id);
+	
+	List<Announcement> getAllAnn();
 }

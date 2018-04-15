@@ -45,5 +45,16 @@ public class AnnouncementService implements AnnouncementServiceInterface{
 		}
 		return null;
 	}
+
+	@Override
+	public List<Announcement> getAllAnn() {
+		List<Announcement> returnList = repositoryAnnouncement.findAll();
+		System.out.println("bbbbbbbbbbbbbbb");
+		if(!(returnList==null)) {
+			System.out.println("cccccccccccc");
+			return returnList;
+		}
+		return null;
+	}
 	
 }
