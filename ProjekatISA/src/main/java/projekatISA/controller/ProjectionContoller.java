@@ -51,7 +51,7 @@ public class ProjectionContoller {
 	
 	@RequestMapping(value="/{id}",method=RequestMethod.GET)
 	public ResponseEntity<Projection> getProjection(@PathVariable Long id){
-		
+		System.out.println("dosao sam");
 		//datum
 		Calendar calendar = Calendar.getInstance();
 		Date today = calendar.getTime();
@@ -71,6 +71,7 @@ public class ProjectionContoller {
 		//
 		
 		Projection projection = projectionService.findOne(id);
+		System.out.println(projection.getProjectionDates().size());
 		if(projection==null) {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}		
