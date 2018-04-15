@@ -59,15 +59,17 @@ public class ThematicPropsService implements ThematicPropsServiceInterface{
 		
 		ThematicProps thematicp = repThemProp.findByIdEquals(tp.getId());
 		if(!(thematicp==null)) {
-			thematicp.setDescription(tp.getDescription());
-			thematicp.setName(tp.getName());
-			thematicp.setPrice(tp.getPrice());
-			thematicp.setReserved(tp.isReserved());
-			thematicp.setUser(tp.getUser());
-			thematicp.setCinemaTheatre(tp.getCinemaTheatre());
-			repThemProp.save(thematicp);
-			return thematicp;
-			
+			if(!thematicp.isReserved()) {
+				thematicp.setDescription(tp.getDescription());
+				thematicp.setName(tp.getName());
+				thematicp.setPrice(tp.getPrice());
+				thematicp.setReserved(tp.isReserved());
+				thematicp.setUser(tp.getUser());
+				thematicp.setCinemaTheatre(tp.getCinemaTheatre());
+				
+				repThemProp.save(thematicp);
+				return thematicp;
+			}
 		}
 		
 		return null;
