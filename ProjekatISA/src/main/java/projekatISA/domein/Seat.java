@@ -1,22 +1,16 @@
 package projekatISA.domein;
 
-import java.util.HashSet;
-import java.util.Set;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
-@Entity
-public class Hall {
-	
+@Entity(name="seat")
+public class Seat {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -24,23 +18,10 @@ public class Hall {
 	
 	@Column(name="ordinal")
 	private String ordinal;
-		
 	
 	@JsonBackReference
 	@ManyToOne
-	private CinemaTheatre cinematheatre;
-	
-	@JsonManagedReference
-	@OneToMany(mappedBy="hall")
-	private Set<Seat> seats = new HashSet();
-	
-	public Hall() {
-		
-	}
-	
-	public Hall(String ordinal) {
-		this.ordinal=ordinal;
-	}
+	private Hall hall;
 
 	public Long getId() {
 		return id;
@@ -58,24 +39,12 @@ public class Hall {
 		this.ordinal = ordinal;
 	}
 
-	
-
-	public CinemaTheatre getCinematheatre() {
-		return cinematheatre;
+	public Hall getHall() {
+		return hall;
 	}
 
-	public void setCinematheatre(CinemaTheatre cinematheatre) {
-		this.cinematheatre = cinematheatre;
+	public void setHall(Hall hall) {
+		this.hall = hall;
 	}
-
-	public Set<Seat> getSeats() {
-		return seats;
-	}
-
-	public void setSeats(Set<Seat> seats) {
-		this.seats = seats;
-	}
-
-	
 
 }
