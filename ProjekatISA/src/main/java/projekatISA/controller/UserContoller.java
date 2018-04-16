@@ -93,7 +93,7 @@ public class UserContoller {
 	 * @param user
 	 * @return user
 	 */
-	@RequestMapping(value="/editUser")
+	@RequestMapping(value="/editUser",method=RequestMethod.POST)
 	public ResponseEntity<User> editUser(@RequestBody UserDTO user){
 		User u = userService.findUserEdit(user);
 		if(u==null) {
@@ -108,9 +108,9 @@ public class UserContoller {
 	 * @param user
 	 * @return
 	 */
-	@RequestMapping(value="/editPassword")
+	@RequestMapping(value="/editPassword",method=RequestMethod.POST)
 	public ResponseEntity<User> editPassword(@RequestBody UserDTO user){
-		
+		System.out.println("dosao u edit pass");
 		User u= userService.findUserPassword(user);
 		if(u==null) {
 			return null;
