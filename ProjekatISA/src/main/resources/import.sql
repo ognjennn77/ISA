@@ -12,7 +12,7 @@ INSERT INTO `isa`.`thematicprops` (`id`, `description`, `name`, `price`, `cinema
 INSERT INTO `isa`.`thematicprops` (`id`, `description`, `name`, `price`, `cinema_theatre_id`,`reserved`) VALUES ('3','zuta kapa','Kapa','200','3',0);
 
 INSERT INTO `isa`.`bid` (`offered`,`user_id`,`announcement_id`) VALUES ('111','1','1');
-INSERT INTO `isa`.`bid` (`offered`,`user_id`,`announcement_id`) VALUES ('222','1','1'); 
+INSERT INTO `isa`.`bid` (`offered`,`user_id`,`announcement_id`) VALUES ('222','1','3'); 
 INSERT INTO `isa`.`bid` (`offered`,`user_id`,`announcement_id`) VALUES ('333','1','2'); 
 
 INSERT INTO `isa`.`announcement` (`name`,`approved`,`description`,`date`) VALUES ('Privezak',1,'Plavi sa zutim','2018-10-30T07:08:09'); 
