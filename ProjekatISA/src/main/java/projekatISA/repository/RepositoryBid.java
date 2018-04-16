@@ -12,7 +12,7 @@ public interface RepositoryBid extends JpaRepository<Bid, Long>{
 	Bid findByIdEquals(Long id);
 	
 	
-	
+	Bid findByUser_idEqualsAndAnnouncement_idEquals(Long id,Long an);
 	
 	
 	

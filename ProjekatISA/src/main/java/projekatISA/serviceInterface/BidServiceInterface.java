@@ -11,4 +11,6 @@ public interface BidServiceInterface {
 	Bid getbid(Long id);
 	
 	Announcement findAnnouncementOfBid(Long id);
+	
+	Bid getBidOfUser(Long id, Long an);
 }
