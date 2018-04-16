@@ -5,16 +5,21 @@ INSERT INTO `isa`.`cinematheatre` (`id`,`name`,`description`,`address`,`rating`,
 INSERT INTO `isa`.`cinematheatre` (`id`,`name`,`description`,`address`,`rating`,`cinema`,`repertory_id`) VALUES ('5' ,'Bioskop','vrlo dobar','Mihajla Pupina 11','4',1,'2');
 
 INSERT INTO `isa`.`user` (`id`, `email`, `name`, `surname`, `password`, `city`, `phone_number`, `active`) VALUES ('1', 'dragan.dulic1@gmail.com', 'Dragan', 'Dulic', 'v', 'Bukovac', '061555333', 1);
-INSERT INTO `isa`.`user` (`id`, `email`, `name`, `surname`, `password`, `city`, `phone_number`, `active`) VALUES ('2', 'grujica995@gmail.com', 'Aleksandra', 'Grujic', 'sa', 'Novi Sad', '069123456', 1);
+
 
 
 INSERT INTO `isa`.`thematicprops` (`id`, `description`, `name`, `price`, `cinema_theatre_id`,`user_id`,`reserved`) VALUES ('1','suncane naocar','naocareee','500','1','1',0);
 INSERT INTO `isa`.`thematicprops` (`id`, `description`, `name`, `price`, `cinema_theatre_id`,`reserved`) VALUES ('2','Zelena kapa','Kapa','200','3',0);
 INSERT INTO `isa`.`thematicprops` (`id`, `description`, `name`, `price`, `cinema_theatre_id`,`reserved`) VALUES ('3','zuta kapa','Kapa','200','3',0);
 
-INSERT INTO `isa`.`bid` (`offered`,`user_id`,`announcement_id`) VALUES ('111','1','1'); 
+INSERT INTO `isa`.`bid` (`offered`,`user_id`,`announcement_id`) VALUES ('111','1','1');
+INSERT INTO `isa`.`bid` (`offered`,`user_id`,`announcement_id`) VALUES ('222','1','1'); 
+INSERT INTO `isa`.`bid` (`offered`,`user_id`,`announcement_id`) VALUES ('333','1','2');
 
 INSERT INTO `isa`.`announcement` (`name`,`approved`,`description`,`date`) VALUES ('Privezak',1,'Plavi sa zutim','2018-10-30T07:08:09'); 
+INSERT INTO `isa`.`announcement` (`name`,`approved`,`description`,`date`) VALUES ('Oglas1',1,'new cd','2018-04-22T07:08:09'); 
+INSERT INTO `isa`.`announcement` (`name`,`approved`,`description`,`date`) VALUES ('Oglas2',1,'new ball','2018-04-22T07:08:09'); 
+INSERT INTO `isa`.`announcement` (`name`,`approved`,`description`,`date`) VALUES ('Oglas3',1,'new cap','2018-04-22T07:08:09');
 
 INSERT INTO `isa`.`repertory` (`id`) VALUES ('1');
 INSERT INTO `isa`.`repertory` (`id`) VALUES ('2');
