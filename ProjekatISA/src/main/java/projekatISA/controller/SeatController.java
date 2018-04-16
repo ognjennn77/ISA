@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import projekatISA.domein.ProjectionDate;
 import projekatISA.domein.Seat;
-import projekatISA.domein.ThematicProps;
 import projekatISA.service.SeatService;
 
 @CrossOrigin(origins="http://localhost:4200",allowedHeaders="*")
@@ -57,19 +56,6 @@ public class SeatController {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}		
 		return new ResponseEntity<>(seat,HttpStatus.OK);
-	}
-	
-	
-	@RequestMapping(value="/reserving/{id}/{tp}",method=RequestMethod.POST)
-	public ResponseEntity<Seat> reserving(@PathVariable Long id,@PathVariable Long tp){
-		
-		Seat seat = seatService.reservingSeat(id,tp);
-		
-		if(!(seat==null)) {
-			return new ResponseEntity<>(seat,HttpStatus.OK);
-		}
-		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-		
 	}
 	
 	

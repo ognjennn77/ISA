@@ -1,23 +1,18 @@
 package projekatISA.domein;
 
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity(name="projectionterm")
 public class ProjectionTerm {
@@ -40,10 +35,6 @@ public class ProjectionTerm {
 		
 	@ManyToOne
 	private Hall hall;
-	
-	@JsonManagedReference
-	@OneToMany(mappedBy="pterm")
-	private Set<Seat> seats = new HashSet();
 	
 	public ProjectionTerm() {
 		

@@ -59,10 +59,6 @@ public class User {
 	@OneToMany(fetch = FetchType.LAZY, mappedBy="user")
 	private Set<Notification> notification = new HashSet();
 	
-	@JsonManagedReference
-	@OneToMany(mappedBy="user")
-	private Set<Seat> seats = new HashSet();
-	
 	
 	public User() {
 		
@@ -175,20 +171,6 @@ public class User {
 
 	public void setNotification(Set<Notification> notification) {
 		this.notification = notification;
-	}
-
-
-	public List<Seat> getSeats() {
-		List<Seat> seatss = new ArrayList<>(seats);
-		if(seatss.size()>0) {
-			return seatss;
-		}
-		return null;
-	}
-
-
-	public void setSeats(Set<Seat> seats) {
-		this.seats = seats;
 	}
 
 

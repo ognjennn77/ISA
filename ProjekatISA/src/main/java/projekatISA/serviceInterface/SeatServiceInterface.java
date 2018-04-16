@@ -4,7 +4,6 @@ import java.util.List;
 
 import projekatISA.domein.ProjectionTerm;
 import projekatISA.domein.Seat;
-import projekatISA.domein.ThematicProps;
 
 public interface SeatServiceInterface {
 
@@ -13,7 +12,5 @@ public interface SeatServiceInterface {
 	List<Seat> getAll();
 	
 	Seat add(Seat seat);
-	
-	Seat reservingSeat(Long id,Long tp);
 	
 }

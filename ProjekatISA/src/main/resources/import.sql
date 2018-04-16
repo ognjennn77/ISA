@@ -31,46 +31,27 @@ INSERT INTO `isa`.`projectiondate` (`id`, `date`, `projection_id`) VALUES ('3','
 INSERT INTO `isa`.`projectiondate` (`id`, `date`, `projection_id`) VALUES ('4','2018-04-12 00:00:00','3');
 
 INSERT INTO `isa`.`hall` (`id`, `ordinal`, `cinematheatre_id`) VALUES ('1','1','1');
-INSERT INTO `isa`.`hall` (`id`, `ordinal`, `cinematheatre_id`) VALUES ('4','1','1');
 INSERT INTO `isa`.`hall` (`id`, `ordinal`, `cinematheatre_id`) VALUES ('3','2','1');
 INSERT INTO `isa`.`hall` (`id`, `ordinal`, `cinematheatre_id`) VALUES ('2','1','5');
 
 INSERT INTO `isa`.`projectionterm` (`id`, `term`, `hall_id`, `projectiondate_id`) VALUES ('1','2018-04-09 15:00','1','1');
-INSERT INTO `isa`.`projectionterm` (`id`, `term`, `hall_id`, `projectiondate_id`) VALUES ('2','2018-04-09 17:00','4','1');
+INSERT INTO `isa`.`projectionterm` (`id`, `term`, `hall_id`, `projectiondate_id`) VALUES ('2','2018-04-09 17:00','1','1');
 INSERT INTO `isa`.`projectionterm` (`id`, `term`, `hall_id`, `projectiondate_id`) VALUES ('3','2018-04-11 15:00','1','3');
 INSERT INTO `isa`.`projectionterm` (`id`, `term`, `hall_id`, `projectiondate_id`) VALUES ('4','2018-04-12 15:00','2','4');
 
-INSERT INTO `isa`.`seat` (`id`, `ordinal`,`reserved`, `hall_id`, `pterm_id`) VALUES ('1','1',0,'1',1);
-INSERT INTO `isa`.`seat` (`id`, `ordinal`,`reserved`, `hall_id`, `pterm_id`) VALUES ('2','2',0,'1',1);
-INSERT INTO `isa`.`seat` (`id`, `ordinal`,`reserved`, `hall_id`, `pterm_id`) VALUES ('3','3',0,'1',1);
-INSERT INTO `isa`.`seat` (`id`, `ordinal`,`reserved`, `hall_id`, `pterm_id`) VALUES ('4','4',0,'1',1);
-INSERT INTO `isa`.`seat` (`id`, `ordinal`,`reserved`, `hall_id`, `pterm_id`) VALUES ('5','5',0,'1',1);
-INSERT INTO `isa`.`seat` (`id`, `ordinal`,`reserved`, `hall_id`, `pterm_id`) VALUES ('6','6',0,'1',1);
-INSERT INTO `isa`.`seat` (`id`, `ordinal`,`reserved`, `hall_id`, `pterm_id`) VALUES ('7','7',0,'1',1);
-INSERT INTO `isa`.`seat` (`id`, `ordinal`,`reserved`, `hall_id`, `pterm_id`) VALUES ('8','8',0,'1',1);
-INSERT INTO `isa`.`seat` (`id`, `ordinal`,`reserved`, `hall_id`, `pterm_id`) VALUES ('9','9',0,'1',1);
-INSERT INTO `isa`.`seat` (`id`, `ordinal`,`reserved`, `hall_id`, `pterm_id`) VALUES ('10','10',0,'1',1);
-INSERT INTO `isa`.`seat` (`id`, `ordinal`,`reserved`, `hall_id`, `pterm_id`) VALUES ('11','11',0,'1',1);
-INSERT INTO `isa`.`seat` (`id`, `ordinal`,`reserved`, `hall_id`, `pterm_id`) VALUES ('12','12',0,'1',1);
-INSERT INTO `isa`.`seat` (`id`, `ordinal`,`reserved`, `hall_id`, `pterm_id`) VALUES ('13','13',0,'1',1);
-INSERT INTO `isa`.`seat` (`id`, `ordinal`,`reserved`, `hall_id`, `pterm_id`) VALUES ('14','14',0,'1',1);
-INSERT INTO `isa`.`seat` (`id`, `ordinal`,`reserved`, `hall_id`, `pterm_id`) VALUES ('15','15',0,'1',1);
-INSERT INTO `isa`.`seat` (`id`, `ordinal`,`reserved`, `hall_id`, `pterm_id`) VALUES ('16','16',0,'1',1);
-
-
-INSERT INTO `isa`.`seat` (`id`, `ordinal`,`reserved`, `hall_id`, `pterm_id`) VALUES ('17','1',0,'4',2);
-INSERT INTO `isa`.`seat` (`id`, `ordinal`,`reserved`, `hall_id`, `pterm_id`) VALUES ('18','2',0,'4',2);
-INSERT INTO `isa`.`seat` (`id`, `ordinal`,`reserved`, `hall_id`, `pterm_id`) VALUES ('19','3',0,'4',2);
-INSERT INTO `isa`.`seat` (`id`, `ordinal`,`reserved`, `hall_id`, `pterm_id`) VALUES ('20','4',0,'4',2);
-INSERT INTO `isa`.`seat` (`id`, `ordinal`,`reserved`, `hall_id`, `pterm_id`) VALUES ('21','5',0,'4',2);
-INSERT INTO `isa`.`seat` (`id`, `ordinal`,`reserved`, `hall_id`, `pterm_id`) VALUES ('22','6',0,'4',2);
-INSERT INTO `isa`.`seat` (`id`, `ordinal`,`reserved`, `hall_id`, `pterm_id`) VALUES ('23','7',0,'4',2);
-INSERT INTO `isa`.`seat` (`id`, `ordinal`,`reserved`, `hall_id`, `pterm_id`) VALUES ('24','8',0,'4',2);
-INSERT INTO `isa`.`seat` (`id`, `ordinal`,`reserved`, `hall_id`, `pterm_id`) VALUES ('25','9',0,'4',2);
-INSERT INTO `isa`.`seat` (`id`, `ordinal`,`reserved`, `hall_id`, `pterm_id`) VALUES ('26','10',0,'4',2);
-INSERT INTO `isa`.`seat` (`id`, `ordinal`,`reserved`, `hall_id`, `pterm_id`) VALUES ('27','11',0,'4',2);
-INSERT INTO `isa`.`seat` (`id`, `ordinal`,`reserved`, `hall_id`, `pterm_id`) VALUES ('28','12',0,'4',2);
-INSERT INTO `isa`.`seat` (`id`, `ordinal`,`reserved`, `hall_id`, `pterm_id`) VALUES ('29','13',0,'4',2);
-INSERT INTO `isa`.`seat` (`id`, `ordinal`,`reserved`, `hall_id`, `pterm_id`) VALUES ('30','14',0,'4',2);
-INSERT INTO `isa`.`seat` (`id`, `ordinal`,`reserved`, `hall_id`, `pterm_id`) VALUES ('31','15',0,'4',2);
-INSERT INTO `isa`.`seat` (`id`, `ordinal`,`reserved`, `hall_id`, `pterm_id`) VALUES ('32','16',0,'4',2);
+INSERT INTO `isa`.`seat` (`id`, `ordinal`, `hall_id`) VALUES ('1','1','1');
+INSERT INTO `isa`.`seat` (`id`, `ordinal`, `hall_id`) VALUES ('2','2','1');
+INSERT INTO `isa`.`seat` (`id`, `ordinal`, `hall_id`) VALUES ('3','3','1');
+INSERT INTO `isa`.`seat` (`id`, `ordinal`, `hall_id`) VALUES ('4','4','1');
+INSERT INTO `isa`.`seat` (`id`, `ordinal`, `hall_id`) VALUES ('5','5','1');
+INSERT INTO `isa`.`seat` (`id`, `ordinal`, `hall_id`) VALUES ('6','6','1');
+INSERT INTO `isa`.`seat` (`id`, `ordinal`, `hall_id`) VALUES ('7','7','1');
+INSERT INTO `isa`.`seat` (`id`, `ordinal`, `hall_id`) VALUES ('8','8','1');
+INSERT INTO `isa`.`seat` (`id`, `ordinal`, `hall_id`) VALUES ('9','9','1');
+INSERT INTO `isa`.`seat` (`id`, `ordinal`, `hall_id`) VALUES ('10','10','1');
+INSERT INTO `isa`.`seat` (`id`, `ordinal`, `hall_id`) VALUES ('11','11','1');
+INSERT INTO `isa`.`seat` (`id`, `ordinal`, `hall_id`) VALUES ('12','12','1');
+INSERT INTO `isa`.`seat` (`id`, `ordinal`, `hall_id`) VALUES ('13','13','1');
+INSERT INTO `isa`.`seat` (`id`, `ordinal`, `hall_id`) VALUES ('14','14','1');
+INSERT INTO `isa`.`seat` (`id`, `ordinal`, `hall_id`) VALUES ('15','15','1');
+INSERT INTO `isa`.`seat` (`id`, `ordinal`, `hall_id`) VALUES ('16','16','1');
