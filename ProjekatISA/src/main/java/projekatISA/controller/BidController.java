@@ -71,7 +71,18 @@ public class BidController {
 		}
 		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	
-	} 
+	}
+	
+	@RequestMapping(value="getUserOfAnnoucement/{id}/{an}", method=RequestMethod.GET)
+	public ResponseEntity<Bid> getUserOfAnnoucement(@PathVariable Long id, @PathVariable Long an){
+		
+			Bid b = bidService.getBidOfUser(id,an);
+			
+			if(!(b==null)) {
+				return new ResponseEntity<>(b, HttpStatus.OK);
+			}
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+	}
 
 
 	
