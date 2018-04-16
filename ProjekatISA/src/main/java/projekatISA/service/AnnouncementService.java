@@ -19,6 +19,7 @@ public class AnnouncementService implements AnnouncementServiceInterface{
 
 	@Override
 	public Announcement addAnn(Announcement an) {
+		System.out.println("service " + an.getName());
 		return repositoryAnnouncement.save(an);
 	}
 
@@ -49,9 +50,9 @@ public class AnnouncementService implements AnnouncementServiceInterface{
 	@Override
 	public List<Announcement> getAllAnn() {
 		List<Announcement> returnList = repositoryAnnouncement.findAll();
-		System.out.println("bbbbbbbbbbbbbbb");
+		
 		if(!(returnList==null)) {
-			System.out.println("cccccccccccc");
+			
 			return returnList;
 		}
 		return null;

@@ -31,7 +31,7 @@ public class AnnouncementController {
 	 */
 	@RequestMapping(value="/addAnnouncement",method=RequestMethod.PUT)
 	public ResponseEntity<Announcement> addAnnouncement(@RequestBody Announcement an){
-	
+		System.out.println("qqqqqqqqqqqqq "  + an.getName());
 		Announcement announcement = announcementService.addAnn(an);
 		
 		if(!(announcement==null)) {
@@ -65,7 +65,7 @@ public class AnnouncementController {
 	public ResponseEntity<List<Announcement>> getAnnouncements(){
 		
 		List<Announcement> announcements = announcementService.getAllAnn();
-		System.out.println(announcements);
+	
 		if(!(announcements==null)) {
 			return new ResponseEntity<>(announcements,HttpStatus.OK);
 		}
