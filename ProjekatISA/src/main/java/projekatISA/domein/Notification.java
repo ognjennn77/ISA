@@ -17,8 +17,8 @@ public class Notification {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column(name="userone")
-	private String userone;
+	@ManyToOne(optional=false)
+	private User userone;
 
 	
 	
@@ -80,12 +80,12 @@ public class Notification {
 	}
 
 
-	public String getUserone() {
+	public User getUserone() {
 		return userone;
 	}
 
 
-	public void setUserone(String userone) {
+	public void setUserone(User userone) {
 		this.userone = userone;
 	}
 
