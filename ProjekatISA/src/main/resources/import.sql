@@ -6,6 +6,7 @@ INSERT INTO `isa`.`cinematheatre` (`id`,`name`,`description`,`address`,`rating`,
 
 INSERT INTO `isa`.`user` (`id`, `email`, `name`, `surname`, `password`, `city`, `phone_number`, `active`) VALUES ('1', 'dragan.dulic1@gmail.com', 'Dragan', 'Dulic', 'v', 'Bukovac', '061555333', 1);
 INSERT INTO `isa`.`user` (`id`, `email`, `name`, `surname`, `password`, `city`, `phone_number`, `active`) VALUES ('2', 'grujica995@gmail.com', 'Aleksandra', 'Grujic', 'sa', 'Novi Sad', '0647896543', 1);
+INSERT INTO `isa`.`user` (`id`, `email`, `name`, `surname`, `password`, `city`, `phone_number`, `active`) VALUES ('3', 'donthavename3478@gmail.com', 'Nikola', 'Nikolic', 'sa2', 'Beograd', '063319583', 1);
 
 
 INSERT INTO `isa`.`thematicprops` (`id`, `description`, `name`, `price`, `cinema_theatre_id`,`user_id`,`reserved`) VALUES ('1','suncane naocar','naocareee','500','1','1',0);
@@ -14,9 +15,12 @@ INSERT INTO `isa`.`thematicprops` (`id`, `description`, `name`, `price`, `cinema
 
 INSERT INTO `isa`.`bid` (`offered`,`user_id`,`announcement_id`) VALUES ('111','1','1');
 INSERT INTO `isa`.`bid` (`offered`,`user_id`,`announcement_id`) VALUES ('123','2','1');
+INSERT INTO `isa`.`bid` (`offered`,`user_id`,`announcement_id`) VALUES ('123','3','1');
 INSERT INTO `isa`.`bid` (`offered`,`user_id`,`announcement_id`) VALUES ('222','2','3'); 
+INSERT INTO `isa`.`bid` (`offered`,`user_id`,`announcement_id`) VALUES ('222','3','3');
 INSERT INTO `isa`.`bid` (`offered`,`user_id`,`announcement_id`) VALUES ('333','1','2'); 
 INSERT INTO `isa`.`bid` (`offered`,`user_id`,`announcement_id`) VALUES ('555','2','2'); 
+INSERT INTO `isa`.`bid` (`offered`,`user_id`,`announcement_id`) VALUES ('555','3','2'); 
 
 INSERT INTO `isa`.`announcement` (`name`,`user_id`,`approved`,`description`,`date`) VALUES ('Privezak','1',1,'Plavi sa zutim','2018-10-30T07:08:09'); 
 INSERT INTO `isa`.`announcement` (`name`,`user_id`,`approved`,`description`,`date`) VALUES ('Oglas1','1',1,'new cd','2018-04-22T07:08:09'); 
