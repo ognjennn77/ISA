@@ -56,7 +56,7 @@ public class User {
 	private Set<ThematicProps> thematicProps = new HashSet();
 	
 	@JsonManagedReference
-	@OneToMany(fetch = FetchType.LAZY, mappedBy="user")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy="usertwo")
 	private Set<Notification> notification = new HashSet();
 	
 	

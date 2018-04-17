@@ -12,12 +12,16 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 @Entity(name="notification")
 public class Notification {
 
-	
-	
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
+	
+	@Column(name="userone")
+	private String userone;
+
+	
+	
 
 	@Column(name="description")
 	private String description;
@@ -29,7 +33,7 @@ public class Notification {
 	
 	@JsonBackReference
 	@ManyToOne(optional=false)
-	private User user;
+	private User usertwo;
 	
 	
 	
@@ -64,14 +68,6 @@ public class Notification {
 	}
 
 
-	public User getUser() {
-		return user;
-	}
-
-
-	public void setUser(User user) {
-		this.user = user;
-	}
 
 
 	public String getType() {
@@ -82,6 +78,33 @@ public class Notification {
 	public void setType(String type) {
 		this.type = type;
 	}
+
+
+	public String getUserone() {
+		return userone;
+	}
+
+
+	public void setUserone(String userone) {
+		this.userone = userone;
+	}
+
+
+	public User getUsertwo() {
+		return usertwo;
+	}
+
+
+	public void setUsertwo(User usertwo) {
+		this.usertwo = usertwo;
+	}
+
+
+
+
+	
+
+
 	
 	
 	
