@@ -58,5 +58,16 @@ public class SeatController {
 		return new ResponseEntity<>(seat,HttpStatus.OK);
 	}
 	
+	//posaljes termin, on ti izlista sedista
+	@RequestMapping(value="/getSeats/{id}",method=RequestMethod.GET)
+	public ResponseEntity<List<Seat>> getSeats(@PathVariable Long id){
+		
+		List<Seat> seats = seatService.getSeats(id);
+		if(seats==null) {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+		return new ResponseEntity<>(seats,HttpStatus.OK);
+	}
+	
 	
 }

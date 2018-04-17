@@ -30,9 +30,9 @@ public class Hall {
 	@ManyToOne
 	private CinemaTheatre cinematheatre;
 	
-	@JsonManagedReference
-	@OneToMany(mappedBy="hall")
-	private Set<Seat> seats = new HashSet();
+	//@JsonManagedReference
+	//@OneToMany(mappedBy="hall")
+	//private Set<Seat> seats = new HashSet();
 	
 	public Hall() {
 		
@@ -68,14 +68,6 @@ public class Hall {
 		this.cinematheatre = cinematheatre;
 	}
 
-	public Set<Seat> getSeats() {
-		return seats;
-	}
 
-	public void setSeats(Set<Seat> seats) {
-		this.seats = seats;
-	}
-
-	
 
 }

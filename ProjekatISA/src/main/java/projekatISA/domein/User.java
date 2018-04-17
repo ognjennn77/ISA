@@ -59,6 +59,9 @@ public class User {
 	@OneToMany(fetch = FetchType.LAZY, mappedBy="usertwo")
 	private Set<Notification> notification = new HashSet();
 	
+	@OneToMany(mappedBy="user")
+	private Set<Reservation> reservations = new HashSet();
+	
 	
 	public User() {
 		
@@ -171,6 +174,20 @@ public class User {
 
 	public void setNotification(Set<Notification> notification) {
 		this.notification = notification;
+	}
+
+
+	public List<Reservation> getReservations() {
+		List<Reservation> res = new ArrayList<>(reservations);
+		if(res.size()>0) {
+			return res;
+		}
+		return null;
+	}
+
+
+	public void setReservations(Set<Reservation> reservations) {
+		this.reservations = reservations;
 	}
 
 
