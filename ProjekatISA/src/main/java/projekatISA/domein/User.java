@@ -55,11 +55,10 @@ public class User {
 	@OneToMany(fetch = FetchType.LAZY, mappedBy="user")
 	private Set<ThematicProps> thematicProps = new HashSet();
 	
-	@JsonManagedReference
-	@OneToMany(fetch = FetchType.LAZY, mappedBy="usertwo")
-	private Set<Notification> notification = new HashSet();
 	
-	@OneToMany(mappedBy="user")
+	
+	@JsonManagedReference
+	@OneToMany(mappedBy="user1")
 	private Set<Reservation> reservations = new HashSet();
 	
 	
@@ -164,17 +163,7 @@ public class User {
 	
 
 	
-	public List<Notification> getNotification() {	
-		List<Notification> notifi = new ArrayList<>(notification);
-		if(notifi.size()>0) {
-			return notifi;
-		}
-		return null;
-	}
-
-	public void setNotification(Set<Notification> notification) {
-		this.notification = notification;
-	}
+	
 
 
 	public List<Reservation> getReservations() {

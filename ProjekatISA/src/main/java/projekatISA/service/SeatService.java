@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 
 import projekatISA.domein.ProjectionDate;
 import projekatISA.domein.Seat;
+import projekatISA.domein.ThematicProps;
+import projekatISA.domein.User;
 import projekatISA.repository.RepositorySeat;
 import projekatISA.serviceInterface.SeatServiceInterface;
 
@@ -20,16 +22,14 @@ public class SeatService implements SeatServiceInterface{
 	@Override
 	public Seat findOne(Long id) {
 		Seat seat = repositorySeat.findOneById(id);
-		System.out.println("bbbbbb"+seat.getProjectiont().get(0).getId());
-		System.out.println("bbbbbb"+seat.getProjectiont().get(1).getId());
-		System.out.println("bbbbbb"+seat.getProjectiont().get(2).getId());
+		
 		return seat;
 	}
 
 	@Override
 	public List<Seat> getAll() {
 		List<Seat> seats = repositorySeat.findAll();
-		System.out.println("bbbbbb"+seats.get(0).getProjectiont().get(0).getId());
+		
 		return seats;
 	}
 
@@ -60,6 +60,20 @@ public class SeatService implements SeatServiceInterface{
 		}
 		System.out.println("kraj"+newseats.size());
 		return newseats;
+	}
+
+	@Override
+	public Seat reservingSeat(Long id, Long tp) {
+		
+		
+		Seat seat = repositorySeat.findOneById(tp);
+		if(seat!=null) {
+			seat.setReserved(true);
+			System.out.println("sediste rezervisano");
+			repositorySeat.save(seat);
+			return seat;
+		}
+		return null;
 	}
 
 }
