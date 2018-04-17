@@ -1,5 +1,7 @@
 package projekatISA.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +19,13 @@ public class NotificationService implements NotificationServiceInterface{
 	public Notification newnotification(Notification noti) {
 		
 		return repositoryNotification.save(noti);
+	}
+
+	@Override
+	public List<Notification> getNotiOfUser(Long id) {
+		
+		List<Notification> listNoti = repositoryNotification.findByUsertwo_idEquals(id);
+		return listNoti;
 	}
 	
 }

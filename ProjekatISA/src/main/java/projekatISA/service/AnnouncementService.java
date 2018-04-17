@@ -1,5 +1,6 @@
 package projekatISA.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,13 +47,21 @@ public class AnnouncementService implements AnnouncementServiceInterface{
 		return null;
 	}
 
+	/**
+	 * Vracam samo one announcement koji nisu od ulogovanog usera
+	 */
 	@Override
-	public List<Announcement> getAllAnn() {
+	public List<Announcement> getAllAnn(Long id) {
 		List<Announcement> returnList = repositoryAnnouncement.findAll();
-		System.out.println("bbbbbbbbbbbbbbb");
+		List<Announcement> listAnnouncement = new ArrayList<>();
 		if(!(returnList==null)) {
-			System.out.println("cccccccccccc");
-			return returnList;
+			for(int i = 0; i<returnList.size();i++) {
+				if(!(returnList.get(i).getUser().getId().equals(id))) {
+					listAnnouncement.add(returnList.get(i));
+				}
+			}
+			
+			return listAnnouncement;
 		}
 		return null;
 	}

@@ -1,9 +1,12 @@
 package projekatISA.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -37,6 +40,24 @@ public class NotificationController {
 		
 		
 	}
+	
+	
+	/**
+	 * get all notification of user
+	 * @param id of user
+	 * @return List notification
+	 */
+	@RequestMapping(value="/getNotificationOfUser/{id}", method=RequestMethod.GET)
+	public ResponseEntity<List<Notification>> getNotificationOfUser(@PathVariable Long id){
+		
+		List<Notification> returnList = notificationService.getNotiOfUser(id);
+		
+		if(!(returnList==null)) {
+			return new ResponseEntity<>(returnList,HttpStatus.OK);
+		}
+		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+	}
+	
 	
 	
 	

@@ -61,10 +61,10 @@ public class AnnouncementController {
 	 * Get all announcement
 	 * @return list of announcement
 	 */
-	@RequestMapping(value="/getAnnouncements", method=RequestMethod.GET)
-	public ResponseEntity<List<Announcement>> getAnnouncements(){
+	@RequestMapping(value="/getAllAnnouncements/{id}", method=RequestMethod.POST)
+	public ResponseEntity<List<Announcement>> getAnnouncements(@PathVariable Long id){
 		
-		List<Announcement> announcements = announcementService.getAllAnn();
+		List<Announcement> announcements = announcementService.getAllAnn(id);
 		System.out.println(announcements);
 		if(!(announcements==null)) {
 			return new ResponseEntity<>(announcements,HttpStatus.OK);
