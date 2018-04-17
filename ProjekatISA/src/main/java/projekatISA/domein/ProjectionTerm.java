@@ -36,6 +36,9 @@ public class ProjectionTerm {
 	@ManyToOne
 	private Hall hall;
 	
+	@Column(name="price")
+	private String price;
+	
 	public ProjectionTerm() {
 		
 	}
@@ -79,6 +82,14 @@ public class ProjectionTerm {
 
 	public void setHall(Hall hall) {
 		this.hall = hall;
+	}
+
+	public String getPrice() {
+		return price;
+	}
+
+	public void setPrice(String price) {
+		this.price = price;
 	}
 
 	
