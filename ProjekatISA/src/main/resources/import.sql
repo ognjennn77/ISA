@@ -15,10 +15,10 @@ INSERT INTO `isa`.`bid` (`offered`,`user_id`,`announcement_id`) VALUES ('111','1
 INSERT INTO `isa`.`bid` (`offered`,`user_id`,`announcement_id`) VALUES ('222','1','3'); 
 INSERT INTO `isa`.`bid` (`offered`,`user_id`,`announcement_id`) VALUES ('333','1','2'); 
 
-INSERT INTO `isa`.`announcement` (`name`,`approved`,`description`,`date`) VALUES ('Privezak',1,'Plavi sa zutim','2018-10-30T07:08:09'); 
-INSERT INTO `isa`.`announcement` (`name`,`approved`,`description`,`date`) VALUES ('Oglas1',1,'new cd','2018-04-22T07:08:09'); 
-INSERT INTO `isa`.`announcement` (`name`,`approved`,`description`,`date`) VALUES ('Oglas2',1,'new ball','2018-04-22T07:08:09'); 
-INSERT INTO `isa`.`announcement` (`name`,`approved`,`description`,`date`) VALUES ('Oglas3',1,'new cap','2018-04-22T07:08:09'); 
+INSERT INTO `isa`.`announcement` (`name`,`user_id`,`approved`,`description`,`date`) VALUES ('Privezak','1',1,'Plavi sa zutim','2018-10-30T07:08:09'); 
+INSERT INTO `isa`.`announcement` (`name`,`user_id`,`approved`,`description`,`date`) VALUES ('Oglas1','1',1,'new cd','2018-04-22T07:08:09'); 
+INSERT INTO `isa`.`announcement` (`name`,`user_id`,`approved`,`description`,`date`) VALUES ('Oglas2','1',1,'new ball','2018-04-22T07:08:09'); 
+INSERT INTO `isa`.`announcement` (`name`,`user_id`,`approved`,`description`,`date`) VALUES ('Oglas3','1',1,'new cap','2018-04-22T07:08:09'); 
 
 INSERT INTO `isa`.`repertory` (`id`) VALUES ('1');
 INSERT INTO `isa`.`repertory` (`id`) VALUES ('2');

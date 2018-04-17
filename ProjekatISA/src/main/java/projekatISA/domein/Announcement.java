@@ -16,6 +16,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -58,6 +59,9 @@ public class Announcement {
 	@JsonManagedReference
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="announcement")
 	private Set<Bid> bid = new HashSet<>();
+	
+	@ManyToOne(optional = false)
+	private User user;
 	
 	
 	public Announcement() {
@@ -126,6 +130,14 @@ public class Announcement {
 
 	public void setApproved(boolean approved) {
 		this.approved = approved;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 

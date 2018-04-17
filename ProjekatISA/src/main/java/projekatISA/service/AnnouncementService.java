@@ -56,5 +56,12 @@ public class AnnouncementService implements AnnouncementServiceInterface{
 		}
 		return null;
 	}
+
+	@Override
+	public List<Announcement> getAnnOfUser(Long id) {
+		List<Announcement> annaouncements = repositoryAnnouncement.findByUser_idEquals(id);
+		
+		return annaouncements;
+	}
 	
 }

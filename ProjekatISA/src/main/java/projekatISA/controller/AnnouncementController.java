@@ -31,7 +31,7 @@ public class AnnouncementController {
 	 */
 	@RequestMapping(value="/addAnnouncement",method=RequestMethod.PUT)
 	public ResponseEntity<Announcement> addAnnouncement(@RequestBody Announcement an){
-	
+
 		Announcement announcement = announcementService.addAnn(an);
 		
 		if(!(announcement==null)) {
@@ -89,6 +89,26 @@ public class AnnouncementController {
 			return new ResponseEntity<>(bids,HttpStatus.OK);
 		}
 		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		
+	}
+	
+	
+	/**
+	 * Get announcements of user
+	 * @param id of user
+	 * @return
+	 */
+	@RequestMapping(value="/getAnnauncementsOfUser/{id}", method=RequestMethod.GET)
+	public ResponseEntity<List<Announcement>> getAnnauncementsOfUser(@PathVariable Long id){
+		
+			List<Announcement> retunrList = announcementService.getAnnOfUser(id);
+			
+			if(!(retunrList==null)) {
+				return new ResponseEntity<>(retunrList,HttpStatus.OK);
+			}
+		
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		
 		
 	}
 	
