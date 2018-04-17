@@ -13,4 +13,6 @@ public interface SeatServiceInterface {
 	
 	Seat add(Seat seat);
 	
+	List<Seat> getSeats(Long id);
+	
 }
