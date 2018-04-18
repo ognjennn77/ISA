@@ -13,19 +13,17 @@ INSERT INTO `isa`.`thematicprops` (`id`, `description`, `name`, `price`, `cinema
 INSERT INTO `isa`.`thematicprops` (`id`, `description`, `name`, `price`, `cinema_theatre_id`,`reserved`) VALUES ('2','Zelena kapa','Kapa','200','3',0);
 INSERT INTO `isa`.`thematicprops` (`id`, `description`, `name`, `price`, `cinema_theatre_id`,`reserved`) VALUES ('3','zuta kapa','Kapa','200','3',0);
 
-INSERT INTO `isa`.`bid` (`offered`,`user_id`,`announcement_id`) VALUES ('111','1','1');
 INSERT INTO `isa`.`bid` (`offered`,`user_id`,`announcement_id`) VALUES ('123','2','1');
 INSERT INTO `isa`.`bid` (`offered`,`user_id`,`announcement_id`) VALUES ('888','3','1');
-INSERT INTO `isa`.`bid` (`offered`,`user_id`,`announcement_id`) VALUES ('222','2','3'); 
+INSERT INTO `isa`.`bid` (`offered`,`user_id`,`announcement_id`) VALUES ('222','1','3'); 
 INSERT INTO `isa`.`bid` (`offered`,`user_id`,`announcement_id`) VALUES ('444','3','3');
-INSERT INTO `isa`.`bid` (`offered`,`user_id`,`announcement_id`) VALUES ('333','1','2'); 
 INSERT INTO `isa`.`bid` (`offered`,`user_id`,`announcement_id`) VALUES ('555','2','2'); 
-INSERT INTO `isa`.`bid` (`offered`,`user_id`,`announcement_id`) VALUES ('777','3','2'); 
+INSERT INTO `isa`.`bid` (`offered`,`user_id`,`announcement_id`) VALUES ('777','3','2');
 
 INSERT INTO `isa`.`announcement` (`name`,`user_id`,`approved`,`description`,`date`) VALUES ('Privezak','1',1,'Plavi sa zutim','2018-10-30T07:08:09'); 
 INSERT INTO `isa`.`announcement` (`name`,`user_id`,`approved`,`description`,`date`) VALUES ('Oglas1','1',1,'new cd','2018-04-22T07:08:09'); 
 INSERT INTO `isa`.`announcement` (`name`,`user_id`,`approved`,`description`,`date`) VALUES ('Oglas2','2',1,'new ball','2018-04-22T07:08:09'); 
-INSERT INTO `isa`.`announcement` (`name`,`user_id`,`approved`,`description`,`date`) VALUES ('Oglas3','2',1,'new cap','2018-04-22T07:08:09'); 
+INSERT INTO `isa`.`announcement` (`name`,`user_id`,`approved`,`description`,`date`) VALUES ('Oglas3','2',1,'new cap','2018-04-22T07:08:09');
 
 INSERT INTO `isa`.`repertory` (`id`) VALUES ('1');
 INSERT INTO `isa`.`repertory` (`id`) VALUES ('2');
@@ -65,8 +63,12 @@ INSERT INTO `isa`.`seat_projectiont` (`seat_id`, `projectiont_id`) VALUES ('1','
 INSERT INTO `isa`.`seat_projectiont` (`seat_id`, `projectiont_id`) VALUES ('2','1');
 INSERT INTO `isa`.`seat_projectiont` (`seat_id`, `projectiont_id`) VALUES ('3','1');
 INSERT INTO `isa`.`seat_projectiont` (`seat_id`, `projectiont_id`) VALUES ('4','1');
+INSERT INTO `isa`.`seat_projectiont` (`seat_id`, `projectiont_id`) VALUES ('5','1');
+INSERT INTO `isa`.`seat_projectiont` (`seat_id`, `projectiont_id`) VALUES ('6','1');
+INSERT INTO `isa`.`seat_projectiont` (`seat_id`, `projectiont_id`) VALUES ('7','1');
+INSERT INTO `isa`.`seat_projectiont` (`seat_id`, `projectiont_id`) VALUES ('8','1');
 INSERT INTO `isa`.`seat_projectiont` (`seat_id`, `projectiont_id`) VALUES ('1','2');
 INSERT INTO `isa`.`seat_projectiont` (`seat_id`, `projectiont_id`) VALUES ('2','2');
 INSERT INTO `isa`.`seat_projectiont` (`seat_id`, `projectiont_id`) VALUES ('3','2');
 INSERT INTO `isa`.`seat_projectiont` (`seat_id`, `projectiont_id`) VALUES ('4','2');
-
+INSERT INTO `isa`.`seat_projectiont` (`seat_id`, `projectiont_id`) VALUES ('5','2');
