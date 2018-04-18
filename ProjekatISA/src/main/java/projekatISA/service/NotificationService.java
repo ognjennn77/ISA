@@ -41,7 +41,16 @@ public class NotificationService implements NotificationServiceInterface{
 	public List<Notification> getNotiOfUser(Long id) {
 		
 		List<Notification> listNoti = repositoryNotification.findByUsertwo_idEquals(id);
-		return listNoti;
+		
+		List<Notification> returnList = new ArrayList<>();
+		
+		for(int i=0; i<listNoti.size();i++) {
+			if(listNoti.get(i).getType().equals("Accept bid")) {
+				returnList.add(listNoti.get(i));
+			}
+		}
+		
+		return returnList;
 	}
 	
 	/**

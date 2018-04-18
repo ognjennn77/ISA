@@ -31,8 +31,8 @@ public class Notification {
 	private User usertwo;
 	
 	//koji oglas administrator treba da odobrava
-	@JsonBackReference
-	@ManyToOne
+	
+	@ManyToOne(optional=true)
 	private Announcement announcement;
 	
 	
