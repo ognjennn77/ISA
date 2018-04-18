@@ -33,7 +33,12 @@ public class ReservationService implements ReservationServiceInterface{
 		c.add(Calendar.MINUTE, 30);
 		Date d = c.getTime();
 		String newStopTime = sdfStopTime.format(d);
-		System.out.println(newStopTime);
+		System.out.println(d);
+		
+		if(d.before(reservation.getProjectionterm().getTerm())) {
+			System.out.println("usoo");
+		}
+		
 		return reservation;
 	}
 
