@@ -84,5 +84,30 @@ public class NotificationService implements NotificationServiceInterface{
 		
 		return noti;
 	}
+
+	//prvi if da vratim samo ona obavestenja za koja je admin zaduzen a ne da
+	//vracam i neka druga obavestenja(npr. da ne vrati obavestenje za prihvatanje ponude)
+	
+	//drugi if vracam samo ona obavestenja koja jos niko nije preuzeo na sebe
+	@Override
+	public List<Notification> getAnnouncementForAdmin(Long id) {
+		
+		List<Notification> notiList = repositoryNotification.findByTypeEquals("Approve announcement");
+		
+		List<Notification> returnList = new ArrayList<>();
+		
+		for(int i = 0; i< notiList.size();i++) {
+			if(notiList.get(i).getUsertwo().getId().equals(id)) {
+				User admin = notiList.get(i).getAnnouncement().getAdmin();
+				if(admin==null || admin.getId().equals(id)) {
+					returnList.add(notiList.get(i));
+				}
+				
+			}
+			
+		}
+		return returnList;
+		
+	}
 	
 }

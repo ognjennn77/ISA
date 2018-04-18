@@ -76,7 +76,8 @@ public class AnnouncementService implements AnnouncementServiceInterface{
 	}
 
 	/**
-	 * Vracam samo one announcement koji nisu od ulogovanog usera
+	 * Pomocu prvog if-a vracam samo one announcement koji nisu od ulogovanog usera
+	 * Pomocu drugog if-a vracam samo one annoucement koji su odobreni od strane administratora
 	 */
 	@Override
 	public List<Announcement> getAllAnn(Long id) {
@@ -85,7 +86,9 @@ public class AnnouncementService implements AnnouncementServiceInterface{
 		if(!(returnList==null)) {
 			for(int i = 0; i<returnList.size();i++) {
 				if(!(returnList.get(i).getUser().getId().equals(id))) {
-					listAnnouncement.add(returnList.get(i));
+					if(returnList.get(i).isApproved()) {
+						listAnnouncement.add(returnList.get(i));
+					}
 				}
 			}
 			
@@ -96,9 +99,45 @@ public class AnnouncementService implements AnnouncementServiceInterface{
 
 	@Override
 	public List<Announcement> getAnnOfUser(Long id) {
-		List<Announcement> annaouncements = repositoryAnnouncement.findByUser_idEquals(id);
+		List<Announcement> announcements = repositoryAnnouncement.findByUser_idEquals(id);
+		List<Announcement> returnList = new ArrayList<>();
 		
-		return annaouncements;
+		for(int i = 0;i<announcements.size();i++) {
+			if(announcements.get(i).isApproved()) {
+				returnList.add(announcements.get(i));
+			}
+		}
+		return returnList;
+	}
+
+	@Override
+	public Announcement getAnnouncementOnAdmin(Long id, Long an) {
+		
+		User user = repositoryUser.findByIdEquals(id);
+		
+		if(!(user==null)) {
+			Announcement announcement = repositoryAnnouncement.findByIdEquals(an);
+		
+			if(!(announcement==null)) {
+				announcement.setAdmin(user);
+				repositoryAnnouncement.save(announcement);
+				return announcement;
+			}
+		}
+		
+		return null;
+	}
+
+	@Override
+	public Announcement approveAnn(Long an) {
+		
+		Announcement announcement = repositoryAnnouncement.findByIdEquals(an);
+	
+		if(!(announcement==null)) {
+			announcement.setApproved(true);
+			repositoryAnnouncement.save(announcement);
+		}
+		return null;
 	}
 	
 }

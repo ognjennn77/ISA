@@ -78,4 +78,23 @@ public class NotificationController {
 		
 	}
 	
+	/**
+	 * Get announcement to be checked by admin(notification)
+	 * @param id of admin
+	 * @return
+	 */
+	@RequestMapping(value="/getAnnForAdmin/{id}", method=RequestMethod.GET)
+	public ResponseEntity<List<Notification>> getAnnForAdmin(@PathVariable Long id){
+		
+		List<Notification> listnoti = notificationService.getAnnouncementForAdmin(id);
+		
+		if(!(listnoti==null)) {
+			return new ResponseEntity<>(listnoti,HttpStatus.OK);
+		}
+		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+	}
+	
+	
+	
+	
 }

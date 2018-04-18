@@ -40,8 +40,15 @@ public class Announcement {
 	@Column(name="description")
 	private String description;
 	
+	
+	//da li je oglas odobren
 	@Column(name="approved")
 	private boolean approved;
+	
+	
+	//neki admin je preuzeo oglas na pregled
+	@ManyToOne
+	private User admin;
 	
 	@Temporal(value = TemporalType.TIMESTAMP)
     @JsonFormat(pattern = "yyyy-MM-dd' 'HH:mm:ss", shape = JsonFormat.Shape.STRING,timezone = "Europe/Madrid")
@@ -56,10 +63,13 @@ public class Announcement {
 	 * 
 	 */
 	
+	//oglas moze da ima vise ponuda
 	@JsonManagedReference
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="announcement")
 	private Set<Bid> bid = new HashSet<>();
 	
+	
+	//ko je napravio oglas
 	@ManyToOne(optional = false)
 	private User user;
 	
@@ -139,6 +149,15 @@ public class Announcement {
 	public void setUser(User user) {
 		this.user = user;
 	}
+
+	public User getAdmin() {
+		return admin;
+	}
+
+	public void setAdmin(User admin) {
+		this.admin = admin;
+	}
+
 
 
 		

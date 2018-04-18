@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import projekatISA.domein.Announcement;
 import projekatISA.domein.Bid;
+import projekatISA.domein.Notification;
 import projekatISA.service.AnnouncementService;
 
 @CrossOrigin(origins="http://localhost:4200",allowedHeaders="*")
@@ -113,5 +114,33 @@ public class AnnouncementController {
 	}
 	
 	
+	/**
+	 * Admin preuzima oglas na sebe
+	 * @param id od admina
+	 * @param an je id od oglasa
+	 * @return
+	 */
+	@RequestMapping(value="/getAnnOnAdmin/{id}/{an}",  method=RequestMethod.GET)
+	public ResponseEntity<Announcement> getAnnOnAdmin(@PathVariable Long id, @PathVariable Long an){
+		
+		Announcement retAnn  = announcementService.getAnnouncementOnAdmin(id,an);
+		
+		if(!(retAnn==null)) {
+			return new ResponseEntity<>(retAnn,HttpStatus.OK);
+		}
+		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+	}
+	
+	
+	
+	@RequestMapping(value="/approveAnnouncement/{an}", method=RequestMethod.GET)
+	public ResponseEntity<Announcement> approveAnnouncement(@PathVariable Long an){
+		
+		Announcement ann = announcementService.approveAnn(an);
+		if(!(an==null)) {
+			return new ResponseEntity<>(ann,HttpStatus.OK);
+		}
+		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+	}
 	
 }

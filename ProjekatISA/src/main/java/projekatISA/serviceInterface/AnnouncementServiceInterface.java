@@ -16,4 +16,8 @@ public interface AnnouncementServiceInterface {
 	List<Announcement> getAllAnn(Long id);
 	
 	List<Announcement> getAnnOfUser(Long id);
+	
+	Announcement getAnnouncementOnAdmin(Long id, Long an);
+	
+	Announcement approveAnn(Long an);
 }

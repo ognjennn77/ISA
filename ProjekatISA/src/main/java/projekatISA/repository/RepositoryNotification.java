@@ -13,4 +13,5 @@ public interface RepositoryNotification extends JpaRepository<Notification, Long
 	
 	List<Notification> findByUsertwo_idEquals(Long id);
 	
+	List<Notification> findByTypeEquals(String s);
 }
