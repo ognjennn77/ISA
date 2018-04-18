@@ -63,6 +63,14 @@ public class Seat {
 		this.projectiont = projectiont;
 	}
 
+	public boolean isReserved() {
+		return reserved;
+	}
+
+	public void setReserved(boolean reserved) {
+		this.reserved = reserved;
+	}
+
 	
 
 }

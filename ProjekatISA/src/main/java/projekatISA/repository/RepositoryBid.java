@@ -1,5 +1,7 @@
 package projekatISA.repository;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -14,6 +16,6 @@ public interface RepositoryBid extends JpaRepository<Bid, Long>{
 	
 	Bid findByUser_idEqualsAndAnnouncement_idEquals(Long id,Long an);
 	
-	
+	List<Bid> findByAnnouncement_idEquals(Long ann);
 	
 }

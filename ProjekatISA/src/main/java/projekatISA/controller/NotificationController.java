@@ -58,7 +58,24 @@ public class NotificationController {
 		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	}
 	
-	
-	
+	/**
+	 * Salje obavestenja onima cija ponuda nije prihvacena
+	 * @param an je id od onog oglasa na kome se nalaze ponude
+	 * @param bid je id od one ponude koja je prihvacena
+	 * @param id je id od usera koji sale obavestejne
+	 * @return
+	 */
+	@RequestMapping(value="/notAcceptBid/{id}/{an}/{bid}", method=RequestMethod.GET)
+	public ResponseEntity<List<Notification>> notAcceptBid(@PathVariable Long an, @PathVariable Long bid, @PathVariable Long id){
+			
+		
+		List<Notification> returnList = notificationService.notAcceptB(an,bid,id);
+		
+		if(!(returnList==null)) {
+			return new ResponseEntity<>(returnList,HttpStatus.OK);
+		}
+		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		
+	}
 	
 }

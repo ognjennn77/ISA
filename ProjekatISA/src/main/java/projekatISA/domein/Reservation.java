@@ -13,6 +13,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity(name="reservation")
 public class Reservation {
 	
@@ -28,10 +30,11 @@ public class Reservation {
 	private ProjectionTerm projectionterm;
 	
 	@OneToMany
-	private Set<Seat> seats = new HashSet();
+	private List<Seat> seats;
 	
+	@JsonBackReference
 	@ManyToOne
-	private User user;
+	private User user1;
 	
 	Reservation(){
 		
@@ -65,25 +68,27 @@ public class Reservation {
 		this.projectionterm = projectionterm;
 	}
 
-	public List<Seat> getSeats() {
-		List<Seat> s = new ArrayList<>(seats);
-		if(s.size()>0) {
-			return s;
-		}
-		return null;
+	
+
+	
+
+	public User getUser1() {
+		return user1;
 	}
 
-	public void setSeats(Set<Seat> seats) {
+	public void setUser1(User user1) {
+		this.user1 = user1;
+	}
+
+	public void setSeats(List<Seat> seats) {
 		this.seats = seats;
 	}
 
-	public User getUser() {
-		return user;
+	public List<Seat> getSeats() {
+		return seats;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
-	}
+	
 	
 
 }

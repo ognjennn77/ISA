@@ -17,12 +17,11 @@ public class Notification {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
-	@ManyToOne(optional=false)
+
+	@ManyToOne
 	private User userone;
 
 	
-	
-
 	@Column(name="description")
 	private String description;
 
@@ -32,7 +31,7 @@ public class Notification {
 	
 	
 	@JsonBackReference
-	@ManyToOne(optional=false)
+	@ManyToOne
 	private User usertwo;
 	
 	
@@ -47,6 +46,7 @@ public class Notification {
 		this.id = id;
 		this.description = description;
 		this.type=type;
+		
 	}
 	
 	
@@ -98,7 +98,6 @@ public class Notification {
 	public void setUsertwo(User usertwo) {
 		this.usertwo = usertwo;
 	}
-
 
 
 

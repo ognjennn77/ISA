@@ -9,4 +9,5 @@ public interface NotificationServiceInterface {
 	Notification newnotification(Notification noti);
 	
 	List<Notification> getNotiOfUser(Long id);
+	List<Notification> notAcceptB(Long an, Long bid,Long id);
 }

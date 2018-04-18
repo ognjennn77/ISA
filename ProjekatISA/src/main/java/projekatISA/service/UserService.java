@@ -139,11 +139,11 @@ public class UserService implements UserServiceInterface{
 	public List<Notification> findNotification(Long id) {
 		User user = repositoryUser.findByIdEquals(id);
 		if(!(user==null)) {
-			List<Notification> notifi = user.getNotification();
+			//List<Notification> notifi = user.getNotification();
 			
-			if(!(notifi==null)) {
-				return notifi;
-			}
+			//if(!(notifi==null)) {
+			//	return notifi;
+		//	}
 		}
 		return null;
 	}
