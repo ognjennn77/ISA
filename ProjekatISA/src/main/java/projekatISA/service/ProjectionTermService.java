@@ -30,6 +30,7 @@ public class ProjectionTermService implements ProjectionTermServiceInterface{
 	@Override
 	public ProjectionTerm findOne(Long id) {
 		ProjectionTerm projectionTerm = repositoryProjectionTerm.findOneById(id);
+		System.out.println("hhhhhh"+projectionTerm.getProjectiondate().getDate());
 		return projectionTerm;
 	}
 

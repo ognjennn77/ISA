@@ -75,7 +75,7 @@ public class SeatController {
 	public ResponseEntity<Seat> reserving(@PathVariable Long id,@PathVariable Long tp){
 		
 		Seat seat = seatService.reservingSeat(id,tp);
-		System.out.println("sve okej");
+		
 		if(!(seat==null)) {
 			return new ResponseEntity<>(seat,HttpStatus.OK);
 		}
