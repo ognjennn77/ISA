@@ -62,9 +62,15 @@ public class ReservationService implements ReservationServiceInterface{
 		
 		for(int i=0; i<reservation.size();i++) {
 			if(reservation.get(i).getUser1().getId().equals(id)) {
-				newres.add(reservation.get(i));
-			}
-			
+				
+				System.out.println("od rez vreme"+reservation.get(i).getProjectionterm().getTerm());
+				Date date = new Date();
+				System.out.println("tr vreme"+date);
+				if(date.before(reservation.get(i).getProjectionterm().getTerm())) {
+					System.out.println("jestee");
+					newres.add(reservation.get(i));
+				}
+			}			
 		}
 		return newres;
 	}
@@ -73,15 +79,27 @@ public class ReservationService implements ReservationServiceInterface{
 	public Reservation deleteReser(Long id) {
 		Reservation reser = repositoryReservation.findOneById(id);
 		System.out.println("datum"+reser.getProjectionterm().getTerm());
-		if(reser.getSeats().size()!=0) {
-			for(int i=0; i<reser.getSeats().size();i++) {
-				reser.getSeats().get(i).setReserved(false);
+		
+		SimpleDateFormat sdfStopTime = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.0");
+		Calendar c = Calendar.getInstance();
+		c.add(Calendar.MINUTE, 30);
+		Date d = c.getTime();
+		String newStopTime = sdfStopTime.format(d);
+		System.out.println(d);
+		
+		if(d.before(reser.getProjectionterm().getTerm())) {
+			System.out.println("moze brisati");
+			if(reser.getSeats().size()!=0) {
+				for(int i=0; i<reser.getSeats().size();i++) {
+					reser.getSeats().get(i).setReserved(false);
+				}
+			}
+			if(!(reser==null)) {
+				repositoryReservation.delete(reser);
+				return reser;
 			}
 		}
-		if(!(reser==null)) {
-			repositoryReservation.delete(reser);
-			return reser;
-		}
+		System.out.println("ne moze brisati");
 		return null;
 	}
 

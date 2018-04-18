@@ -4,11 +4,11 @@ INSERT INTO `isa`.`cinematheatre` (`id`,`name`,`description`,`address`,`rating`,
 
 INSERT INTO `isa`.`cinematheatre` (`id`,`name`,`description`,`address`,`rating`,`cinema`,`repertory_id`) VALUES ('5' ,'Bioskop','vrlo dobar','Mihajla Pupina 11','4',1,'2');
 
-INSERT INTO `isa`.`user` (`id`, `adminfanzone`, `email`, `name`, `surname`, `password`, `city`, `phone_number`, `active`, `role`) VALUES ('1', 0, 'dragan.dulic1@gmail.com', 'Dragan', 'Dulic', 'v', 'Bukovac', '061555333', 1,'user');
-INSERT INTO `isa`.`user` (`id`, `adminfanzone`, `email`, `name`, `surname`, `password`, `city`, `phone_number`, `active`, `role`) VALUES ('2', 0, 'grujica995@gmail.com', 'Aleksandra', 'Grujic', 'sa', 'Novi Sad', '0647896543', 1,'user');
-INSERT INTO `isa`.`user` (`id`, `adminfanzone`,`email`, `name`, `surname`, `password`, `city`, `phone_number`, `active`, `role`) VALUES ('3', 0, 'donthavename3478@gmail.com', 'Nikola', 'Nikolic', 'sa2', 'Beograd', '063319583', 1,'user');
-INSERT INTO `isa`.`user` (`id`, `adminfanzone`,`email`, `name`, `surname`, `password`, `city`, `phone_number`, `active`, `role`) VALUES ('4', 1, 'admin', 'Marko', 'Markovic', 'admin', 'Nis', '065786756', 1,'adminF');
-INSERT INTO `isa`.`user` (`id`, `adminfanzone`,`email`, `name`, `surname`, `password`, `city`, `phone_number`, `active`, `role`) VALUES ('5', 1, 'admin1', 'Jelena', 'Jelenic', 'admin1', 'Subotica', '069341523', 1,'adminS');
+INSERT INTO `isa`.`user` (`id`, `email`, `name`, `surname`, `password`, `city`, `phone_number`, `active`, `role`) VALUES ('1', 'dragan.dulic1@gmail.com', 'Dragan', 'Dulic', 'v', 'Bukovac', '061555333', 1,'user');
+INSERT INTO `isa`.`user` (`id`,  `email`, `name`, `surname`, `password`, `city`, `phone_number`, `active`, `role`) VALUES ('2', 'grujica995@gmail.com', 'Aleksandra', 'Grujic', 'sa', 'Novi Sad', '0647896543', 1,'user');
+INSERT INTO `isa`.`user` (`id`, `email`, `name`, `surname`, `password`, `city`, `phone_number`, `active`, `role`) VALUES ('3', 'donthavename3478@gmail.com', 'Nikola', 'Nikolic', 'sa2', 'Beograd', '063319583', 1,'user');
+INSERT INTO `isa`.`user` (`id`, `email`, `name`, `surname`, `password`, `city`, `phone_number`, `active`, `role`) VALUES ('4', 'admin', 'Marko', 'Markovic', 'admin', 'Nis', '065786756', 1,'adminF');
+INSERT INTO `isa`.`user` (`id`, `email`, `name`, `surname`, `password`, `city`, `phone_number`, `active`, `role`) VALUES ('5', 'admin1', 'Jelena', 'Jelenic', 'admin1', 'Subotica', '069341523', 1,'adminS');
 
 
 INSERT INTO `isa`.`thematicprops` (`id`, `description`, `name`, `price`, `cinema_theatre_id`,`user_id`,`reserved`) VALUES ('1','suncane naocar','naocareee','500','1','1',0);
@@ -45,7 +45,7 @@ INSERT INTO `isa`.`hall` (`id`, `ordinal`, `cinematheatre_id`) VALUES ('1','1','
 INSERT INTO `isa`.`hall` (`id`, `ordinal`, `cinematheatre_id`) VALUES ('3','2','1');
 INSERT INTO `isa`.`hall` (`id`, `ordinal`, `cinematheatre_id`) VALUES ('2','1','5');
 
-INSERT INTO `isa`.`projectionterm` (`id`,`price`, `term`, `hall_id`, `projectiondate_id`) VALUES ('1','200','2018-04-09 15:00','1','1');
+INSERT INTO `isa`.`projectionterm` (`id`,`price`, `term`, `hall_id`, `projectiondate_id`) VALUES ('1','200','2018-04-19 02:00','1','1');
 
 INSERT INTO `isa`.`projectionterm` (`id`,`price`, `term`, `hall_id`, `projectiondate_id`) VALUES ('2','250','2018-04-09 17:00','1','1');
 INSERT INTO `isa`.`projectionterm` (`id`,`price`, `term`, `hall_id`, `projectiondate_id`) VALUES ('3','300','2018-04-11 15:00','1','3');
@@ -88,7 +88,7 @@ INSERT INTO `isa`.`seat_projectiont` (`seat_id`, `projectiont_id`) VALUES ('14',
 INSERT INTO `isa`.`seat_projectiont` (`seat_id`, `projectiont_id`) VALUES ('15','2');
 INSERT INTO `isa`.`seat_projectiont` (`seat_id`, `projectiont_id`) VALUES ('16','2');
 
-INSERT INTO `isa`.`reservation` (`id`, `datea`, `ordinal`,`projectiona`, `projectionterm_id`, `user1_id`) VALUES ('1','09.04.2018','1','Džumandži: Dobrodošli u džunglu 3D','1','2');
+INSERT INTO `isa`.`reservation` (`id`, `datea`, `ordinal`,`projectiona`, `projectionterm_id`, `user1_id`) VALUES ('1','19.04.2018','1','Džumandži: Dobrodošli u džunglu 3D','1','2');
 INSERT INTO `isa`.`reservation` (`id`, `datea`, `ordinal`,`projectiona`, `projectionterm_id`, `user1_id`) VALUES ('2','09.04.2018','2','Džumandži: Dobrodošli u džunglu 3D','2','2');
 INSERT INTO `isa`.`reservation` (`id`, `datea`, `ordinal`,`projectiona`, `projectionterm_id`, `user1_id`) VALUES ('3','09.04.2018','3','Džumandži: Dobrodošli u džunglu 3D','1','1');
 
