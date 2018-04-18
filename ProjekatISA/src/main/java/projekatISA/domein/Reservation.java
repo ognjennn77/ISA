@@ -33,6 +33,9 @@ public class Reservation {
 	@Column(name="dateA")
 	private String dateA;
 	
+	@Column(name="projectionA")
+	private String projectionA;
+	
 	@OneToMany
 	private List<Seat> seats;
 	
@@ -98,6 +101,14 @@ public class Reservation {
 
 	public void setDateA(String dateA) {
 		this.dateA = dateA;
+	}
+
+	public String getProjectionA() {
+		return projectionA;
+	}
+
+	public void setProjectionA(String projectionA) {
+		this.projectionA = projectionA;
 	}
 
 	
