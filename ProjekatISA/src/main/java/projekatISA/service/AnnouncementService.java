@@ -8,7 +8,11 @@ import org.springframework.stereotype.Service;
 
 import projekatISA.domein.Announcement;
 import projekatISA.domein.Bid;
+import projekatISA.domein.Notification;
+import projekatISA.domein.User;
 import projekatISA.repository.RepositoryAnnouncement;
+import projekatISA.repository.RepositoryNotification;
+import projekatISA.repository.RepositoryUser;
 import projekatISA.serviceInterface.AnnouncementServiceInterface;
 
 @Service
@@ -17,10 +21,34 @@ public class AnnouncementService implements AnnouncementServiceInterface{
 	
 	@Autowired 
 	private RepositoryAnnouncement repositoryAnnouncement;
-
+	
+	@Autowired
+	private RepositoryNotification repositoryNotification;
+	
+	@Autowired
+	private RepositoryUser repositoryUser;
+	
+	/**
+	 * Dodavanje oglasa i slanje oglasa svim administratorima na proveru
+	 */
 	@Override
 	public Announcement addAnn(Announcement an) {
-		return repositoryAnnouncement.save(an);
+		
+		repositoryAnnouncement.save(an);
+		
+		List<User> adminiFanZone = repositoryUser.findByAdminfanzoneEquals(true);
+		
+		for(int i = 0; i<adminiFanZone.size();i++) {
+			
+			Notification notification = new Notification();
+			notification.setUserone(an.getUser());
+			notification.setType("Approve announcement");
+			notification.setUsertwo(adminiFanZone.get(i));
+			notification.setAnnouncement(an);
+			notification.setDescription("Checking announcement '" + an.getName() + "'!" );
+			repositoryNotification.save(notification);
+		}
+		return an;
 	}
 
 	@Override

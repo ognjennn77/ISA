@@ -17,23 +17,23 @@ public class Notification {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
-
 	@ManyToOne
 	private User userone;
 
-	
 	@Column(name="description")
 	private String description;
 
 	@Column(name="type")
 	private String type;
 	
-	
-	
 	@JsonBackReference
 	@ManyToOne
 	private User usertwo;
 	
+	//koji oglas administrator treba da odobrava
+	@JsonBackReference
+	@ManyToOne
+	private Announcement announcement;
 	
 	
 	public Notification() {
@@ -42,11 +42,11 @@ public class Notification {
 	}
 	
 	
-	public Notification(Long id, String description,String type) {
+	public Notification(Long id, String description,String type,Announcement an) {
 		this.id = id;
 		this.description = description;
 		this.type=type;
-		
+		this.announcement=an;
 	}
 	
 	
@@ -97,6 +97,16 @@ public class Notification {
 
 	public void setUsertwo(User usertwo) {
 		this.usertwo = usertwo;
+	}
+
+
+	public Announcement getAnnouncement() {
+		return announcement;
+	}
+
+
+	public void setAnnouncement(Announcement announcement) {
+		this.announcement = announcement;
 	}
 
 

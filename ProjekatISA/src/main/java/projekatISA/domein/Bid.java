@@ -30,6 +30,9 @@ public class Bid {
 	@ManyToOne(optional=false)
 	private Announcement announcement;
 	
+	@Column(name="accept")
+	private boolean accept;
+	
 	
 	public Bid() {
 		
@@ -75,6 +78,14 @@ public class Bid {
 
 	public void setAnnouncement(Announcement announcement) {
 		this.announcement = announcement;
+	}
+
+	public boolean isAccept() {
+		return accept;
+	}
+
+	public void setAccept(boolean accept) {
+		this.accept = accept;
 	}
 	
 

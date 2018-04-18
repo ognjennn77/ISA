@@ -65,9 +65,12 @@ public class NotificationService implements NotificationServiceInterface{
 				notification.setDescription("Your offer on announcement '" + announcement.getName() + "' not accepted!");
 				notification.setUserone(user);
 				notification.setUsertwo(listBids.get(i).getUser());
+				notification.setType("Accept bid");
 				noti.add(notification);
 				repositoryNotification.save(notification);
 			}
+			listBids.get(i).setAccept(true);
+			repositoryBid.save(listBids.get(i));
 		}
 		
 		return noti;

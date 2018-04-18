@@ -47,7 +47,8 @@ public class User {
 	@Column(name="active")
 	private boolean active;
 	
-	
+	@Column(name="adminfanzone")
+	private boolean adminfanzone;
 	
 	
 	
@@ -177,6 +178,16 @@ public class User {
 
 	public void setReservations(Set<Reservation> reservations) {
 		this.reservations = reservations;
+	}
+
+
+	public boolean isAdminfanzone() {
+		return adminfanzone;
+	}
+
+
+	public void setAdminfanzone(boolean adminfanzone) {
+		this.adminfanzone = adminfanzone;
 	}
 
 
