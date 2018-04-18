@@ -1,6 +1,7 @@
 
 package projekatISA.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,7 @@ public class ReservationService implements ReservationServiceInterface{
 	@Override
 	public Reservation findOne(Long id) {
 		Reservation reservation = repositoryReservation.findOneById(id);
+		System.out.println(reservation.getUser1().getId());
 		return reservation;
 	}
 
@@ -35,6 +37,22 @@ public class ReservationService implements ReservationServiceInterface{
 		System.out.println("eeeee");
 		return repositoryReservation.save(reservation);
 	}
+
+	@Override
+	public List<Reservation> getReservation(Long id) {
+		List<Reservation> reservation = repositoryReservation.findAll();
+		List<Reservation> newres=new ArrayList<Reservation>();
+		
+		for(int i=0; i<reservation.size();i++) {
+			if(reservation.get(i).getUser1().getId().equals(id)) {
+				newres.add(reservation.get(i));
+			}
+			
+		}
+		return newres;
+	}
+
+	
 
 }
 

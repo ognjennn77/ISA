@@ -57,6 +57,21 @@ public class ReservationController {
 		}		
 		return new ResponseEntity<>(reservation,HttpStatus.OK);
 	}
+	
+	@RequestMapping(value="/getReservations/{id}",method=RequestMethod.GET)
+	public ResponseEntity<List<Reservation>> getProjectionDates(@PathVariable Long id){
+		
+		List<Reservation> reservation = reservationService.getReservation(id);
+		System.out.println(reservation.get(0).getProjectionterm().getId());
+		System.out.println(reservation.get(0).getSeats().size());
+		System.out.println(reservation.get(0).getUser1().getId());
+		if(reservation==null) {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+		return new ResponseEntity<>(reservation,HttpStatus.OK);
+	}
+	
+	
 
 }
 
