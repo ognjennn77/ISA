@@ -22,10 +22,10 @@ INSERT INTO `isa`.`bid` (`offered`,`user_id`,`announcement_id`,`accept`) VALUES 
 INSERT INTO `isa`.`bid` (`offered`,`user_id`,`announcement_id`,`accept`) VALUES ('555','2','2',0); 
 INSERT INTO `isa`.`bid` (`offered`,`user_id`,`announcement_id`,`accept`) VALUES ('777','3','2',0);
 
-INSERT INTO `isa`.`announcement` (`name`,`user_id`,`approved`,`description`,`date`) VALUES ('Privezak','1',1,'Plavi sa zutim','2018-10-30T07:08:09'); 
-INSERT INTO `isa`.`announcement` (`name`,`user_id`,`approved`,`description`,`date`) VALUES ('Oglas1','1',1,'new cd','2018-04-22T07:08:09'); 
-INSERT INTO `isa`.`announcement` (`name`,`user_id`,`approved`,`description`,`date`) VALUES ('Oglas2','2',1,'new ball','2018-04-22T07:08:09'); 
-INSERT INTO `isa`.`announcement` (`name`,`user_id`,`approved`,`description`,`date`) VALUES ('Oglas3','2',1,'new cap','2018-04-22T07:08:09');
+INSERT INTO `isa`.`announcement` (`name`,`user_id`,`approved`,`description`,`date`,`sold`) VALUES ('Privezak','1',1,'Plavi sa zutim','2018-10-30T07:08:09',0); 
+INSERT INTO `isa`.`announcement` (`name`,`user_id`,`approved`,`description`,`date`,`sold`) VALUES ('Oglas1','1',1,'new cd','2018-04-22T07:08:09',0); 
+INSERT INTO `isa`.`announcement` (`name`,`user_id`,`approved`,`description`,`date`,`sold`) VALUES ('Oglas2','2',1,'new ball','2018-04-22T07:08:09',0); 
+INSERT INTO `isa`.`announcement` (`name`,`user_id`,`approved`,`description`,`date`,`sold`) VALUES ('Oglas3','2',1,'new cap','2018-04-22T07:08:09',0);
 
 INSERT INTO `isa`.`repertory` (`id`) VALUES ('1');
 INSERT INTO `isa`.`repertory` (`id`) VALUES ('2');
@@ -60,6 +60,15 @@ INSERT INTO `isa`.`seat` (`id`, `ordinal`, `reserved`) VALUES ('6','6',0);
 INSERT INTO `isa`.`seat` (`id`, `ordinal`, `reserved`) VALUES ('7','7',0);
 INSERT INTO `isa`.`seat` (`id`, `ordinal`, `reserved`) VALUES ('8','8',0);
 
+INSERT INTO `isa`.`seat` (`id`, `ordinal`, `reserved`) VALUES ('9','1',0);
+INSERT INTO `isa`.`seat` (`id`, `ordinal`, `reserved`) VALUES ('10','2',0);
+INSERT INTO `isa`.`seat` (`id`, `ordinal`, `reserved`) VALUES ('11','3',0);
+INSERT INTO `isa`.`seat` (`id`, `ordinal`, `reserved`) VALUES ('12','4',0);
+INSERT INTO `isa`.`seat` (`id`, `ordinal`, `reserved`) VALUES ('13','5',0);
+INSERT INTO `isa`.`seat` (`id`, `ordinal`, `reserved`) VALUES ('14','6',0);
+INSERT INTO `isa`.`seat` (`id`, `ordinal`, `reserved`) VALUES ('15','7',0);
+INSERT INTO `isa`.`seat` (`id`, `ordinal`, `reserved`) VALUES ('16','8',0);
+
 
 INSERT INTO `isa`.`seat_projectiont` (`seat_id`, `projectiont_id`) VALUES ('1','1');
 INSERT INTO `isa`.`seat_projectiont` (`seat_id`, `projectiont_id`) VALUES ('2','1');
@@ -69,15 +78,21 @@ INSERT INTO `isa`.`seat_projectiont` (`seat_id`, `projectiont_id`) VALUES ('5','
 INSERT INTO `isa`.`seat_projectiont` (`seat_id`, `projectiont_id`) VALUES ('6','1');
 INSERT INTO `isa`.`seat_projectiont` (`seat_id`, `projectiont_id`) VALUES ('7','1');
 INSERT INTO `isa`.`seat_projectiont` (`seat_id`, `projectiont_id`) VALUES ('8','1');
-INSERT INTO `isa`.`seat_projectiont` (`seat_id`, `projectiont_id`) VALUES ('1','2');
-INSERT INTO `isa`.`seat_projectiont` (`seat_id`, `projectiont_id`) VALUES ('2','2');
-INSERT INTO `isa`.`seat_projectiont` (`seat_id`, `projectiont_id`) VALUES ('3','2');
-INSERT INTO `isa`.`seat_projectiont` (`seat_id`, `projectiont_id`) VALUES ('4','2');
-INSERT INTO `isa`.`seat_projectiont` (`seat_id`, `projectiont_id`) VALUES ('5','2');
 
+INSERT INTO `isa`.`seat_projectiont` (`seat_id`, `projectiont_id`) VALUES ('9','2');
+INSERT INTO `isa`.`seat_projectiont` (`seat_id`, `projectiont_id`) VALUES ('10','2');
+INSERT INTO `isa`.`seat_projectiont` (`seat_id`, `projectiont_id`) VALUES ('11','2');
+INSERT INTO `isa`.`seat_projectiont` (`seat_id`, `projectiont_id`) VALUES ('12','2');
+INSERT INTO `isa`.`seat_projectiont` (`seat_id`, `projectiont_id`) VALUES ('13','2');
+INSERT INTO `isa`.`seat_projectiont` (`seat_id`, `projectiont_id`) VALUES ('14','2');
+INSERT INTO `isa`.`seat_projectiont` (`seat_id`, `projectiont_id`) VALUES ('15','2');
+INSERT INTO `isa`.`seat_projectiont` (`seat_id`, `projectiont_id`) VALUES ('16','2');
 
 INSERT INTO `isa`.`reservation` (`id`, `ordinal`, `projectionterm_id`, `user1_id`) VALUES ('1','1','1','2');
 INSERT INTO `isa`.`reservation` (`id`, `ordinal`, `projectionterm_id`, `user1_id`) VALUES ('2','2','2','2');
 INSERT INTO `isa`.`reservation` (`id`, `ordinal`, `projectionterm_id`, `user1_id`) VALUES ('3','3','1','1');
 
-
+INSERT INTO `isa`.`reservation_seats` (`reservation_id`,`seats_id`) VALUES ('1','1');
+INSERT INTO `isa`.`reservation_seats` (`reservation_id`,`seats_id`) VALUES ('2','11');
+INSERT INTO `isa`.`reservation_seats` (`reservation_id`,`seats_id`) VALUES ('2','10');
+INSERT INTO `isa`.`reservation_seats` (`reservation_id`,`seats_id`) VALUES ('3','5');
