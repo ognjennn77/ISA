@@ -59,6 +59,7 @@ public class ReservationController {
 		return new ResponseEntity<>(reservation,HttpStatus.OK);
 	}
 	
+	//vraca rez od usera koje tek slede
 	@RequestMapping(value="/getReservations/{id}",method=RequestMethod.GET)
 	public ResponseEntity<List<Reservation>> getProjectionDates(@PathVariable Long id){
 		
@@ -69,6 +70,19 @@ public class ReservationController {
 		}
 		return new ResponseEntity<>(reservation,HttpStatus.OK);
 	}
+	
+	
+	@RequestMapping(value="/getHistory/{id}",method=RequestMethod.GET)
+	public ResponseEntity<List<Reservation>> getHistoryReser(@PathVariable Long id){
+		
+		List<Reservation> reservation = reservationService.getReservation(id);
+		
+		if(reservation==null) {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+		return new ResponseEntity<>(reservation,HttpStatus.OK);
+	}
+	
 	
 	@RequestMapping(value="/removeReser/{id}", method=RequestMethod.POST)
 	public ResponseEntity<Reservation> removeProps(@PathVariable Long id){
