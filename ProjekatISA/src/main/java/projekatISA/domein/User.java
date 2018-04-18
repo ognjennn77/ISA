@@ -62,13 +62,21 @@ public class User {
 	@OneToMany(mappedBy="user1")
 	private Set<Reservation> reservations = new HashSet();
 	
+	/**
+	 * adminF - admin fan zone
+	 * adminS - admin sistema
+	 */
+	@Column(name="role")
+	private String role;
+	
+	
 	
 	public User() {
 		
 	}
 	
 	
-	public User(String email, String name, String surname, String password, String city, String phoneNumber,boolean active) {
+	public User(String email, String name, String surname, String password, String city, String phoneNumber,boolean active,String role) {
 		this.email=email;
 		this.name=name;
 		this.surname=surname;
@@ -76,6 +84,7 @@ public class User {
 		this.city=city;
 		this.phoneNumber=phoneNumber;
 		this.active=active;
+		this.role=role;
 	}
 
 	public Long getId() {
@@ -189,6 +198,8 @@ public class User {
 	public void setAdminfanzone(boolean adminfanzone) {
 		this.adminfanzone = adminfanzone;
 	}
+
+
 
 
 }
