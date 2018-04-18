@@ -40,6 +40,9 @@ public class Announcement {
 	@Column(name="description")
 	private String description;
 	
+	@Column(name="sold")
+	private boolean sold;
+	
 	
 	//da li je oglas odobren
 	@Column(name="approved")
@@ -79,11 +82,12 @@ public class Announcement {
 		
 	}
 
-	public Announcement(String name,String description,Date date,boolean approved) {
+	public Announcement(String name,String description,Date date,boolean approved,boolean sold) {
 		this.name=name;
 		this.description=description;
 		this.date=date;
 		this.approved=approved;
+		this.sold=sold;
 	}
 
 	public Long getId() {
@@ -156,6 +160,14 @@ public class Announcement {
 
 	public void setAdmin(User admin) {
 		this.admin = admin;
+	}
+
+	public boolean isSold() {
+		return sold;
+	}
+
+	public void setSold(boolean sold) {
+		this.sold = sold;
 	}
 
 
