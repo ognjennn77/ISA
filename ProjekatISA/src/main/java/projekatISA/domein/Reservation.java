@@ -30,6 +30,9 @@ public class Reservation {
 	@ManyToOne
 	private ProjectionTerm projectionterm;
 	
+	@Column(name="dateA")
+	private String dateA;
+	
 	@OneToMany
 	private List<Seat> seats;
 	
@@ -87,6 +90,14 @@ public class Reservation {
 
 	public List<Seat> getSeats() {
 		return seats;
+	}
+
+	public String getDateA() {
+		return dateA;
+	}
+
+	public void setDateA(String dateA) {
+		this.dateA = dateA;
 	}
 
 	

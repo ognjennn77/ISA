@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import projekatISA.domein.Reservation;
 import projekatISA.domein.Seat;
+import projekatISA.domein.ThematicProps;
 import projekatISA.service.ReservationService;
 import projekatISA.service.SeatService;
 
@@ -62,13 +63,24 @@ public class ReservationController {
 	public ResponseEntity<List<Reservation>> getProjectionDates(@PathVariable Long id){
 		
 		List<Reservation> reservation = reservationService.getReservation(id);
-		System.out.println(reservation.get(0).getProjectionterm().getId());
-		System.out.println(reservation.get(0).getSeats().size());
-		System.out.println(reservation.get(0).getUser1().getId());
+		
 		if(reservation==null) {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 		return new ResponseEntity<>(reservation,HttpStatus.OK);
+	}
+	
+	@RequestMapping(value="/removeReser/{id}", method=RequestMethod.POST)
+	public ResponseEntity<Reservation> removeProps(@PathVariable Long id){
+		
+		Reservation r = reservationService.deleteReser(id);
+		
+		if(!(r==null)) {
+			return new ResponseEntity<>(r,HttpStatus.OK);
+		}
+		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		
+		
 	}
 	
 	

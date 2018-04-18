@@ -5,6 +5,7 @@ import java.util.List;
 
 import projekatISA.domein.Reservation;
 import projekatISA.domein.Seat;
+import projekatISA.domein.ThematicProps;
 
 public interface ReservationServiceInterface {
 
@@ -16,4 +17,6 @@ public interface ReservationServiceInterface {
 	Reservation add(Reservation reservation);
 	
 	List<Reservation> getReservation(Long id);
+	
+	Reservation deleteReser(Long id);
 }

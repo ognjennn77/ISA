@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import projekatISA.domein.Reservation;
 import projekatISA.domein.Seat;
+import projekatISA.domein.ThematicProps;
 import projekatISA.repository.RepositoryReservation;
 import projekatISA.repository.RepositorySeat;
 import projekatISA.serviceInterface.ReservationServiceInterface;
@@ -22,13 +23,14 @@ public class ReservationService implements ReservationServiceInterface{
 	@Override
 	public Reservation findOne(Long id) {
 		Reservation reservation = repositoryReservation.findOneById(id);
-		System.out.println(reservation.getUser1().getId());
+		
 		return reservation;
 	}
 
 	@Override
 	public List<Reservation> getAll() {
 		List<Reservation> reservation = repositoryReservation.findAll();
+		
 		return reservation;
 	}
 
@@ -50,6 +52,22 @@ public class ReservationService implements ReservationServiceInterface{
 			
 		}
 		return newres;
+	}
+
+	@Override
+	public Reservation deleteReser(Long id) {
+		Reservation reser = repositoryReservation.findOneById(id);
+		System.out.println("datum"+reser.getProjectionterm().getTerm());
+		if(reser.getSeats().size()!=0) {
+			for(int i=0; i<reser.getSeats().size();i++) {
+				reser.getSeats().get(i).setReserved(false);
+			}
+		}
+		if(!(reser==null)) {
+			repositoryReservation.delete(reser);
+			return reser;
+		}
+		return null;
 	}
 
 	
