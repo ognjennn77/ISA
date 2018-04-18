@@ -45,7 +45,8 @@ public class UserContoller {
 	public ResponseEntity<UserDTO> singInUser(@RequestBody UserDTO user){
 		
 		UserDTO user1 = userService.findUser(user.getEmail(), user.getPassword());
-		
+		System.out.println("aaaaaaaaaaaaaaa " + user1.getRole());
+
 		if(user1==null) {
 
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);

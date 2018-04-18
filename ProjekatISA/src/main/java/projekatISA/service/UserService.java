@@ -34,7 +34,7 @@ public class UserService implements UserServiceInterface{
 				userdto.setPassword(user.getPassword());
 				userdto.setPhoneNumber(user.getPhoneNumber());
 				userdto.setSurname(user.getSurname());
-			
+				userdto.setRole(user.getRole());
 				return userdto;
 			}
 		}

@@ -17,5 +17,5 @@ public interface RepositoryUser extends JpaRepository<User, Long>{
 	
 	User findByIdEquals(Long id);
 	
-	List<User> findByAdminfanzoneEquals(boolean s);
+	List<User> findByRoleEquals(String s);
 }

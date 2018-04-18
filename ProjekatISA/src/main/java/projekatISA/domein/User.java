@@ -47,8 +47,6 @@ public class User {
 	@Column(name="active")
 	private boolean active;
 	
-	@Column(name="adminfanzone")
-	private boolean adminfanzone;
 	
 	
 	
@@ -65,6 +63,7 @@ public class User {
 	/**
 	 * adminF - admin fan zone
 	 * adminS - admin sistema
+	 * user - korisnik
 	 */
 	@Column(name="role")
 	private String role;
@@ -190,13 +189,13 @@ public class User {
 	}
 
 
-	public boolean isAdminfanzone() {
-		return adminfanzone;
+	public String getRole() {
+		return role;
 	}
 
 
-	public void setAdminfanzone(boolean adminfanzone) {
-		this.adminfanzone = adminfanzone;
+	public void setRole(String role) {
+		this.role = role;
 	}
 
 

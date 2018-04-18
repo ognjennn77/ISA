@@ -36,7 +36,7 @@ public class AnnouncementService implements AnnouncementServiceInterface{
 		
 		repositoryAnnouncement.save(an);
 		
-		List<User> adminiFanZone = repositoryUser.findByAdminfanzoneEquals(true);
+		List<User> adminiFanZone = repositoryUser.findByRoleEquals("adminF");
 		
 		for(int i = 0; i<adminiFanZone.size();i++) {
 			
