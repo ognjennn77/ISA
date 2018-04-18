@@ -1,7 +1,10 @@
 
 package projekatISA.service;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +26,14 @@ public class ReservationService implements ReservationServiceInterface{
 	@Override
 	public Reservation findOne(Long id) {
 		Reservation reservation = repositoryReservation.findOneById(id);
-		
+		System.out.println(reservation.getProjectionterm().getTerm());
+		     
+		SimpleDateFormat sdfStopTime = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.0");
+		Calendar c = Calendar.getInstance();
+		c.add(Calendar.MINUTE, 30);
+		Date d = c.getTime();
+		String newStopTime = sdfStopTime.format(d);
+		System.out.println(newStopTime);
 		return reservation;
 	}
 
