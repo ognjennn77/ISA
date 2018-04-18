@@ -28,10 +28,10 @@ public class NotificationController {
 	 * @param notification
 	 * @return notification
 	 */
-	@RequestMapping(value="/newNotification", method=RequestMethod.PUT)
-	public ResponseEntity<Notification> newNotification(@RequestBody Notification noti){
+	@RequestMapping(value="/newNotification/{an}", method=RequestMethod.PUT)
+	public ResponseEntity<Notification> newNotification(@RequestBody Notification noti, @PathVariable Long an){
 
-		Notification notification = notificationService.newnotification(noti);
+		Notification notification = notificationService.newnotification(noti,an);
 		
 		if(!(notification==null)){
 			return new ResponseEntity<>(notification,HttpStatus.OK);

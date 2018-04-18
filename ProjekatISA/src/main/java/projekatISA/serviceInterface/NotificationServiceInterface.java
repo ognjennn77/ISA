@@ -6,7 +6,7 @@ import projekatISA.domein.Notification;
 
 public interface NotificationServiceInterface {
 
-	Notification newnotification(Notification noti);
+	Notification newnotification(Notification noti, Long an);
 	
 	List<Notification> getNotiOfUser(Long id);
 	

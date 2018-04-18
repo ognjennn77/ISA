@@ -32,7 +32,13 @@ public class NotificationService implements NotificationServiceInterface{
 	private RepositoryUser repositoryUser;
 	
 	@Override
-	public Notification newnotification(Notification noti) {
+	public Notification newnotification(Notification noti, Long an) {
+		
+		Announcement announcement = repositoryAnnouncement.findByIdEquals(an);
+		if(!(announcement==null)) {
+			announcement.setSold(true);
+			repositoryAnnouncement.save(announcement);
+		}
 		
 		return repositoryNotification.save(noti);
 	}

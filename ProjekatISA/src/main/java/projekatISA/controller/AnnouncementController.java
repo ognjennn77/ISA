@@ -60,6 +60,7 @@ public class AnnouncementController {
 	}
 	/**
 	 * Get all announcement
+	 * @param id je id od usera za koga ne treba da vratim oglase
 	 * @return list of announcement
 	 */
 	@RequestMapping(value="/getAllAnnouncements/{id}", method=RequestMethod.POST)

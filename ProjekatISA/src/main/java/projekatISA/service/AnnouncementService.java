@@ -87,7 +87,9 @@ public class AnnouncementService implements AnnouncementServiceInterface{
 			for(int i = 0; i<returnList.size();i++) {
 				if(!(returnList.get(i).getUser().getId().equals(id))) {
 					if(returnList.get(i).isApproved()) {
-						listAnnouncement.add(returnList.get(i));
+						if(!returnList.get(i).isSold()) {
+							listAnnouncement.add(returnList.get(i));
+						}
 					}
 				}
 			}
