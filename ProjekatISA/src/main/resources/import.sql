@@ -45,7 +45,7 @@ INSERT INTO `isa`.`hall` (`id`, `ordinal`, `cinematheatre_id`) VALUES ('1','1','
 INSERT INTO `isa`.`hall` (`id`, `ordinal`, `cinematheatre_id`) VALUES ('3','2','1');
 INSERT INTO `isa`.`hall` (`id`, `ordinal`, `cinematheatre_id`) VALUES ('2','1','5');
 
-INSERT INTO `isa`.`projectionterm` (`id`,`price`, `term`, `hall_id`, `projectiondate_id`) VALUES ('1','200','2018-04-19 02:00','1','1');
+INSERT INTO `isa`.`projectionterm` (`id`,`price`, `term`, `hall_id`, `projectiondate_id`) VALUES ('1','200','2018-04-19 12:00','1','1');
 
 INSERT INTO `isa`.`projectionterm` (`id`,`price`, `term`, `hall_id`, `projectiondate_id`) VALUES ('2','250','2018-04-09 17:00','1','1');
 INSERT INTO `isa`.`projectionterm` (`id`,`price`, `term`, `hall_id`, `projectiondate_id`) VALUES ('3','300','2018-04-11 15:00','1','3');

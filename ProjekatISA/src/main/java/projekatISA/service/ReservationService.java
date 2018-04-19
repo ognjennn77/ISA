@@ -23,6 +23,9 @@ public class ReservationService implements ReservationServiceInterface{
 	@Autowired
 	private RepositoryReservation repositoryReservation;
 	
+	@Autowired
+	private RepositorySeat repositorySeat;
+	
 	@Override
 	public Reservation findOne(Long id) {
 		Reservation reservation = repositoryReservation.findOneById(id);
@@ -111,11 +114,19 @@ public class ReservationService implements ReservationServiceInterface{
 		for(int i=0; i<reservation.size();i++) {
 			if(reservation.get(i).getUser1().getId().equals(id)) {
 				
-				System.out.println(reservation.get(i).getProjectionterm().getTerm());
+				
 				Date date = new Date();
-				System.out.println(date);
+				
 				if(date.after(reservation.get(i).getProjectionterm().getTerm())) {
-					System.out.println("to je prosla rezer");
+					
+					for(int j=0; j< reservation.get(i).getSeats().size();j++) {
+						System.out.println("koji k");
+						System.out.println(reservation.get(i).getSeats().get(j).getId());
+						System.out.println(reservation.get(i).getSeats().get(j).isReserved());
+						reservation.get(i).getSeats().get(j).setReserved(false);
+						System.out.println("posle"+reservation.get(i).getSeats().get(j).isReserved());
+						repositorySeat.save(reservation.get(i).getSeats().get(j));
+					}
 					newres.add(reservation.get(i));
 				}
 			}			
