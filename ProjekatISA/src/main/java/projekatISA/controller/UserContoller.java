@@ -169,5 +169,35 @@ public class UserContoller {
 		
 	}
 	
+	/**
+	 * get admins of cinema theatre
+	 * @return list user
+	 */
+	@RequestMapping(value="/getAdminsOfCinemaT", method=RequestMethod.GET)
+	public ResponseEntity<List<User>> getAdminsOfCinemaT(){
+		
+		List<User> retList = userService.getAdminOfCT();
+		
+		if(!(retList==null)) {
+			return new ResponseEntity<>(retList,HttpStatus.OK);
+		}
+		
+		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+	}
+	
+	
+	@RequestMapping(value="/getUserOfId/{id}", method=RequestMethod.GET)
+	public ResponseEntity<UserDTO> getUserOfId(@PathVariable Long id){
+		
+		UserDTO userdto = userService.getUserid(id);
+		
+		if(!(userdto==null)) {
+			return new ResponseEntity<>(userdto,HttpStatus.OK);
+		}
+		
+		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+	}
+	
+	
 	
 }

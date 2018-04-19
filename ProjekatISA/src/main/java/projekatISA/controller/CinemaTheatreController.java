@@ -17,9 +17,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import projekatISA.domein.CinemaTheatre;
 import projekatISA.domein.Repertory;
+import projekatISA.domein.User;
 import projekatISA.domeinDTO.CinemaTheatreDTO;
 import projekatISA.service.CinemaTheatreService;
 import projekatISA.service.RepertoryService;
+import projekatISA.service.UserService;
 
 @CrossOrigin(origins="http://localhost:4200",allowedHeaders="*")
 @RestController
@@ -32,6 +34,7 @@ public class CinemaTheatreController {
 	@Autowired
 	private RepertoryService repertoryService;
 	
+
 	
 	@RequestMapping(value="/addCinemaTheatre", method=RequestMethod.PUT)
 	public ResponseEntity<CinemaTheatre> addCinemaTheatre(@RequestBody CinemaTheatre ct){
@@ -124,5 +127,10 @@ public class CinemaTheatreController {
 		
 		return new ResponseEntity<>(repertory,HttpStatus.OK);
 	}
+	
+
+	
+	
+	
 	
 }
