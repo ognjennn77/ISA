@@ -7,9 +7,17 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.mail.MailException;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
+import projekatISA.controller.UserContoller;
 import projekatISA.domein.Reservation;
 import projekatISA.domein.Seat;
 import projekatISA.domein.ThematicProps;
@@ -25,6 +33,11 @@ public class ReservationService implements ReservationServiceInterface{
 	
 	@Autowired
 	private RepositorySeat repositorySeat;
+	
+	private Logger logger = LoggerFactory.getLogger(UserContoller.class);
+	
+	@Autowired 
+	private EmailService emailService;
 	
 	@Override
 	public Reservation findOne(Long id) {
@@ -120,11 +133,9 @@ public class ReservationService implements ReservationServiceInterface{
 				if(date.after(reservation.get(i).getProjectionterm().getTerm())) {
 					
 					for(int j=0; j< reservation.get(i).getSeats().size();j++) {
-						System.out.println("koji k");
-						System.out.println(reservation.get(i).getSeats().get(j).getId());
-						System.out.println(reservation.get(i).getSeats().get(j).isReserved());
+						
 						reservation.get(i).getSeats().get(j).setReserved(false);
-						System.out.println("posle"+reservation.get(i).getSeats().get(j).isReserved());
+						
 						repositorySeat.save(reservation.get(i).getSeats().get(j));
 					}
 					newres.add(reservation.get(i));
@@ -132,6 +143,22 @@ public class ReservationService implements ReservationServiceInterface{
 			}			
 		}
 		return newres;
+	}
+
+	@Override
+	public Reservation inviteFri(Long id) {
+		Reservation reser = repositoryReservation.findOneById(id);
+		System.out.println(reser.getSeats().size());
+		if(reser.getSeats().size()>1) {
+			
+			try {
+				emailService.sendInvite(reser);				
+			}catch(Exception e) {
+				logger.info("Greska prilikom slanja emaila" + e.getMessage());
+			}	
+			
+		}
+		return reser;
 	}
 
 	

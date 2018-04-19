@@ -97,6 +97,19 @@ public class ReservationController {
 		
 	}
 	
+	@RequestMapping(value="/inviteFriends/{id}", method=RequestMethod.POST)
+	public ResponseEntity<Reservation> inviteFRI(@PathVariable Long id){
+		
+		Reservation r = reservationService.inviteFri(id);
+		
+		if(!(r==null)) {
+			return new ResponseEntity<>(r,HttpStatus.OK);
+		}
+		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		
+		
+	}
+	
 	
 
 }

@@ -7,6 +7,7 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
+import projekatISA.domein.Reservation;
 import projekatISA.domein.User;
 import projekatISA.serviceInterface.EmailServiceInterface;
 
@@ -35,6 +36,26 @@ public class EmailService implements EmailServiceInterface {
 		javaMailSender.send(email);
 		
 		System.out.println("email poslat");
+	}
+	
+	@Override
+	public void sendInvite(Reservation reser) throws MailException, InterruptedException {
+		
+		System.out.println("aloo glavonja");
+		
+		SimpleMailMessage email = new SimpleMailMessage();
+		email.setTo("grujica995@gmail.com");
+		email.setFrom(env.getProperty("spring.mail.username"));
+		System.out.println(reser.getUser1().getEmail());
+		email.setSubject("Potvrda registracije");
+		String text = "Poziva vas korisnik "+reser.getUser1().getName()+" "+reser.getUser1().getSurname() +" na predstavu/film\n"
+				+ "http://localhost:4567/reservation/acceptInvite\n";
+				
+		email.setText(text);
+		
+		javaMailSender.send(email);
+		
+		
 	}
 
 	

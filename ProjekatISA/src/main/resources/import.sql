@@ -41,6 +41,7 @@ INSERT INTO `isa`.`projectiondate` (`id`, `date`, `projection_id`) VALUES ('3','
 INSERT INTO `isa`.`projectiondate` (`id`, `date`, `projection_id`) VALUES ('4','2018-04-24 00:00:00','3');
 INSERT INTO `isa`.`projectiondate` (`id`, `date`, `projection_id`) VALUES ('5','2018-04-18 00:00:00','2');
 
+
 INSERT INTO `isa`.`hall` (`id`, `ordinal`, `cinematheatre_id`) VALUES ('1','1','1');
 INSERT INTO `isa`.`hall` (`id`, `ordinal`, `cinematheatre_id`) VALUES ('3','2','1');
 INSERT INTO `isa`.`hall` (`id`, `ordinal`, `cinematheatre_id`) VALUES ('2','1','5');
@@ -106,4 +107,5 @@ INSERT INTO `isa`.`reservation_seats` (`reservation_id`,`seats_id`) VALUES ('1',
 INSERT INTO `isa`.`reservation_seats` (`reservation_id`,`seats_id`) VALUES ('2','11');
 INSERT INTO `isa`.`reservation_seats` (`reservation_id`,`seats_id`) VALUES ('2','10');
 INSERT INTO `isa`.`reservation_seats` (`reservation_id`,`seats_id`) VALUES ('3','5');
+INSERT INTO `isa`.`reservation_seats` (`reservation_id`,`seats_id`) VALUES ('3','6');
 INSERT INTO `isa`.`reservation_seats` (`reservation_id`,`seats_id`) VALUES ('4','17');
