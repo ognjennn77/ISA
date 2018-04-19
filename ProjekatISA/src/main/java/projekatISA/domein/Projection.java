@@ -101,7 +101,15 @@ public class Projection {
 	}
 
 
-	public Set<ProjectionDate> getProjectionDates() {
+	public List<ProjectionDate> getProjectionDates() {
+		List<ProjectionDate> pd = new ArrayList<>(projectionDates);
+		if(pd.size()>0) {
+			return pd;
+		}
+		return null;
+	}
+	public Set<ProjectionDate> getProjectionDatess() {
+
 		return projectionDates;
 	}
 
@@ -109,6 +117,8 @@ public class Projection {
 	public void setProjectionDates(Set<ProjectionDate> projectionDates) {
 		this.projectionDates = projectionDates;
 	}
+	
+	
 
 
 }
