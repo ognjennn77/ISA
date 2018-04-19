@@ -1,5 +1,6 @@
 package projekatISA.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -7,9 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import projekatISA.domein.Notification;
+import projekatISA.domein.Scale;
 import projekatISA.domein.ThematicProps;
 import projekatISA.domein.User;
 import projekatISA.domeinDTO.UserDTO;
+import projekatISA.repository.RepositoryScale;
 import projekatISA.repository.RepositoryUser;
 import projekatISA.serviceInterface.UserServiceInterface;
 
@@ -18,6 +21,9 @@ public class UserService implements UserServiceInterface{
 
 	@Autowired
 	private RepositoryUser repositoryUser;
+	
+	@Autowired
+	private RepositoryScale repositoryScale;
 	
 	@Override
 	public UserDTO findUser(String email, String password) {
@@ -79,6 +85,14 @@ public class UserService implements UserServiceInterface{
 		if(!(user==null)) {
 			user.setActive(true);
 			repositoryUser.save(user);
+			Long idscale = (long) 1;
+			Scale scale = repositoryScale.findByIdEquals(idscale);
+			
+			ArrayList<User> listaUsera = new ArrayList<>();
+			listaUsera.add(user);
+			
+			scale.getUser().addAll(listaUsera);
+			
 			return user;
 		}
 		return user;
