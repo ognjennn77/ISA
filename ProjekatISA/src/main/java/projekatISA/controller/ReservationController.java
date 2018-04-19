@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import projekatISA.domein.Reservation;
 import projekatISA.domein.Seat;
 import projekatISA.domein.ThematicProps;
+import projekatISA.domein.User;
 import projekatISA.service.ReservationService;
 import projekatISA.service.SeatService;
 
@@ -108,6 +109,15 @@ public class ReservationController {
 		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		
 		
+	}
+	
+	@RequestMapping(value="/acceptInvite/{id}")
+	public String acceptingRegistration(@PathVariable Long id) {
+		//User user1 = userService.acceptRegistration(id);
+		//if(!(user1==null)) {
+		//	return "success";
+		//}
+		return "unsuccess";
 	}
 	
 	

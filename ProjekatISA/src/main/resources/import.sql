@@ -5,7 +5,7 @@ INSERT INTO `isa`.`cinematheatre` (`id`,`name`,`description`,`address`,`rating`,
 
 INSERT INTO `isa`.`user` (`id`, `email`, `name`, `surname`, `password`, `city`, `phone_number`, `active`, `role`,`admin_fchangep`) VALUES ('1', 'dragan.dulic1@gmail.com', 'Dragan', 'Dulic', 'v', 'Bukovac', '061555333', 1,'user','yes');
 INSERT INTO `isa`.`user` (`id`,  `email`, `name`, `surname`, `password`, `city`, `phone_number`, `active`, `role`,`admin_fchangep`) VALUES ('2', 'grujica995@gmail.com', 'Aleksandra', 'Grujic', 'sa', 'Novi Sad', '0647896543', 1,'user','yes');
-INSERT INTO `isa`.`user` (`id`, `email`, `name`, `surname`, `password`, `city`, `phone_number`, `active`, `role`,`admin_fchangep`) VALUES ('3', 'donthavename3478@gmail.com', 'Nikola', 'Nikolic', 'sa2', 'Beograd', '063319583', 1,'user','yes');
+
 INSERT INTO `isa`.`user` (`id`, `email`, `name`, `surname`, `password`, `city`, `phone_number`, `active`, `role`,`admin_fchangep`) VALUES ('4', 'admin', 'Marko', 'Markovic', 'admin', 'Nis', '065786756', 1,'adminF','no');
 INSERT INTO `isa`.`user` (`id`, `email`, `name`, `surname`, `password`, `city`, `phone_number`, `active`, `role`,`admin_fchangep`) VALUES ('5', 'admin1', 'Jelena', 'Jelenic', 'admin1', 'Subotica', '069341523', 1,'adminS','yes');
 
@@ -61,7 +61,7 @@ INSERT INTO `isa`.`seat` (`id`, `ordinal`, `reserved`) VALUES ('2','2',0);
 INSERT INTO `isa`.`seat` (`id`, `ordinal`, `reserved`) VALUES ('3','3',0);
 INSERT INTO `isa`.`seat` (`id`, `ordinal`, `reserved`) VALUES ('4','4',0);
 INSERT INTO `isa`.`seat` (`id`, `ordinal`, `reserved`) VALUES ('5','5',1);
-INSERT INTO `isa`.`seat` (`id`, `ordinal`, `reserved`) VALUES ('6','6',0);
+INSERT INTO `isa`.`seat` (`id`, `ordinal`, `reserved`) VALUES ('6','6',1);
 INSERT INTO `isa`.`seat` (`id`, `ordinal`, `reserved`) VALUES ('7','7',0);
 INSERT INTO `isa`.`seat` (`id`, `ordinal`, `reserved`) VALUES ('8','8',0);
 

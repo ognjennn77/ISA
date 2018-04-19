@@ -49,7 +49,7 @@ public class EmailService implements EmailServiceInterface {
 		System.out.println(reser.getUser1().getEmail());
 		email.setSubject("Potvrda registracije");
 		String text = "Poziva vas korisnik "+reser.getUser1().getName()+" "+reser.getUser1().getSurname() +" na predstavu/film\n"
-				+ "http://localhost:4567/reservation/acceptInvite\n";
+				+ "http://localhost:4567/reservation/acceptInvite/"+reser.getId();
 				
 		email.setText(text);
 		
