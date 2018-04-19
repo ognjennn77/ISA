@@ -62,7 +62,7 @@ public class ReservationController {
 	//vraca rez od usera koje tek slede
 	@RequestMapping(value="/getReservations/{id}",method=RequestMethod.GET)
 	public ResponseEntity<List<Reservation>> getProjectionDates(@PathVariable Long id){
-		
+		System.out.println("brt onooo");
 		List<Reservation> reservation = reservationService.getReservation(id);
 		
 		if(reservation==null) {
@@ -71,11 +71,11 @@ public class ReservationController {
 		return new ResponseEntity<>(reservation,HttpStatus.OK);
 	}
 	
-	
+	//vraca rez od usera na koje je isao
 	@RequestMapping(value="/getHistory/{id}",method=RequestMethod.GET)
 	public ResponseEntity<List<Reservation>> getHistoryReser(@PathVariable Long id){
 		
-		List<Reservation> reservation = reservationService.getReservation(id);
+		List<Reservation> reservation = reservationService.getHistoryRes(id);
 		
 		if(reservation==null) {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);

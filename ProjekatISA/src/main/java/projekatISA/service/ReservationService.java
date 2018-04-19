@@ -103,6 +103,26 @@ public class ReservationService implements ReservationServiceInterface{
 		return null;
 	}
 
+	@Override
+	public List<Reservation> getHistoryRes(Long id) {
+		List<Reservation> reservation = repositoryReservation.findAll();
+		List<Reservation> newres=new ArrayList<Reservation>();
+		
+		for(int i=0; i<reservation.size();i++) {
+			if(reservation.get(i).getUser1().getId().equals(id)) {
+				
+				System.out.println(reservation.get(i).getProjectionterm().getTerm());
+				Date date = new Date();
+				System.out.println(date);
+				if(date.after(reservation.get(i).getProjectionterm().getTerm())) {
+					System.out.println("to je prosla rezer");
+					newres.add(reservation.get(i));
+				}
+			}			
+		}
+		return newres;
+	}
+
 	
 
 }

@@ -18,5 +18,7 @@ public interface ReservationServiceInterface {
 	
 	List<Reservation> getReservation(Long id);
 	
+	List<Reservation> getHistoryRes(Long id);
+	
 	Reservation deleteReser(Long id);
 }
