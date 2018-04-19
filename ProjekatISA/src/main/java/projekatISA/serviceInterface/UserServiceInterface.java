@@ -25,4 +25,8 @@ public interface UserServiceInterface {
 	List<Notification> findNotification(Long id);
 	
 	UserDTO addAdministrator(User u);
+	
+	List<User> getAdminOfCT();
+	
+	UserDTO getUserid(Long id);
 }

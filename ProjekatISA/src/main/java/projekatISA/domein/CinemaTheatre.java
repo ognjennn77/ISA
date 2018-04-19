@@ -43,6 +43,10 @@ public class CinemaTheatre {
 	private Repertory repertory;
 	
 	
+	//administrator pozorista/bioskopa
+	@ManyToOne
+	private User admin;
+	
 	@JsonManagedReference
 	@OneToMany(mappedBy="cinematheatre")
 	private Set<Hall> halls = new HashSet();
@@ -53,12 +57,13 @@ public class CinemaTheatre {
 		
 	}
 	
-	public CinemaTheatre(String name, String address, String rating, String desription, String cinema) {
+	public CinemaTheatre(String name, String address, String rating, String desription, String cinema,User u) {
 		this.name=name;
 		this.address=address;
 		this.rating=rating;
 		this.description=desription;
 		this.cinema=cinema;
+		this.admin=u;
 	}
 	
 	
@@ -124,6 +129,14 @@ public class CinemaTheatre {
 
 	public void setHalls(Set<Hall> halls) {
 		this.halls = halls;
+	}
+
+	public User getAdmin() {
+		return admin;
+	}
+
+	public void setAdmin(User user) {
+		this.admin = user;
 	}
 
 	

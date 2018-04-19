@@ -195,5 +195,41 @@ public class UserService implements UserServiceInterface{
 		
 		return null;
 	}
+
+
+
+	@Override
+	public List<User> getAdminOfCT() {
+		
+		List<User> listUser = repositoryUser.findByRoleEquals("adminCT");
+		if(!(listUser==null)) {
+			return listUser;
+		}
+		return null;
+	}
+
+
+
+	@Override
+	public UserDTO getUserid(Long id) {
+		
+		User u = repositoryUser.findByIdEquals(id);
+		if(!(u==null)) {
+			UserDTO retUser = new UserDTO();
+			retUser.setAdminFchangep(u.getAdminFchangeP());
+			retUser.setCity(u.getCity());
+			retUser.setEmail(u.getEmail());
+			retUser.setId(u.getId());
+			retUser.setName(u.getName());
+			retUser.setPassword(u.getPassword());
+			retUser.setPhoneNumber(u.getPhoneNumber());
+			retUser.setRole(u.getRole());
+			retUser.setSurname(u.getSurname());
+			return retUser;
+			
+			
+		}
+		return null;
+	}
 		
 }
