@@ -22,11 +22,13 @@ public class UserDTO {
 	
 	private String role;
 	
+	private String adminFchangeP;
+	
 	public UserDTO() {
 		
 	}
 	
-	public UserDTO(String email, String name, String surname, String city, String phoneNumber, String Password, String newPassword, String repeatPassword,Long id,String role) {
+	public UserDTO(String email, String name, String surname, String city, String phoneNumber, String Password, String newPassword, String repeatPassword,Long id,String role,String adminFchangep) {
 		this.email=email;
 		this.name=name;
 		this.surname=surname;
@@ -36,6 +38,7 @@ public class UserDTO {
 		this.newPassword=newPassword;
 		this.repeatPassword=repeatPassword;
 		this.role=role;
+		this.adminFchangeP=adminFchangep;
 	}
 
 	public String getEmail() {
@@ -116,6 +119,14 @@ public class UserDTO {
 
 	public void setRole(String role) {
 		this.role = role;
+	}
+
+	public String getAdminFchangep() {
+		return adminFchangeP;
+	}
+
+	public void setAdminFchangep(String adminFchangep) {
+		this.adminFchangeP = adminFchangep;
 	}
 	
 	

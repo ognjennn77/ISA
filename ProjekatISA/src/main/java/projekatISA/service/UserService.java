@@ -35,6 +35,7 @@ public class UserService implements UserServiceInterface{
 				userdto.setPhoneNumber(user.getPhoneNumber());
 				userdto.setSurname(user.getSurname());
 				userdto.setRole(user.getRole());
+				userdto.setAdminFchangep(user.getAdminFchangeP());
 				return userdto;
 			}
 		}
@@ -55,7 +56,13 @@ public class UserService implements UserServiceInterface{
 			user.setPassword(u.getNewPassword());
 			user.setCity(u.getCity());
 			user.setPhoneNumber(u.getPhoneNumber());
-			
+			user.setRole(u.getRole());
+			if(u.getRole().equals("adminF")) {
+				user.setAdminFchangeP("no");
+			}
+			else {
+				user.setAdminFchangeP("yes");
+			}
 			User user1 = repositoryUser.findByEmailEquals(user.getEmail());
 			if(user1==null) {
 				return repositoryUser.save(user);
@@ -110,6 +117,9 @@ public class UserService implements UserServiceInterface{
 		if(user.getPassword().equals(u.getPassword())) {		
 			if(u.getNewPassword().equals(u.getRepeatPassword())) {			
 				user.setPassword(u.getNewPassword());
+				if(user.getAdminFchangeP().equals("no")) {
+					user.setAdminFchangeP("yes");
+				}
 				repositoryUser.save(user);				
 				return user;
 			}	

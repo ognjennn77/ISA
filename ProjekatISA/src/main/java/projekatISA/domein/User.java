@@ -69,13 +69,15 @@ public class User {
 	private String role;
 	
 	
+	@Column(name="adminFchangeP")
+	private String adminFchangeP;
 	
 	public User() {
 		
 	}
 	
 	
-	public User(String email, String name, String surname, String password, String city, String phoneNumber,boolean active,String role) {
+	public User(String email, String name, String surname, String password, String city, String phoneNumber,boolean active,String role,String adminFchangeP) {
 		this.email=email;
 		this.name=name;
 		this.surname=surname;
@@ -84,6 +86,7 @@ public class User {
 		this.phoneNumber=phoneNumber;
 		this.active=active;
 		this.role=role;
+		this.adminFchangeP=adminFchangeP;
 	}
 
 	public Long getId() {
@@ -196,6 +199,16 @@ public class User {
 
 	public void setRole(String role) {
 		this.role = role;
+	}
+
+
+	public String getAdminFchangeP() {
+		return adminFchangeP;
+	}
+
+
+	public void setAdminFchangeP(String adminFchangeP) {
+		this.adminFchangeP = adminFchangeP;
 	}
 
 

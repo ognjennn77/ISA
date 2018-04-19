@@ -45,7 +45,7 @@ public class UserContoller {
 	public ResponseEntity<UserDTO> singInUser(@RequestBody UserDTO user){
 		
 		UserDTO user1 = userService.findUser(user.getEmail(), user.getPassword());
-		System.out.println("aaaaaaaaaaaaaaa " + user1.getRole());
+		
 
 		if(user1==null) {
 
@@ -62,7 +62,7 @@ public class UserContoller {
 	 */
 	@RequestMapping(value="/registration",method=RequestMethod.PUT)
 	public ResponseEntity<User> registrionUser(@RequestBody UserDTO u){
-		System.out.println("dosao u metodu");
+		
 		User user1 = userService.saveUser(u);
 		if(!(user1==null)) {
 			try {
