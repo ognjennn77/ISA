@@ -157,5 +157,43 @@ public class UserService implements UserServiceInterface{
 		}
 		return null;
 	}
+
+
+
+	@Override
+	public UserDTO addAdministrator(User u) {
+		
+		User user = repositoryUser.findByEmailEqualsAndPasswordEquals(u.getEmail(), u.getPassword());
+		
+		if(user==null) {
+			if(u.getRole().equals("adminF")) {
+				u.setAdminFchangeP("no");
+			}
+			else {
+				u.setAdminFchangeP("yes");
+			}
+			u.setActive(true);
+			repositoryUser.save(u);
+			
+			UserDTO retUser = new UserDTO();
+			
+			retUser.setEmail(u.getEmail());
+			retUser.setName(u.getName());
+			retUser.setCity(u.getCity());
+			retUser.setRole(u.getRole());
+			retUser.setPhoneNumber(u.getPhoneNumber());
+			retUser.setSurname(u.getSurname());
+			retUser.setPassword(u.getPassword());
+			if(u.getRole().equals("adminF")) {
+				retUser.setAdminFchangep("no");
+			}
+			else {
+				retUser.setAdminFchangep("yes");
+			}
+			return retUser;
+		}
+		
+		return null;
+	}
 		
 }

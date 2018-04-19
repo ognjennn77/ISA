@@ -23,4 +23,6 @@ public interface UserServiceInterface {
 	List<ThematicProps> findThematicProps(Long id);
 	
 	List<Notification> findNotification(Long id);
+	
+	UserDTO addAdministrator(User u);
 }

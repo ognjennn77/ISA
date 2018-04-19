@@ -63,6 +63,7 @@ public class User {
 	/**
 	 * adminF - admin fan zone
 	 * adminS - admin sistema
+	 * adminCT - admin pozorista ili bioskopa
 	 * user - korisnik
 	 */
 	@Column(name="role")

@@ -34,11 +34,12 @@ public class CinemaTheatre {
 	@Column(name="description",columnDefinition="VARCHAR(600)")
 	private String description;
 	
+	//da li je bioskop ili pozoriste
 	@Column(name="cinema")
-	private boolean cinema;
+	private String cinema;
 		
 	
-	@OneToOne(optional=false)
+	@OneToOne
 	private Repertory repertory;
 	
 	
@@ -52,7 +53,7 @@ public class CinemaTheatre {
 		
 	}
 	
-	public CinemaTheatre(String name, String address, String rating, String desription, boolean cinema) {
+	public CinemaTheatre(String name, String address, String rating, String desription, String cinema) {
 		this.name=name;
 		this.address=address;
 		this.rating=rating;
@@ -101,11 +102,11 @@ public class CinemaTheatre {
 		this.description = description;
 	}
 
-	public boolean isCinema() {
+	public String isCinema() {
 		return cinema;
 	}
 
-	public void setCinema(boolean isCinema) {
+	public void setCinema(String isCinema) {
 		this.cinema = isCinema;
 	}
 

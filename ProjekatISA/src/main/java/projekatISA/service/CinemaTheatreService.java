@@ -52,7 +52,7 @@ public class CinemaTheatreService implements CinemaTheatreServiceInterface{
 	public CinemaTheatre findCinema(Long id) {
 		
 		CinemaTheatre cinema = repositoryCinemaTheatre.findOneById(id);
-		if(cinema.isCinema()) {
+		if(cinema.isCinema().equals("cinema")) {
 			return cinema;
 		}
 		return null;
@@ -62,7 +62,7 @@ public class CinemaTheatreService implements CinemaTheatreServiceInterface{
 	public CinemaTheatre findTheatre(Long id) {
 		
 		CinemaTheatre theatre = repositoryCinemaTheatre.findOneById(id);
-		if(!(theatre.isCinema())) {
+		if(theatre.isCinema().equals("theatre")) {
 			return theatre;
 		}
 		return null;
@@ -74,7 +74,7 @@ public class CinemaTheatreService implements CinemaTheatreServiceInterface{
 		List<CinemaTheatre> cinematheatre = repositoryCinemaTheatre.findAll();
 		List<CinemaTheatre> backList = new ArrayList();
 		for(CinemaTheatre ct : cinematheatre) {
-			if(ct.isCinema()) {
+			if(ct.isCinema().equals("cinema")) {
 				backList.add(ct);
 			}
 		}
@@ -87,7 +87,7 @@ public class CinemaTheatreService implements CinemaTheatreServiceInterface{
 		List<CinemaTheatre> cinematheatre = repositoryCinemaTheatre.findAll();
 		List<CinemaTheatre> backList = new ArrayList();
 		for(CinemaTheatre ct : cinematheatre) {
-			if(!(ct.isCinema())) {
+			if(ct.isCinema().equals("theatre")) {
 				backList.add(ct);
 			}
 		}

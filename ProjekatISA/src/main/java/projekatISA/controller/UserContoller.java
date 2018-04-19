@@ -156,4 +156,18 @@ public class UserContoller {
 	}
 	
 	
+	@RequestMapping(value="/addAdmin", method=RequestMethod.PUT)
+	public ResponseEntity<UserDTO> addAdmin(@RequestBody User u){
+		System.out.println("aaaaaaaaaaaaaaa " + u.getEmail());
+		UserDTO userDto = userService.addAdministrator(u);
+		
+		if(!(userDto==null)) {
+			return new ResponseEntity<>(userDto,HttpStatus.OK);
+		}
+		
+		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		
+	}
+	
+	
 }

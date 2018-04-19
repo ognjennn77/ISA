@@ -36,6 +36,7 @@ public class CinemaTheatreController {
 	@RequestMapping(value="/addCinemaTheatre", method=RequestMethod.PUT)
 	public ResponseEntity<CinemaTheatre> addCinemaTheatre(@RequestBody CinemaTheatre ct){
 		
+		
 		CinemaTheatre cinemaTheatre = cinemaTheatreService.add(ct);
 		if(!(cinemaTheatre==null)){
 			return new ResponseEntity<>(cinemaTheatre,HttpStatus.OK);
