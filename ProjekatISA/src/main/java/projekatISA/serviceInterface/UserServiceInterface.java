@@ -29,4 +29,6 @@ public interface UserServiceInterface {
 	List<User> getAdminOfCT();
 	
 	UserDTO getUserid(Long id);
+	
+	List<User> getUsersFromUser(Long id);
 }

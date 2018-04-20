@@ -25,6 +25,7 @@ import projekatISA.domein.ThematicProps;
 import projekatISA.domein.User;
 import projekatISA.repository.RepositoryReservation;
 import projekatISA.repository.RepositorySeat;
+import projekatISA.repository.RepositoryUser;
 import projekatISA.serviceInterface.ReservationServiceInterface;
 
 @Service
@@ -35,6 +36,9 @@ public class ReservationService implements ReservationServiceInterface{
 	
 	@Autowired
 	private RepositorySeat repositorySeat;
+	
+	@Autowired
+	private RepositoryUser repositoryUser;
 	
 	private Logger logger = LoggerFactory.getLogger(UserContoller.class);
 	
@@ -148,13 +152,14 @@ public class ReservationService implements ReservationServiceInterface{
 	}
 
 	@Override
-	public Reservation inviteFri(Long id) {
+	public Reservation inviteFri(Long id, Long td) {
 		Reservation reser = repositoryReservation.findOneById(id);
+		User user = repositoryUser.findByIdEquals(td);
 		System.out.println(reser.getSeats().size());
 		if(reser.getSeats().size()>1) {
 			
 			try {
-				emailService.sendInvite(reser);				
+				emailService.sendInvite(reser,user);				
 			}catch(Exception e) {
 				logger.info("Greska prilikom slanja emaila" + e.getMessage());
 			}	

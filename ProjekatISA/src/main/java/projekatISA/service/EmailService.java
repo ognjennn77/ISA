@@ -39,12 +39,12 @@ public class EmailService implements EmailServiceInterface {
 	}
 	
 	@Override
-	public void sendInvite(Reservation reser) throws MailException, InterruptedException {
+	public void sendInvite(Reservation reser, User user) throws MailException, InterruptedException {
 		
 		System.out.println("aloo glavonja");
 		
 		SimpleMailMessage email = new SimpleMailMessage();
-		email.setTo("grujica995@gmail.com");
+		email.setTo(user.getEmail());
 		email.setFrom(env.getProperty("spring.mail.username"));
 		System.out.println(reser.getUser1().getEmail());
 		email.setSubject("Potvrda registracije");
