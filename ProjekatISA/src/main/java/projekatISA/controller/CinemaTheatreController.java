@@ -119,13 +119,16 @@ public class CinemaTheatreController {
 			System.out.println("Ne postoji bioskop sa tim id");
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
-		Repertory repertory = repertoryService.findOne(cinemaTheatre.getRepertory().getId());
-		if(repertory==null) {
-			System.out.println("Ne postoji repository");
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		
+		if(cinemaTheatre.getRepertory()!=null){
+		Repertory repertory1 = repertoryService.findOne(cinemaTheatre.getRepertory().getId());
+			return new ResponseEntity<>(repertory1,HttpStatus.OK);
 		}
 		
-		return new ResponseEntity<>(repertory,HttpStatus.OK);
+		System.out.println("Ne postoji repository");
+		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		
+		
 	}
 	
 
