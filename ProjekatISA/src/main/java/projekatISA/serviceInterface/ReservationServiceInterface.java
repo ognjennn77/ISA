@@ -23,7 +23,7 @@ public interface ReservationServiceInterface {
 	
 	Reservation deleteReser(Long id);
 	
-	Reservation inviteFri(Long id);
+	Reservation inviteFri(Long id, Long td);
 	
 	Reservation acceptInvite(Long id);
 }

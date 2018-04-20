@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import projekatISA.domein.Notification;
+import projekatISA.domein.ProjectionDate;
 import projekatISA.domein.Scale;
 import projekatISA.domein.ThematicProps;
 import projekatISA.domein.User;
@@ -33,6 +34,16 @@ public class UserService implements UserServiceInterface{
 		if(!(user==null)) {	
 			
 			if(user.isActive()) {
+				
+				
+				int brl = user.getNumberlogin();
+				brl++;
+				user.setNumberlogin(brl);
+				repositoryUser.save(user);
+				 
+				userdto.setNumberlogin(user.getNumberlogin());
+				
+				
 				userdto.setId(user.getId());
 				userdto.setEmail(user.getEmail());
 				userdto.setName(user.getName());
@@ -91,8 +102,11 @@ public class UserService implements UserServiceInterface{
 			ArrayList<User> listaUsera = new ArrayList<>();
 			listaUsera.add(user);
 
-			scale.getUser().addAll(listaUsera);
-			repositoryScale.save(scale);
+			if(!(scale==null)) {
+				scale.getUser().addAll(listaUsera);
+				repositoryScale.save(scale);
+			}
+			
 			return user;
 		}
 		return user;
@@ -244,6 +258,23 @@ public class UserService implements UserServiceInterface{
 			
 		}
 		return null;
+	}
+
+
+
+	@Override
+	public List<User> getUsersFromUser(Long id) {
+		
+		List<User> users = repositoryUser.findAll();
+		ArrayList<User> newUsers = new ArrayList();
+		for(int i=0; i<users.size();i++) {
+			if(!(users.get(i).getId().equals(id))) {
+				newUsers.add(users.get(i));
+				System.out.println(users.get(i).getEmail());
+			}
+		}
+		
+		return newUsers;
 	}
 		
 }

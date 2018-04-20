@@ -98,10 +98,10 @@ public class ReservationController {
 		
 	}
 	
-	@RequestMapping(value="/inviteFriends/{id}", method=RequestMethod.POST)
-	public ResponseEntity<Reservation> inviteFRI(@PathVariable Long id){
-		
-		Reservation r = reservationService.inviteFri(id);
+	@RequestMapping(value="/inviteFriends/{id}/{td}", method=RequestMethod.POST)
+	public ResponseEntity<Reservation> inviteFRI(@PathVariable Long id,@PathVariable Long td){
+		System.out.println("e brt onoo");
+		Reservation r = reservationService.inviteFri(id,td);
 		
 		if(!(r==null)) {
 			return new ResponseEntity<>(r,HttpStatus.OK);

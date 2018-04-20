@@ -9,7 +9,7 @@ public interface EmailServiceInterface {
 
 	void sendEmailToUser (User user) throws MailException, InterruptedException;
 
-	void sendInvite(Reservation reser) throws MailException, InterruptedException;
+	void sendInvite(Reservation reser, User user) throws MailException, InterruptedException;
 	
 	
 }

@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import projekatISA.domein.Notification;
+import projekatISA.domein.Reservation;
 import projekatISA.domein.ThematicProps;
 import projekatISA.domein.User;
 import projekatISA.domeinDTO.UserDTO;
@@ -196,6 +197,19 @@ public class UserContoller {
 		}
 		
 		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+	}
+	
+	@RequestMapping(value="/findFriends/{id}", method=RequestMethod.POST)
+	public ResponseEntity<List<User>> findFRI(@PathVariable Long id){
+		
+		List<User> users = userService.getUsersFromUser(id);
+		
+		if(!(users==null)) {
+			return new ResponseEntity<>(users,HttpStatus.OK);
+		}
+		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		
+		
 	}
 	
 	
