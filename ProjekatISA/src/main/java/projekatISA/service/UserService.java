@@ -87,12 +87,12 @@ public class UserService implements UserServiceInterface{
 			repositoryUser.save(user);
 			Long idscale = (long) 1;
 			Scale scale = repositoryScale.findByIdEquals(idscale);
-			
+
 			ArrayList<User> listaUsera = new ArrayList<>();
 			listaUsera.add(user);
-			
+
 			scale.getUser().addAll(listaUsera);
-			
+			repositoryScale.save(scale);
 			return user;
 		}
 		return user;
