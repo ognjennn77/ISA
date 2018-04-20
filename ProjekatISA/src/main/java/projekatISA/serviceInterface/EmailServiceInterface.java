@@ -11,5 +11,7 @@ public interface EmailServiceInterface {
 
 	void sendInvite(Reservation reser, User user) throws MailException, InterruptedException;
 	
+	void sendEmailRes(Reservation reser, User user) throws MailException, InterruptedException;
+	
 	
 }

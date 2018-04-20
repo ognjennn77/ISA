@@ -120,6 +120,19 @@ public class ReservationController {
 		return "unsuccess";
 	}
 	
+	@RequestMapping(value="/sendEmailReservation/{id}/{td}", method=RequestMethod.POST)
+	public ResponseEntity<Reservation> sendEmailRes(@PathVariable Long id,@PathVariable Long td){
+		
+		Reservation r = reservationService.sendEmailReser(id,td);
+		
+		if(!(r==null)) {
+			return new ResponseEntity<>(r,HttpStatus.OK);
+		}
+		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		
+		
+	}
+	
 	
 
 }

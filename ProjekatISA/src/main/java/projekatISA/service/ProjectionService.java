@@ -22,31 +22,20 @@ public class ProjectionService implements ProjectionServiceInterface{
 	public Projection findOne(Long id) {
 		Projection projection = repositoryProjection.findOneById(id);
 		
-		
+		System.out.println("imeeee"+projection.getName());
 		Projection newPr = new Projection();
-		/*newPr.setId(projection.getId());
-		newPr.setName(projection.getName());
-		newPr.setActors(projection.getActors());
-		newPr.setRuntime(projection.getRuntime());
-		newPr.setRepertory(projection.getRepertory());
-		*/
+		
 		ArrayList<ProjectionDate> listaDate = new ArrayList();
 		for(int i=0; i<projection.getProjectionDates().size();i++) {
-			
-			
+						
 			Date date = new Date();
-			if(date.before(projection.getProjectionDates().get(i).getDate())) {
-				
-				
-				listaDate.add(projection.getProjectionDates().get(i));
-				System.out.println("aaaaaaaaaaaaa " + projection.getProjectionDates().get(i));
-				
+			if(date.before(projection.getProjectionDates().get(i).getDate())) {				
+				listaDate.add(projection.getProjectionDates().get(i));				
 			}
 		}
 		newPr.getProjectionDatess().addAll(listaDate);
-		for(int i=0; i<projection.getProjectionDates().size();i++) {
-			System.out.println("bbbbbbbbbbb " + projection.getProjectionDates().get(i));
-		}
+		newPr.setName(projection.getName());
+		System.out.println(newPr.getName());
 		
 		return newPr;
 	}

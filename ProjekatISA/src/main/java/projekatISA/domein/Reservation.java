@@ -36,6 +36,12 @@ public class Reservation {
 	@Column(name="projectionA")
 	private String projectionA;
 	
+	@Column(name="cinema")
+	private Long cinema;
+	
+	@Column(name="nameCin")
+	private String nameC;
+	
 	@OneToMany
 	private List<Seat> seats;
 	
@@ -109,6 +115,27 @@ public class Reservation {
 
 	public void setProjectionA(String projectionA) {
 		this.projectionA = projectionA;
+	}
+
+	
+
+	
+	public String getNameC() {
+		return nameC;
+	}
+
+	public void setNameC(String nameC) {
+		this.nameC = nameC;
+	}
+
+	
+
+	public void setCinema(Long cinema) {
+		this.cinema = cinema;
+	}
+
+	public Long getCinema() {
+		return cinema;
 	}
 
 	

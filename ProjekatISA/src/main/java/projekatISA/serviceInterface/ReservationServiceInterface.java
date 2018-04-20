@@ -3,6 +3,8 @@ package projekatISA.serviceInterface;
 
 import java.util.List;
 
+import org.springframework.mail.MailException;
+
 import projekatISA.domein.Reservation;
 import projekatISA.domein.Seat;
 import projekatISA.domein.ThematicProps;
@@ -15,7 +17,7 @@ public interface ReservationServiceInterface {
 	
 	List<Reservation> getAll();
 	
-	Reservation add(Reservation reservation);
+	Reservation add(Reservation reservation) throws MailException, InterruptedException;
 	
 	List<Reservation> getReservation(Long id);
 	
@@ -26,4 +28,6 @@ public interface ReservationServiceInterface {
 	Reservation inviteFri(Long id, Long td);
 	
 	Reservation acceptInvite(Long id);
+	
+	Reservation sendEmailReser(Long id, Long td);
 }

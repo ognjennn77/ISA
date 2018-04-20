@@ -18,11 +18,13 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
 import projekatISA.controller.UserContoller;
+import projekatISA.domein.CinemaTheatre;
 import projekatISA.domein.ProjectionDate;
 import projekatISA.domein.Reservation;
 import projekatISA.domein.Seat;
 import projekatISA.domein.ThematicProps;
 import projekatISA.domein.User;
+import projekatISA.repository.RepositoryCinemaTheatre;
 import projekatISA.repository.RepositoryReservation;
 import projekatISA.repository.RepositorySeat;
 import projekatISA.repository.RepositoryUser;
@@ -39,6 +41,8 @@ public class ReservationService implements ReservationServiceInterface{
 	
 	@Autowired
 	private RepositoryUser repositoryUser;
+	
+	private RepositoryCinemaTheatre repositoryCinThe;
 	
 	private Logger logger = LoggerFactory.getLogger(UserContoller.class);
 	
@@ -73,7 +77,13 @@ public class ReservationService implements ReservationServiceInterface{
 
 	@Override
 	public Reservation add(Reservation reservation) {
-		System.out.println("eeeee");
+		
+		try {
+			emailService.sendEmailRes(reservation, reservation.getUser1());;				
+		}catch(Exception e) {
+			logger.info("Greska prilikom slanja emaila" + e.getMessage());
+		}
+		System.out.println("termin"+reservation.getProjectionterm().getTerm());
 		return repositoryReservation.save(reservation);
 	}
 
@@ -193,6 +203,19 @@ public class ReservationService implements ReservationServiceInterface{
 		}
 		
 		
+		return reser;
+	}
+
+	@Override
+	public Reservation sendEmailReser(Long id, Long td) {
+		Reservation reser = repositoryReservation.findOneById(id);
+		User user = repositoryUser.findByIdEquals(td);
+		
+		try {
+			emailService.sendEmailRes(reser,user);				
+		}catch(Exception e) {
+			logger.info("Greska prilikom slanja emaila" + e.getMessage());
+		}
 		return reser;
 	}
 
