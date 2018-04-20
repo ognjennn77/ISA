@@ -5,4 +5,6 @@ import projekatISA.domein.Scale;
 public interface ScaleServiceInterface {
 
 	Scale addscale(Scale s);
+	
+	Scale getscale(Long id);
 }

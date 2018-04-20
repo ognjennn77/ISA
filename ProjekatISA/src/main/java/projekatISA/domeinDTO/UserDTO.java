@@ -24,6 +24,8 @@ public class UserDTO {
 	
 	private String adminFchangeP;
 	
+	private int numberlogin;
+	
 	public UserDTO() {
 		
 	}
@@ -127,6 +129,22 @@ public class UserDTO {
 
 	public void setAdminFchangep(String adminFchangep) {
 		this.adminFchangeP = adminFchangep;
+	}
+
+	public String getAdminFchangeP() {
+		return adminFchangeP;
+	}
+
+	public void setAdminFchangeP(String adminFchangeP) {
+		this.adminFchangeP = adminFchangeP;
+	}
+
+	public int getNumberlogin() {
+		return numberlogin;
+	}
+
+	public void setNumberlogin(int numberlogin) {
+		this.numberlogin = numberlogin;
 	}
 	
 	

@@ -3,12 +3,12 @@ INSERT INTO `isa`.`cinematheatre` (`id`,`name`,`description`,`address`,`rating`,
 INSERT INTO `isa`.`cinematheatre` (`id`,`name`,`description`,`address`,`rating`,`cinema`,`repertory_id`) VALUES ('4' ,'Umetnicko pozoriste','srednje','Bulevar Oslobodjenja 100','3','theatre','4');
 INSERT INTO `isa`.`cinematheatre` (`id`,`name`,`description`,`address`,`rating`,`cinema`,`repertory_id`) VALUES ('5' ,'Bioskop','vrlo dobar','Mihajla Pupina 11','4','cinema','2');
 
-INSERT INTO `isa`.`user` (`id`, `email`, `name`, `surname`, `password`, `city`, `phone_number`, `active`, `role`,`admin_fchangep`) VALUES ('1', 'dragan.dulic1@gmail.com', 'Dragan', 'Dulic', 'v', 'Bukovac', '061555333', 1,'user','yes');
+INSERT INTO `isa`.`user` (`id`, `email`, `name`, `surname`, `password`, `city`, `phone_number`, `active`, `role`,`admin_fchangep`,`numberlogin`) VALUES ('1', 'dragan.dulic1@gmail.com', 'Dragan', 'Dulic', 'v', 'Bukovac', '061555333', 1,'user','yes','0');
 
-INSERT INTO `isa`.`user` (`id`,  `email`, `name`, `surname`, `password`, `city`, `phone_number`, `active`, `role`,`admin_fchangep`) VALUES ('2', 'grujica995@gmail.com', 'Aleksandra', 'Grujic', 'sa', 'Novi Sad', '0647896543', 1,'user','yes');
+INSERT INTO `isa`.`user` (`id`,  `email`, `name`, `surname`, `password`, `city`, `phone_number`, `active`, `role`,`admin_fchangep`,`numberlogin`) VALUES ('2', 'grujica995@gmail.com', 'Aleksandra', 'Grujic', 'sa', 'Novi Sad', '0647896543', 1,'user','yes','0');
 
-INSERT INTO `isa`.`user` (`id`, `email`, `name`, `surname`, `password`, `city`, `phone_number`, `active`, `role`,`admin_fchangep`) VALUES ('4', 'admin', 'Marko', 'Markovic', 'admin', 'Nis', '065786756', 1,'adminF','no');
-INSERT INTO `isa`.`user` (`id`, `email`, `name`, `surname`, `password`, `city`, `phone_number`, `active`, `role`,`admin_fchangep`) VALUES ('5', 'admin1', 'Jelena', 'Jelenic', 'admin1', 'Subotica', '069341523', 1,'adminS','yes');
+INSERT INTO `isa`.`user` (`id`, `email`, `name`, `surname`, `password`, `city`, `phone_number`, `active`, `role`,`admin_fchangep`,`numberlogin`) VALUES ('4', 'admin', 'Marko', 'Markovic', 'admin', 'Nis', '065786756', 1,'adminF','no','0');
+INSERT INTO `isa`.`user` (`id`, `email`, `name`, `surname`, `password`, `city`, `phone_number`, `active`, `role`,`admin_fchangep`,`numberlogin`) VALUES ('5', 'admin1', 'Jelena', 'Jelenic', 'admin1', 'Subotica', '069341523', 1,'adminS','yes','0');
 
 
 INSERT INTO `isa`.`thematicprops` (`id`, `description`, `name`, `price`, `cinema_theatre_id`,`user_id`,`reserved`) VALUES ('1','suncane naocar','naocareee','500','1','1',0);

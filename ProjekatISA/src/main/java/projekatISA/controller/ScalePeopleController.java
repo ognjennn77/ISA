@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -25,6 +26,18 @@ public class ScalePeopleController {
 	public ResponseEntity<Scale> addAnnouncement(@RequestBody Scale s){
 
 		Scale scale = scaleService.addscale(s);
+		
+		if(!(scale==null)) {
+			return new ResponseEntity<>(scale,HttpStatus.OK);
+		}
+		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		
+	}
+	
+	@RequestMapping(value="/getScale/{id}",method=RequestMethod.GET)
+	public ResponseEntity<Scale> getScale(@PathVariable Long id){
+
+		Scale scale = scaleService.getscale(id);
 		
 		if(!(scale==null)) {
 			return new ResponseEntity<>(scale,HttpStatus.OK);

@@ -25,6 +25,13 @@ public class ScaleService implements ScaleServiceInterface {
 		}
 		return null;
 	}
+
+	@Override
+	public Scale getscale(Long id) {
+		
+		Scale sc = repositoryScale.findByIdEquals(id);
+		return sc;
+	}
 	
 	
 	

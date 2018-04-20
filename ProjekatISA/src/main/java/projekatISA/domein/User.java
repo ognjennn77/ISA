@@ -73,6 +73,9 @@ public class User {
 	@Column(name="adminFchangeP")
 	private String adminFchangeP;
 	
+	@Column(name="numberlogin")
+	private int numberlogin;
+	
 	public User() {
 		
 	}
@@ -210,6 +213,16 @@ public class User {
 
 	public void setAdminFchangeP(String adminFchangeP) {
 		this.adminFchangeP = adminFchangeP;
+	}
+
+
+	public int getNumberlogin() {
+		return numberlogin;
+	}
+
+
+	public void setNumberlogin(int numberlogin) {
+		this.numberlogin = numberlogin;
 	}
 
 
