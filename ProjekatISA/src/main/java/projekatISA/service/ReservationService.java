@@ -18,9 +18,11 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
 import projekatISA.controller.UserContoller;
+import projekatISA.domein.ProjectionDate;
 import projekatISA.domein.Reservation;
 import projekatISA.domein.Seat;
 import projekatISA.domein.ThematicProps;
+import projekatISA.domein.User;
 import projekatISA.repository.RepositoryReservation;
 import projekatISA.repository.RepositorySeat;
 import projekatISA.serviceInterface.ReservationServiceInterface;
@@ -158,6 +160,34 @@ public class ReservationService implements ReservationServiceInterface{
 			}	
 			
 		}
+		return reser;
+	}
+
+	@Override
+	public Reservation acceptInvite(Long id) {
+		
+		Reservation reser = repositoryReservation.findOneById(id);
+		if(reser.getSeats().size()>1) {
+			
+			ArrayList<Seat> listaSed = new ArrayList();
+			for(int i=0; i<reser.getSeats().size();i++) {
+				listaSed.add(reser.getSeats().get(i));
+			}
+			System.out.println("aaaaaa"+listaSed.size());
+			reser.getSeats().get(0).setReserved(false);
+			
+			System.out.println("sediste"+reser.getSeats().get(0).getId());
+			repositorySeat.save(reser.getSeats().get(0));
+			System.out.println("velicina liste"+listaSed.size());
+			for(int j=0; j<listaSed.size();j++) {
+				System.out.println("id"+listaSed.get(j).getId());
+			}
+			System.out.println("velicina reser"+reser.getSeats().size());
+			reser.getSeats().remove(0);
+			repositoryReservation.save(reser);
+		}
+		
+		
 		return reser;
 	}
 

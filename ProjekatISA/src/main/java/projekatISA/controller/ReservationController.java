@@ -111,12 +111,12 @@ public class ReservationController {
 		
 	}
 	
-	@RequestMapping(value="/acceptInvite/{id}")
+	@RequestMapping(value="/NOOOacceptInvite/{id}")
 	public String acceptingRegistration(@PathVariable Long id) {
-		//User user1 = userService.acceptRegistration(id);
-		//if(!(user1==null)) {
-		//	return "success";
-		//}
+		Reservation reser1 = reservationService.acceptInvite(id);
+		if(!(reser1==null)) {
+			return "success";
+		}
 		return "unsuccess";
 	}
 	
