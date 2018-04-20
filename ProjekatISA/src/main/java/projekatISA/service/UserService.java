@@ -34,14 +34,17 @@ public class UserService implements UserServiceInterface{
 		if(!(user==null)) {	
 			
 			if(user.isActive()) {
+				Long m = (long) 1;
+				Scale sca = repositoryScale.findByIdEquals(m);
+				if(!(sca==null)) {
+					int brl = user.getNumberlogin();
+					brl++;
+					user.setNumberlogin(brl);
+					repositoryUser.save(user);
+					 
+					userdto.setNumberlogin(user.getNumberlogin());
+				}
 				
-				
-				int brl = user.getNumberlogin();
-				brl++;
-				user.setNumberlogin(brl);
-				repositoryUser.save(user);
-				 
-				userdto.setNumberlogin(user.getNumberlogin());
 				
 				
 				userdto.setId(user.getId());
