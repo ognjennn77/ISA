@@ -12,6 +12,10 @@ public class CinemaTheatreDTO {
 	
 	private boolean iscinema;
 	
+	private float longitude;
+	
+	private float latitude;
+	
 	public CinemaTheatreDTO() {
 		
 	
@@ -62,6 +66,22 @@ public class CinemaTheatreDTO {
 
 	public void setIscinema(boolean iscinema) {
 		this.iscinema = iscinema;
+	}
+
+	public float getLongitude() {
+		return longitude;
+	}
+
+	public void setLongitude(float longitude) {
+		this.longitude = longitude;
+	}
+
+	public float getLatitude() {
+		return latitude;
+	}
+
+	public void setLatitude(float latitude) {
+		this.latitude = latitude;
 	}
 	
 	

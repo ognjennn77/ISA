@@ -51,7 +51,11 @@ public class CinemaTheatre {
 	@OneToMany(mappedBy="cinematheatre")
 	private Set<Hall> halls = new HashSet();
 	
+	@Column(name="longitude")
+	private float longitude;
 	
+	@Column(name="latitude")
+	private float latitude;
 
 	public CinemaTheatre() {
 		
@@ -137,6 +141,26 @@ public class CinemaTheatre {
 
 	public void setAdmin(User user) {
 		this.admin = user;
+	}
+
+	public float getLongitude() {
+		return longitude;
+	}
+
+	public void setLongitude(float longitude) {
+		this.longitude = longitude;
+	}
+
+	public float getLatitude() {
+		return latitude;
+	}
+
+	public void setLatitude(float latitude) {
+		this.latitude = latitude;
+	}
+
+	public String getCinema() {
+		return cinema;
 	}
 
 	
